@@ -16,7 +16,16 @@
     ["IT","إيطاليا"],["ES","إسبانيا"],["AT","النمسا"],["CH","سويسرا"],["RU","روسيا"],["US","أمريكا"],["CA","كندا"],
     ["BR","البرازيل"],["AU","أستراليا"],["ZA","جنوب أفريقيا"]];
   const NAME = Object.fromEntries(COUNTRIES);
-  const flag = c => c && /^[A-Z]{2}$/.test(c) ? String.fromCodePoint(...[...c].map(x => 0x1F1A5 + x.charCodeAt(0))) : "🏳️";
+  // علم سوريا المعتمد (الأخضر والأبيض والأسود بثلاث نجوم حمراء): نرسمه بأنفسنا لأن رمز 🇸🇾 يظهر بالعلم القديم على كثير من الأجهزة
+  const STAR = (cx, cy, r) => Array.from({ length: 10 }, (_, i) => { const a = -Math.PI / 2 + i * Math.PI / 5, q = i % 2 ? r * .382 : r; return (cx + Math.cos(a) * q).toFixed(2) + "," + (cy + Math.sin(a) * q).toFixed(2); }).join(" ");
+  const SY_SVG = `<svg viewBox="0 0 30 20" width="1.4em" height="0.93em" role="img" aria-label="Syria" style="vertical-align:-.14em;border-radius:2px;box-shadow:0 0 0 .5px rgba(0,0,0,.3)"><rect width="30" height="20" fill="#fff"/><rect width="30" height="6.67" fill="#007A3D"/><rect y="13.33" width="30" height="6.67" fill="#000"/>${[9, 15, 21].map(x => `<polygon points="${STAR(x, 10, 2.3)}" fill="#CE1126"/>`).join("")}</svg>`;
+  const flag = c => c === "SY" ? SY_SVG : c && /^[A-Z]{2}$/.test(c) ? String.fromCodePoint(...[...c].map(x => 0x1F1A5 + x.charCodeAt(0))) : "🏳️";
+  function drawFlag(g, c, x, y, h) {           // على لوحة الرسم: العلم في (x, y) بارتفاع h
+    if (c !== "SY") { g.save(); g.font = h + "px sans-serif"; g.textAlign = "left"; g.textBaseline = "middle"; g.direction = "ltr"; g.fillText(flag(c), x, y + h / 2); g.restore(); return h * 1.25; }
+    const w = h * 1.5; g.fillStyle = "#007A3D"; g.fillRect(x, y, w, h / 3); g.fillStyle = "#fff"; g.fillRect(x, y + h / 3, w, h / 3); g.fillStyle = "#000"; g.fillRect(x, y + 2 * h / 3, w, h / 3);
+    g.fillStyle = "#CE1126"; [.3, .5, .7].forEach(f => { const cx = x + w * f, cy = y + h / 2, r = h * .115; g.beginPath(); for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, q = i % 2 ? r * .382 : r; g.lineTo(cx + Math.cos(a) * q, cy + Math.sin(a) * q); } g.closePath(); g.fill(); });
+    return w;
+  }
   const LANG = () => window.__L || "ar";
   const AR = n => LANG() === "ar" ? String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]) : String(n);
   // ترجمة: نصّ عربي بمتغيرات {n} ← نصّ اللغة المختارة (i18n.js)
@@ -280,7 +289,7 @@
     const fw = new THREE.Mesh(new THREE.CylinderGeometry(2.35, 2.35, .06, 8), G.m.water); fw.position.y = .78; fw.userData.own = 1; w.add(fw);
     const sp = new THREE.Mesh(new THREE.CylinderGeometry(.18, .3, 1.8, 8), G.m.stone); sp.position.y = 1.5; sp.userData.own = 1; w.add(sp);
     const bw = new THREE.Mesh(new THREE.CylinderGeometry(.9, .3, .3, 8), G.m.water); bw.position.y = 2.45; bw.userData.own = 1; w.add(bw);
-    const qTitle = NAME[country] ? tr("حيّ {c}", { c: cn(country) }) : tr("أرض طلبة العلم"); const qn = label(qTitle, N, false); qn.material.map.dispose(); qn.material.map = canvasTex(512, 128, (g, W, H) => { g.fillStyle = "rgba(29,78,138,.92)"; g.fillRect(0, 0, W, H); g.strokeStyle = "#c9a46a"; g.lineWidth = 8; g.strokeRect(4, 4, W - 8, H - 8); g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = DIR(); g.font = "700 54px 'Reem Kufi','IBM Plex Sans Arabic',sans-serif"; let fs = 54; do { g.font = "700 " + fs + "px " + (window.__canvasFont || "'Reem Kufi',sans-serif"); fs -= 4; } while (g.measureText(qTitle + " 00").width > W - 40 && fs > 24); g.fillText(qTitle + " " + flag(country), W / 2, H / 2 + 4); }); qn.material.sizeAttenuation = true; qn.material.depthTest = true; qn.scale.set(6, 1.5, 1); qn.position.set(0, 6.4, 0); w.add(qn); V.sign = qn;
+    const qTitle = NAME[country] ? tr("حيّ {c}", { c: cn(country) }) : tr("أرض طلبة العلم"); const qn = label(qTitle, N, false); qn.material.map.dispose(); qn.material.map = canvasTex(512, 128, (g, W, H) => { g.fillStyle = "rgba(29,78,138,.92)"; g.fillRect(0, 0, W, H); g.strokeStyle = "#c9a46a"; g.lineWidth = 8; g.strokeRect(4, 4, W - 8, H - 8); g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = DIR(); g.font = "700 54px 'Reem Kufi','IBM Plex Sans Arabic',sans-serif"; let fs = 54; do { g.font = "700 " + fs + "px " + (window.__canvasFont || "'Reem Kufi',sans-serif"); fs -= 4; } while (g.measureText(qTitle + " 00").width > W - 40 && fs > 24); const fh = 40, fw = country ? (country === "SY" ? fh * 1.5 : fh * 1.25) : 0, gap = country ? 14 : 0, tw = g.measureText(qTitle).width, x0 = (W - tw - gap - fw) / 2; if (country) drawFlag(g, country, x0, H / 2 - fh / 2, fh); g.fillStyle = "#fff"; g.fillText(qTitle, x0 + fw + gap + tw / 2, H / 2 + 4); }); qn.material.sizeAttenuation = true; qn.material.depthTest = true; qn.scale.set(6, 1.5, 1); qn.position.set(0, 6.4, 0); w.add(qn); V.sign = qn;
     // أشجار وسياج وزهور حول الحديقة (Instanced: رخيصة)
     const trees = [], flowers = [];
     const rnd = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
