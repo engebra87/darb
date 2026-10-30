@@ -612,7 +612,7 @@
 
   function drawBuildUI(top, bot) {
     const p = B.parts, signed = !!me();
-    top.innerHTML = `<h1 style="text-align:center">${B.done ? (p >= N ? "اكتمل بيتك! 🎉" : "تمّ البناء! ✓") : "العمّال يبنون بيتك 🔨"}</h1>`;
+    top.innerHTML = `<h1 style="text-align:center;white-space:normal;text-wrap:balance">${B.done ? "مبارك! تمّ بناء المرحلة " + AR(p) + " من بيتك" + (p >= N ? " 🎉" : "") : "العمّال يبنون بيتك 🔨"}</h1>`;
     bot.innerHTML = `<div class="card"><div class="r"><b class="n">${PARTS[p - 1]}</b><span class="k">الجزء ${AR(p)} من ${AR(N)}</span></div>
       <div class="bar"><i id="ardBP" style="width:${B.done ? 100 : Math.max(0, B.pct)}%;transition:none"></i></div>
       <p class="k" id="ardBS">${B.done ? (p >= N ? "ما شاء الله! بيتك في أرض طلبة العلم مكتمل." : nextTxt(p)) : "العمّال يجهّزون الحجارة…"}</p>
@@ -641,7 +641,7 @@
     if (!me()) { if (has3D()) return buildScene(parts); if (!warned) { warned = true; toast(parts, "سجّل الدخول ليُحفظ بيتك", "أرض طلبة العلم"); } return; }
     if (S.my) S.my.parts = Math.max(S.my.parts, parts);
     if (has3D()) return buildScene(parts);
-    toast(parts, parts >= N ? "اكتمل بيتك!" : "بنيت: " + PARTS[parts - 1], "أرض طلبة العلم · الجزء " + AR(parts) + " من " + AR(N));
+    toast(parts, "مبارك! تمّ بناء المرحلة " + AR(parts) + " من بيتك", PARTS[parts - 1] + " · " + AR(parts) + " من " + AR(N));
   }
   function finish() { if (me() && sb()) rpc("darb_house_finish").then(n => { if (S.my) S.my.parts = n; }).catch(() => {}); }
 
