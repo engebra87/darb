@@ -606,7 +606,7 @@
   }
   function sparkle() {
     const THREE = T(); if (!B.lot) return;
-    for (let i = 0; i < 24; i++) { const s = new THREE.Sprite(G.glow.clone()); s.userData.shared = 1; s.position.set((Math.random() - .5) * 6, 1 + Math.random() * 5, (Math.random() - .5) * 5); s.scale.setScalar(.4 + Math.random() * .5); s.userData.life = 1.6 + Math.random(); B.lot.house.add(s); B.puffs.push(s); }
+    for (let i = 0; i < 14; i++) { const s = new THREE.Sprite(G.glow.clone()); s.userData.shared = 1; s.position.set((Math.random() - .5) * 6, 1 + Math.random() * 5, (Math.random() - .5) * 5); s.scale.setScalar(.25 + Math.random() * .3); s.userData.life = 1 + Math.random() * .8; B.lot.house.add(s); B.puffs.push(s); }
   }
   function endBuild() { if (S.mode !== "build") return; S.mode = null; V.tick = null; B.lot = null; }
 
