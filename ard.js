@@ -237,7 +237,7 @@
 
   function disposeWorld() {
     if (!V.world) return;
-    V.world.traverse(o => { if (o.isSprite && o.material !== G.glow) { o.material.map && o.material.map.dispose(); o.material.dispose(); } if (o.userData.own) { o.geometry && o.geometry.dispose(); if (o.material) { o.material.map && o.material.map.dispose(); o.material.dispose(); } } });
+    V.world.traverse(o => { if (o.isSprite && o.material !== G.glow) { if (!o.userData.shared) o.material.map && o.material.map.dispose(); o.material.dispose(); } if (o.userData.own) { o.geometry && o.geometry.dispose(); if (o.material) { o.material.map && o.material.map.dispose(); o.material.dispose(); } } });
     V.scene.remove(V.world); V.world = null; V.lots = [];
   }
 
@@ -334,6 +334,7 @@
     if (cv.width !== Math.floor(w * V.renderer.getPixelRatio()) || cv.height !== Math.floor(h * V.renderer.getPixelRatio())) { V.renderer.setSize(w, h, false); V.cam.aspect = w / Math.max(1, h); V.cam.updateProjectionMatrix(); V.dirty = true; }
     if (V.fly) { const f = V.fly; f.t = Math.min(1, f.t + 1 / 50); const e = 1 - Math.pow(1 - f.t, 3); V.target.lerpVectors(f.from, f.to, e); V.dist = f.d0 + (f.d1 - f.d0) * e; V.yaw = f.y0 + (f.y1 - f.y0) * e; V.pitch = f.p0 + (.55 - f.p0) * e; if (f.t >= 1) V.fly = null; V.dirty = true; }
     for (let i = V.anims.length - 1; i >= 0; i--) { const a = V.anims[i]; if (now < a.start) { V.dirty = true; continue; } const t = Math.min(1, (now - a.start) / 650), s = t < 1 ? 1 + 2.4 * Math.pow(t - 1, 3) + 1.4 * Math.pow(t - 1, 2) : 1; a.g.visible = true; a.g.scale.setScalar(Math.max(.001, s)); a.g.position.y = (1 - t) * 3; if (t >= 1) { V.anims.splice(i, 1); a.done && a.done(); } V.dirty = true; }
+    if (V.tick) { V.tick(now); V.dirty = true; }
     if (!V.dirty) return; V.dirty = false;
     const c = Math.cos(V.pitch);
     V.cam.position.set(V.target.x + Math.sin(V.yaw) * V.dist * c, V.dist * Math.sin(V.pitch), V.target.z + Math.cos(V.yaw) * V.dist * c);
@@ -355,7 +356,7 @@
   function hideHint() { const h = document.querySelector("#ard .hint"); if (h) h.style.opacity = 0; }
   const has3D = () => { try { if (!T()) return false; const c = document.createElement("canvas"); return !!(c.getContext("webgl2") || c.getContext("webgl")); } catch (_) { return false; } };
 
-  async function open() {
+  function getRoot() {
     ensureCss();
     let root = el("ard");
     if (!root) {
@@ -364,6 +365,10 @@
       root.innerHTML = `<div class="ui tp" id="ardTop"></div><div class="ui bt" id="ardBot"></div><div class="hint" id="ardHint">اسحب للتجوّل · قرّب وأدِر بإصبعين · اضغط على بيت</div>`;
       document.body.appendChild(root);
     }
+    return root;
+  }
+  async function open() {
+    const root = getRoot(); endBuild();
     root.hidden = false; S.err = ""; S.info = null;
     S.three = has3D();
     if (S.three) { setupRenderer(root); if (!V.raf) V.raf = requestAnimationFrame(frame); }
@@ -381,7 +386,7 @@
       else if (S.three) { buildWorld([], null); V.target.set(0, 0, 0); V.dist = 30; }
     } catch (e) { S.err = "load"; drawUI(); }
   }
-  function close() { const r = el("ard"); if (r) r.hidden = true; if (V.raf) { cancelAnimationFrame(V.raf); V.raf = 0; } }
+  function close() { endBuild(); closeSheet(); const r = el("ard"); if (r) r.hidden = true; if (V.raf) { cancelAnimationFrame(V.raf); V.raf = 0; } }
 
   async function loadQuarter(c, first) {
     S.sel = c; S.houses = null; S.info = null; drawUI();
@@ -408,6 +413,7 @@
 
   function drawUI() {
     const top = el("ardTop"), bot = el("ardBot"); if (!top) return;
+    if (S.mode === "build") return drawBuildUI(top, bot);
     const signed = !!me(), m = S.my, q = S.sel;
     top.innerHTML = `<button class="pill icon" id="ardX" aria-label="رجوع">→</button><h1>أرض طلبة العلم</h1>
       ${S.countries.length || q ? `<button class="pill" id="ardQ">${q ? flag(q) + " " + esc(NAME[q] || q) : "الأحياء"} ▾</button>` : ""}
@@ -512,6 +518,112 @@
     };
   }
 
+
+  // ═══════════ العمّال يبنون الجزء الجديد ═══════════
+  function makeWorker(vest, carry) {
+    const THREE = T(), g = new THREE.Group(), L = c => new THREE.MeshLambertMaterial({ color: c });
+    const skin = L(0xc98b5e), dark = L(0x2b2b30), m = (geo, mat, x, y, z, parent) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); (parent || g).add(o); return o; };
+    const legL = m(new THREE.BoxGeometry(.2, .62, .22), dark, -.13, .31, 0), legR = m(new THREE.BoxGeometry(.2, .62, .22), dark, .13, .31, 0);
+    m(new THREE.CylinderGeometry(.3, .33, .78, 10), L(vest), 0, 1.0, 0);
+    m(new THREE.BoxGeometry(.5, .08, .36), L(0xf7f0e4), 0, .98, 0);                       // شريط عاكس
+    m(new THREE.SphereGeometry(.21, 12, 10), skin, 0, 1.58, 0);
+    m(new THREE.SphereGeometry(.25, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2), L(0xffc928), 0, 1.66, 0);   // خوذة
+    m(new THREE.CylinderGeometry(.3, .3, .03, 12), L(0xffc928), 0, 1.66, .04);
+    const arm = (side) => { const p = new THREE.Group(); p.position.set(side * .36, 1.3, 0); g.add(p); m(new THREE.BoxGeometry(.13, .55, .13), L(vest), 0, -.26, 0, p); m(new THREE.SphereGeometry(.08, 8, 6), skin, 0, -.56, 0, p); return p; };
+    const aR = arm(1), aL = arm(-1);
+    if (carry) { const blk = m(new THREE.BoxGeometry(.7, .32, .45), G.m.wallF, 0, 2.05, 0); g.userData.block = blk; aR.rotation.x = aL.rotation.x = Math.PI; }
+    else { m(new THREE.CylinderGeometry(.03, .03, .55, 6), L(0x7a5230), 0, -.62, .22, aR).rotation.x = Math.PI / 2; m(new THREE.BoxGeometry(.12, .12, .26), dark, 0, -.62, .5, aR); }
+    Object.assign(g.userData, { aR, aL, legL, legR, carry });
+    return g;
+  }
+
+  let audio = null;
+  function knock(f, v) {
+    const c = core(); if (c && c.sound && !c.sound()) return;
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)(); if (audio.state === "suspended") audio.resume();
+      const t = audio.currentTime, o = audio.createOscillator(), gn = audio.createGain();
+      o.type = "triangle"; o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(f * .5, t + .08);
+      gn.gain.setValueAtTime(v, t); gn.gain.exponentialRampToValueAtTime(.001, t + .12); o.connect(gn).connect(audio.destination); o.start(t); o.stop(t + .14);
+    } catch (_) {}
+  }
+  function chime() { [523, 659, 784, 1046].forEach((f, i) => setTimeout(() => knock(f * 2, .12), i * 110)); }
+
+  const B = { parts: 0, lot: null, t0: 0, done: false, pct: -1, workers: [], puffs: [] };
+  function buildScene(parts) {
+    const root = getRoot(); closeSheet(); endBuild();
+    S.mode = "build"; S.info = null; root.hidden = false;
+    hideHint(); setupRenderer(root); if (!V.raf) V.raf = requestAnimationFrame(frame);
+    const c = core(), name = (c && c.name && c.name()) || "بيتك";
+    buildWorld([{ display_name: name, parts, is_me: true }], S.my && S.my.country);
+    const lot = V.lots[0], THREE = T(), part = lot.house.userData.parts[parts - 1];
+    Object.assign(B, { parts, lot, t0: performance.now(), done: false, pct: -1, workers: [], puffs: [], part });
+    part.visible = true; part.scale.set(1, .001, 1);
+    // كومة حجارة وعمّال حول البيت (بإحداثيات البيت: الواجهة +z)
+    const pile = new THREE.Group(); pile.position.set(3.6, 0, -1.2);
+    [[0, .16, 0], [.75, .16, 0], [.38, .48, 0], [0, .16, .5], [.75, .16, .5]].forEach(([x, y, z]) => { const b = new THREE.Mesh(new THREE.BoxGeometry(.7, .32, .45), G.m.wallF); b.position.set(x, y, z); pile.add(b); });
+    lot.house.add(pile);
+    [[-1.9, 3.3, 0xff7a1a], [1.9, 3.3, 0x2f6fd0], [-3.3, -.4, 0x2fa05a]].forEach(([x, z, col], i) => {
+      const w = makeWorker(col, false); w.position.set(x, .08, z); w.rotation.y = Math.atan2(-x, -z); w.userData.phase = i * 1.7; lot.house.add(w); B.workers.push(w);
+    });
+    const carrier = makeWorker(0xd94a4a, true); carrier.position.set(3.4, .08, 0); lot.house.add(carrier); carrier.userData.walk = true; B.workers.push(carrier);
+    try { localStorage.setItem("ard-seen", parts); } catch (_) {}
+    // الكاميرا أمام الواجهة
+    const yaw = lot.house.rotation.y;
+    V.target.copy(lot.pos).add(new THREE.Vector3(Math.sin(yaw), 0, Math.cos(yaw)).multiplyScalar(.8));
+    V.yaw = yaw + .5; V.pitch = .42; V.dist = 16; V.fly = null;
+    let lastKnock = 0, prev = performance.now();
+    V.tick = now => {
+      const dt = Math.min(.1, (now - prev) / 1000); prev = now;
+      const t = (now - B.t0) / 1000, buildT = clamp((t - 1.2) / 4.2, 0, 1);
+      V.yaw += dt * .1;
+      // الجزء يرتفع طبقة طبقة
+      const step = Math.min(1, Math.ceil(buildT * 9) / 9);
+      B.part.scale.y = Math.max(.001, B.done ? 1 : step);
+      B.workers.forEach(w => {
+        const u = w.userData, ph = t * 9 + (u.phase || 0);
+        if (B.done) { u.aR.rotation.x = u.aL.rotation.x = Math.PI * .95 + Math.sin(t * 8) * .15; w.position.y = .08 + Math.abs(Math.sin(t * 6 + (u.phase || 0))) * .35; if (u.block) u.block.visible = false; return; }
+        if (u.walk) {           // يحمل الحجر بين الكومة والبيت
+          const k = (Math.sin(t * 1.4) + 1) / 2; w.position.set(3.5 - k * 1.3, .08, -.6 + k * 2.6); w.rotation.y = Math.cos(t * 1.4) > 0 ? -.4 : Math.PI - .4;
+          u.legL.rotation.x = Math.sin(t * 10) * .5; u.legR.rotation.x = -u.legL.rotation.x; w.position.y = .08 + Math.abs(Math.sin(t * 10)) * .05;
+        } else {                // يطرق بالمطرقة
+          u.aR.rotation.x = -1.6 + Math.max(0, Math.sin(ph)) * 1.7; u.aL.rotation.x = -.3; w.position.y = .08;
+        }
+      });
+      if (!B.done && buildT > 0 && buildT < 1 && now - lastKnock > 260) { lastKnock = now; knock(170 + Math.random() * 60, .18); puff(); }
+      B.puffs.forEach(p => { p.userData.life -= dt; p.material.opacity = Math.min(1, Math.max(0, p.userData.life)) * .8; p.scale.multiplyScalar(1 + dt * 1.2); p.position.y += dt * .6; p.visible = p.userData.life > 0; });
+      const pct = Math.round(buildT * 100);
+      if (pct !== B.pct) { B.pct = pct; const bar = el("ardBP"); if (bar) bar.style.width = pct + "%"; const st = el("ardBS"); if (st && !B.done) st.textContent = buildT <= 0 ? "العمّال يجهّزون الحجارة…" : "جارٍ البناء… " + AR(pct) + "٪"; }
+      if (!B.done && buildT >= 1) { B.done = true; chime(); sparkle(); drawUI(); }
+    };
+    drawUI();
+  }
+  function puff() {
+    const THREE = T(); if (!B.lot) return;
+    let p = B.puffs.find(x => !x.visible);
+    if (!p) { if (B.puffs.length > 14) return; p = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xe9dcc0, transparent: true, depthWrite: false, map: G.m.shadow.map })); p.userData.shared = 1; B.lot.house.add(p); B.puffs.push(p); }
+    p.position.set((Math.random() - .5) * 4, .4 + Math.random() * 2.2, 1.9); p.scale.setScalar(.7); p.userData.life = 1; p.visible = true; p.material.opacity = .7;
+  }
+  function sparkle() {
+    const THREE = T(); if (!B.lot) return;
+    for (let i = 0; i < 24; i++) { const s = new THREE.Sprite(G.glow.clone()); s.userData.shared = 1; s.position.set((Math.random() - .5) * 6, 1 + Math.random() * 5, (Math.random() - .5) * 5); s.scale.setScalar(.4 + Math.random() * .5); s.userData.life = 1.6 + Math.random(); B.lot.house.add(s); B.puffs.push(s); }
+  }
+  function endBuild() { if (S.mode !== "build") return; S.mode = null; V.tick = null; B.lot = null; }
+
+  function drawBuildUI(top, bot) {
+    const p = B.parts, signed = !!me();
+    top.innerHTML = `<h1 style="text-align:center">${B.done ? (p >= N ? "اكتمل بيتك! 🎉" : "تمّ البناء! ✓") : "العمّال يبنون بيتك 🔨"}</h1>`;
+    bot.innerHTML = `<div class="card"><div class="r"><b class="n">${PARTS[p - 1]}</b><span class="k">الجزء ${AR(p)} من ${AR(N)}</span></div>
+      <div class="bar"><i id="ardBP" style="width:${B.done ? 100 : Math.max(0, B.pct)}%;transition:none"></i></div>
+      <p class="k" id="ardBS">${B.done ? (p >= N ? "ما شاء الله! بيتك في أرض طلبة العلم مكتمل." : nextTxt(p)) : "العمّال يجهّزون الحجارة…"}</p>
+      ${!signed ? `<p class="k">سجّل الدخول من القائمة الرئيسية ليُحفظ بيتك ويظهر في الحديقة.</p>` : ""}
+      ${B.done ? `<div class="r" style="margin-top:8px"><button class="go" id="ardCont" style="flex:1">تابع الرحلة ←</button>${signed ? `<button class="lk" id="ardSeeG">زُر الحديقة</button>` : ""}</div>`
+               : `<div class="r" style="margin-top:6px;justify-content:flex-end"><button class="lk" id="ardSkip">تخطَّ</button></div>`}</div>`;
+    el("ardCont") && (el("ardCont").onclick = close);
+    el("ardSeeG") && (el("ardSeeG").onclick = open);
+    el("ardSkip") && (el("ardSkip").onclick = () => { B.t0 = performance.now() - 6000; });
+  }
+
   // ——— من داخل اللعبة: بُني جزء جديد ———
   let hideT = null, warned = false;
   function toast(parts, title, sub) {
@@ -526,8 +638,9 @@
     const c = core(); if (!c) return;
     const d = c.done() || {}, parts = Math.min(N, (Math.max(1, c.round()) - 1) * 3 + ["fiqh", "sira", "hadith"].filter(k => d[k]).length);
     if (!parts) return;
-    if (!me()) { if (!warned) { warned = true; toast(parts, "سجّل الدخول ليُحفظ بيتك", "أرض طلبة العلم"); } return; }
+    if (!me()) { if (has3D()) return buildScene(parts); if (!warned) { warned = true; toast(parts, "سجّل الدخول ليُحفظ بيتك", "أرض طلبة العلم"); } return; }
     if (S.my) S.my.parts = Math.max(S.my.parts, parts);
+    if (has3D()) return buildScene(parts);
     toast(parts, parts >= N ? "اكتمل بيتك!" : "بنيت: " + PARTS[parts - 1], "أرض طلبة العلم · الجزء " + AR(parts) + " من " + AR(N));
   }
   function finish() { if (me() && sb()) rpc("darb_house_finish").then(n => { if (S.my) S.my.parts = n; }).catch(() => {}); }
