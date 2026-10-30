@@ -1,4 +1,4 @@
-// «أرض طلبة العلم»: كل حارة ينهيها اللاعب تبني جزءًا من بيته (١٢ جزءًا).
+// «أرض طلبة العلم»: حديقة ثلاثية الأبعاد، لكل لاعب بيت يُبنى جزءًا جزءًا (١٢ جزءًا = ٤ مستويات × ٣ حارات).
 // تتصل بقاعدة اللعبة عبر window.darbCore الذي تكشفه index.html، والدوال في supabase/ard.sql
 (() => {
   "use strict";
@@ -23,6 +23,8 @@
   const sb = () => (core() && core().sb()) || null;
   const me = () => (core() && core().user()) || null;
   async function rpc(fn, args) { const c = sb(); if (!c) throw new Error("offline"); const { data, error } = await c.rpc(fn, args || {}); if (error) throw error; return data; }
+  const el = id => document.getElementById(id);
+  const nextTxt = p => p >= N ? "اكتمل البيت، ما شاء الله!" : "الجزء التالي: <b>" + PARTS[p] + "</b>";
 
   // ——— رسم البيت الدمشقي، جزءًا جزءًا ———
   function house(parts, opts) {
@@ -52,175 +54,460 @@
 
   // ——— الأنماط ———
   const css = `
-  #ard{position:fixed;inset:0;z-index:12;direction:rtl;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-y;user-select:text;-webkit-user-select:text;
-    background:radial-gradient(ellipse at 50% -10%,rgba(240,180,76,.18),transparent 60%),linear-gradient(#1c1426,#140e1c 70%,#21301f);color:var(--ink,#f7f0e4);font-family:var(--f-ui,sans-serif)}
-  #ard .wrap{max-width:720px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 12px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 40px) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:16px}
-  #ard .top{display:flex;align-items:center;gap:10px}
-  #ard h1{flex:1;margin:0;font-family:var(--f-display,serif);font-size:28px;color:var(--lamp,#f0b44c);line-height:1.2}
-  #ard .x{background:rgba(0,0,0,.35);border:1px solid var(--line,#5a4636);color:var(--ink,#f7f0e4);border-radius:12px;padding:8px 14px;font:600 15px var(--f-ui,sans-serif)}
-  #ard .card{background:rgba(28,20,30,.82);border:1.5px solid var(--line,#5a4636);border-radius:18px;padding:14px}
-  #ard .mine{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:12px;align-items:center;border-color:rgba(240,180,76,.6)}
-  @media (max-width:520px){#ard .mine{grid-template-columns:1fr}}
-  #ard .hs{width:100%;height:auto;display:block}
-  #ard .bar{height:8px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin:6px 0}
-  #ard .bar i{display:block;height:100%;background:linear-gradient(90deg,#3fbf86,#f0b44c);border-radius:99px}
-  #ard .k{color:var(--muted,#c8b8a2);font-size:14px;line-height:1.8}
-  #ard .k b{color:var(--ink,#f7f0e4)}
-  #ard .big2{font-family:var(--f-display,serif);font-size:22px;margin:0}
-  #ard .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-  #ard .chip{background:rgba(255,255,255,.07);border:1.5px solid var(--line,#5a4636);color:var(--ink,#f7f0e4);border-radius:999px;padding:6px 12px;font:600 14px var(--f-ui,sans-serif);white-space:nowrap}
-  #ard .chip.on{border-color:var(--lamp,#f0b44c);background:rgba(240,180,76,.16);color:var(--lamp,#f0b44c)}
-  #ard .chip small{color:var(--muted,#c8b8a2);font-weight:500;margin-inline-start:4px}
-  #ard .tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
-  #ard .sec{font-family:var(--f-display,serif);font-size:20px;margin:4px 0 0;color:var(--ink,#f7f0e4)}
-  #ard .street{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;background:repeating-linear-gradient(90deg,rgba(230,216,188,.05) 0 24px,rgba(0,0,0,.08) 24px 48px);border-radius:16px;padding:10px}
-  #ard .lot{background:rgba(0,0,0,.25);border:1px solid rgba(90,70,54,.7);border-radius:14px;padding:6px 6px 8px;text-align:center;min-width:0}
-  #ard .lot.me{outline:2px solid var(--lamp,#f0b44c)}
-  #ard .lot b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  #ard .lot span{font-size:12px;color:var(--muted,#c8b8a2)}
-  #ard .lot.done span{color:#3fbf86}
+  #ard{position:fixed;inset:0;z-index:12;direction:rtl;background:#9fd0ea;color:#f7f0e4;font-family:var(--f-ui,sans-serif);overflow:hidden;user-select:none;-webkit-user-select:none}
+  #ard canvas.g3{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+  #ard canvas.g3:active{cursor:grabbing}
+  #ard .ui{position:absolute;left:0;right:0;pointer-events:none;display:flex;gap:8px;align-items:center;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
+  #ard .ui>*{pointer-events:auto}
+  #ard .tp{top:0;padding-top:calc(env(safe-area-inset-top,0px) + 10px);flex-wrap:wrap}
+  #ard .bt{bottom:0;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 12px);align-items:flex-end;justify-content:center}
+  #ard h1{margin:0;flex:1;min-width:0;font-family:var(--f-display,serif);font-size:24px;color:#fff3d6;text-shadow:0 2px 10px rgba(30,15,5,.75),0 0 2px #000;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #ard .pill{background:rgba(28,20,30,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(240,180,76,.55);color:#f7f0e4;border-radius:999px;padding:8px 14px;font:600 15px var(--f-ui,sans-serif);white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+  #ard .pill.icon{width:42px;height:42px;padding:0;font-size:18px;display:grid;place-items:center}
+  #ard .pill:active{transform:scale(.96)}
+  #ard .card{background:rgba(28,20,30,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1.5px solid rgba(240,180,76,.6);border-radius:18px;padding:12px 14px;box-shadow:0 10px 40px rgba(0,0,0,.35);width:min(520px,100%);box-sizing:border-box}
+  #ard .card .r{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  #ard .card b.n{font-family:var(--f-display,serif);font-size:20px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #ard .bar{height:8px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden;margin:8px 0 6px}
+  #ard .bar i{display:block;height:100%;background:linear-gradient(90deg,#3fbf86,#f0b44c);border-radius:99px;transition:width .6s}
+  #ard .k{margin:0;color:#c8b8a2;font-size:14px;line-height:1.7}
+  #ard .k b{color:#f7f0e4}
+  #ard .lk{background:none;border:0;color:#f0b44c;font:600 14px var(--f-ui,sans-serif);text-decoration:underline;padding:4px}
+  #ard .go{background:#f0b44c;color:#2a1a04;border:0;border-radius:12px;padding:9px 16px;font:700 15px var(--f-ui,sans-serif)}
+  #ard .hint{position:absolute;left:50%;top:calc(env(safe-area-inset-top,0px) + 64px);transform:translateX(-50%);background:rgba(0,0,0,.45);color:#fff;padding:6px 14px;border-radius:999px;font-size:13px;pointer-events:none;transition:opacity .6s;white-space:nowrap}
+  #ard .msgc{position:absolute;inset:0;display:grid;place-items:center;padding:20px;pointer-events:none}
+  #ard .msgc .card{pointer-events:auto;text-align:center}
+  #ard .sheetA{position:absolute;inset:0;background:rgba(8,5,10,.55);display:flex;align-items:flex-end;justify-content:center;padding:12px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 12px);user-select:text;-webkit-user-select:text}
+  #ard .sheetA .card{max-height:78vh;overflow:auto;display:flex;flex-direction:column;gap:10px;animation:ardUp .25s ease-out}
+  @keyframes ardUp{from{transform:translateY(30px);opacity:0}}
+  #ard .sheetA h2{margin:0;font-family:var(--f-display,serif);color:#f0b44c;font-size:22px}
+  #ard .qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px}
+  #ard .qs button{text-align:right;background:rgba(255,255,255,.06);border:1px solid #5a4636;color:#f7f0e4;border-radius:12px;padding:9px 10px;font:600 15px var(--f-ui,sans-serif)}
+  #ard .qs button.on{border-color:#f0b44c;color:#f0b44c;background:rgba(240,180,76,.12)}
+  #ard .qs small{color:#c8b8a2;font-weight:500}
   #ard form{display:flex;gap:8px}
-  #ard input[type=email],#ard input[type=search]{flex:1;min-width:0;background:rgba(255,255,255,.08);border:1.5px solid var(--line,#5a4636);border-radius:12px;color:var(--ink,#f7f0e4);font:600 16px var(--f-ui,sans-serif);padding:11px 12px;direction:ltr;text-align:left}
-  #ard input[type=search]{direction:rtl;text-align:right}
-  #ard input:focus{outline:none;border-color:var(--lamp,#f0b44c)}
-  #ard .go{background:var(--lamp,#f0b44c);color:#2a1a04;border:0;border-radius:12px;padding:0 18px;font:700 16px var(--f-ui,sans-serif)}
-  #ard .msg{font-size:14px;color:var(--muted,#c8b8a2);min-height:1em}
-  #ard .msg.bad{color:var(--bad,#e8604d)}
-  #ard .found{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center;margin-top:10px}
-  #ard .sw{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted,#c8b8a2);cursor:pointer}
+  #ard input[type=email],#ard input[type=search]{flex:1;min-width:0;background:rgba(255,255,255,.08);border:1.5px solid #5a4636;border-radius:12px;color:#f7f0e4;font:600 16px var(--f-ui,sans-serif);padding:10px 12px}
+  #ard input[type=email]{direction:ltr;text-align:left}
+  #ard input:focus{outline:none;border-color:#f0b44c}
+  #ard .x{background:none;border:1px solid #5a4636;color:#c8b8a2;border-radius:12px;padding:10px;font:600 15px var(--f-ui,sans-serif)}
+  #ard .msg{font-size:14px;color:#c8b8a2;min-height:1em;margin:0}
+  #ard .msg.bad{color:#e8604d}
+  #ard .found{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center}
+  #ard .hs{width:100%;height:auto;display:block}
+  #ard .sw{display:flex;align-items:center;gap:8px;font-size:13px;color:#c8b8a2;cursor:pointer}
   #ard .sw input{width:18px;height:18px;accent-color:#f0b44c}
-  #ard .empty{text-align:center;color:var(--muted,#c8b8a2);padding:20px 8px;font-size:15px;line-height:1.8}
-  #ardPick{position:fixed;inset:0;z-index:13;background:rgba(8,5,10,.7);display:grid;place-items:center;direction:rtl;padding:16px}
-  #ardPick .card{width:min(460px,100%);max-height:80vh;display:flex;flex-direction:column;gap:10px;background:#1f1622;border:2px solid var(--lamp,#f0b44c);border-radius:20px;padding:16px}
-  #ardPick h2{margin:0;font-family:var(--f-display,serif);color:var(--lamp,#f0b44c);font-size:22px}
-  #ardPick p{margin:0;color:var(--muted,#c8b8a2);font-size:14px;line-height:1.7}
-  #ardPick .list{overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px}
-  #ardPick .list button{text-align:right;background:rgba(255,255,255,.06);border:1px solid var(--line,#5a4636);color:var(--ink,#f7f0e4);border-radius:10px;padding:9px 10px;font:600 15px var(--f-ui,sans-serif)}
-  #ardPick .list button.on{border-color:var(--lamp,#f0b44c);color:var(--lamp,#f0b44c)}
-  #ardPick input{background:rgba(255,255,255,.08);border:1.5px solid var(--line,#5a4636);border-radius:12px;color:var(--ink,#f7f0e4);font:600 16px var(--f-ui,sans-serif);padding:10px 12px}
-  #ardPick .x{background:none;border:1px solid var(--line,#5a4636);color:var(--muted,#c8b8a2);border-radius:12px;padding:10px;font:600 15px var(--f-ui,sans-serif)}
+  #ard .flat{position:absolute;inset:0;overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 70px) 12px 160px;background:linear-gradient(#1c1426,#21301f)}
+  #ard .street{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;max-width:720px;margin:0 auto}
+  #ard .lot{background:rgba(0,0,0,.25);border:1px solid rgba(90,70,54,.7);border-radius:14px;padding:6px;text-align:center}
+  #ard .lot b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #ard .lot span{font-size:12px;color:#c8b8a2}
   .ardBuilt{position:fixed;left:50%;top:max(70px,calc(env(safe-area-inset-top,0px) + 64px));z-index:14;transform:translate(-50%,-12px);opacity:0;direction:rtl;display:flex;align-items:center;gap:10px;
     background:rgba(28,20,30,.96);border:2px solid #f0b44c;border-radius:16px;padding:8px 14px 8px 10px;box-shadow:0 10px 40px rgba(0,0,0,.5);transition:opacity .35s,transform .35s;pointer-events:none;max-width:calc(100% - 32px)}
   .ardBuilt.show{opacity:1;transform:translate(-50%,0)}
   .ardBuilt svg{width:74px;height:auto;flex:none}
-  .ardBuilt small{display:block;color:#c8b8a2;font-size:12px}
   .ardBuilt small,.ardBuilt b{white-space:nowrap}
+  .ardBuilt small{display:block;color:#c8b8a2;font-size:12px}
   .ardBuilt b{display:block;color:#f0b44c;font:700 17px "Reem Kufi","IBM Plex Sans Arabic",sans-serif}
-  @media (prefers-reduced-motion:reduce){.ardBuilt{transition:none}}`;
-  function ensureCss() { if (!document.getElementById("ardCss")) { const st = document.createElement("style"); st.id = "ardCss"; st.textContent = css; document.head.appendChild(st); } }
+  @media (prefers-reduced-motion:reduce){.ardBuilt,#ard .sheetA .card{transition:none;animation:none}}`;
+  function ensureCss() { if (!el("ardCss")) { const st = document.createElement("style"); st.id = "ardCss"; st.textContent = css; document.head.appendChild(st); } }
 
-  // ——— الحالة ———
-  const S = { my: null, countries: [], sel: null, houses: null, err: "" };
+  // ═══════════ المشهد ثلاثي الأبعاد ═══════════
+  const T = () => window.THREE;
+  const G = {};          // موارد مشتركة: هندسات ومواد وخامات
+  const V = { renderer: null, scene: null, cam: null, world: null, lots: [], target: null, dist: 34, yaw: 0.6, pitch: 0.95, dirty: true, raf: 0, anims: [], fly: null, size: 0 };
 
-  function el(id) { return document.getElementById(id); }
+  function canvasTex(w, h, draw, rep) {
+    const c = document.createElement("canvas"); c.width = w; c.height = h; draw(c.getContext("2d"), w, h);
+    const t = new (T().CanvasTexture)(c); if (rep) { t.wrapS = t.wrapT = T().RepeatWrapping; t.repeat.set(rep[0], rep[1]); }
+    t.anisotropy = 4; return t;
+  }
+  function speckle(g, w, h, n, cols) { for (let i = 0; i < n; i++) { g.fillStyle = cols[i % cols.length]; g.fillRect(Math.random() * w, Math.random() * h, 2, 2); } }
+
+  function initShared() {
+    if (G.ready) return; const THREE = T();
+    const L = (c, o) => new THREE.MeshLambertMaterial(Object.assign({ color: c }, o || {}));
+    const ablaq = (rx, ry) => canvasTex(64, 64, (g, w, h) => { for (let i = 0; i < 4; i++) { g.fillStyle = i % 2 ? "#3a3a40" : "#e9dcc0"; g.fillRect(0, i * 16, w, 16); } speckle(g, w, h, 120, ["rgba(0,0,0,.1)", "rgba(255,255,255,.12)"]); g.strokeStyle = "rgba(0,0,0,.18)"; for (let i = 0; i < 4; i++) { g.beginPath(); g.moveTo(0, i * 16 + .5); g.lineTo(w, i * 16 + .5); g.stroke(); } }, [rx, ry]);
+    G.m = {
+      stone: L(0x8a7a66), wallF: L(0xffffff, { map: ablaq(2, 3) }), wallS: L(0xffffff, { map: ablaq(1.6, 3) }), wallP: L(0xffffff, { map: ablaq(.55, 3) }),
+      lintel: L(0xffffff, { map: ablaq(.55, .9) }),
+      floor: L(0xffffff, { map: canvasTex(64, 64, (g, w) => { for (let y = 0; y < 4; y++) for (let x = 0; x < 4; x++) { g.fillStyle = (x + y) % 2 ? "#3a3a40" : "#e9dcc0"; g.fillRect(x * 16, y * 16, 16, 16); } }, [3, 3]) }),
+      glass: L(0x1d4e8a, { emissive: 0x0a1c33 }), gold: L(0xc9a46a, { emissive: 0x2a1a04 }), wood: L(0x6b3f22), roof: L(0x5a4636), crenel: L(0xd9c39a),
+      dome: L(0x3fbf86, { emissive: 0x0b2a1c }), water: new THREE.MeshPhongMaterial({ color: 0x5bb6e0, shininess: 90, specular: 0xffffff, emissive: 0x0d3a52 }),
+      trunk: L(0x6b4a2a), leaf: L(0xffffff, { map: canvasTex(64, 64, (g, w, h) => { g.fillStyle = "#2f7a3e"; g.fillRect(0, 0, w, h); speckle(g, w, h, 160, ["#255f31", "#3a9150"]); g.fillStyle = "#fff"; for (let i = 0; i < 22; i++) { g.beginPath(); g.arc(Math.random() * w, Math.random() * h, 1.8, 0, 7); g.fill(); } }) }),
+      tree: L(0x3a8a48), tree2: L(0x2e7340), lamp: new THREE.MeshBasicMaterial({ color: 0xffd27a }),
+      ghost: new THREE.LineBasicMaterial({ color: 0xf0b44c, transparent: true, opacity: .55 }), pole: L(0xa07a4a),
+      hit: new THREE.MeshBasicMaterial({ visible: false }), hedge: L(0x2f6e35), flower: L(0xffffff), plaza: L(0xffffff, { map: canvasTex(128, 128, (g, w, h) => { g.fillStyle = "#d9c8a4"; g.fillRect(0, 0, w, h); g.strokeStyle = "#b9a684"; g.lineWidth = 2; for (let i = 0; i <= 8; i++) { g.beginPath(); g.moveTo(i * 16, 0); g.lineTo(i * 16, h); g.moveTo(0, i * 16); g.lineTo(w, i * 16); g.stroke(); } speckle(g, w, h, 300, ["rgba(0,0,0,.08)", "rgba(255,255,255,.15)"]); }, [6, 6]) }),
+      plot: L(0xc8b48a), shadow: new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, map: canvasTex(64, 64, (g) => { const r = g.createRadialGradient(32, 32, 4, 32, 32, 32); r.addColorStop(0, "rgba(0,0,0,.38)"); r.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = r; g.fillRect(0, 0, 64, 64); }) })
+    };
+    G.glow = new THREE.SpriteMaterial({ map: canvasTex(64, 64, (g) => { const r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, "rgba(255,214,122,.95)"); r.addColorStop(1, "rgba(255,214,122,0)"); g.fillStyle = r; g.fillRect(0, 0, 64, 64); }), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+    G.sign = new THREE.MeshBasicMaterial({ map: canvasTex(256, 64, (g, w, h) => { g.fillStyle = "#1d4e8a"; g.fillRect(0, 0, w, h); g.strokeStyle = "#c9a46a"; g.lineWidth = 6; g.strokeRect(3, 3, w - 6, h - 6); g.fillStyle = "#f7f0e4"; g.font = "700 38px 'Reem Kufi','IBM Plex Sans Arabic',sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = "rtl"; g.fillText("دار العلم", w / 2, h / 2 + 2); }) });
+    const B = (x, y, z) => new THREE.BoxGeometry(x, y, z);
+    G.g = {
+      found: B(5.2, .34, 4.4), floor: B(4.9, .05, 4.1), back: B(4.2, 3, .24), side: B(.24, 3, 3.6), fpanel: B(1.55, 3, .24), lintel: B(1.1, 1, .24),
+      win: B(.62, .82, .06), winF: B(.78, .98, .04), winArch: new THREE.CylinderGeometry(.31, .31, .06, 14, 1, false, 0, Math.PI).rotateZ(Math.PI / 2).rotateY(Math.PI / 2), door: B(1, 1.95, .08), knob: new THREE.SphereGeometry(.05, 6, 4),
+      roof: B(4.6, .22, 4), crenel: B(.26, .22, .26), drum: new THREE.CylinderGeometry(1.05, 1.15, .35, 16), dome: new THREE.SphereGeometry(1.05, 18, 10, 0, Math.PI * 2, 0, Math.PI / 2), fin: new THREE.CylinderGeometry(.04, .06, .5, 6),
+      crescent: new THREE.TorusGeometry(.16, .04, 6, 14, Math.PI * 1.4), basin: new THREE.CylinderGeometry(.85, .95, .4, 8), water: new THREE.CylinderGeometry(.74, .74, .05, 8), spout: new THREE.CylinderGeometry(.08, .12, .7, 6), bowl: new THREE.CylinderGeometry(.3, .12, .14, 8),
+      trunk: new THREE.CylinderGeometry(.12, .16, 1.4, 6), crown: new THREE.SphereGeometry(.75, 10, 8), lamp: B(.22, .32, .22), lampTop: new THREE.ConeGeometry(.18, .18, 4), signP: new THREE.PlaneGeometry(1.6, .4),
+      hit: B(6, 6, 6), shadow: new THREE.PlaneGeometry(8, 8).rotateX(-Math.PI / 2), plot: new THREE.CylinderGeometry(4.2, 4.3, .08, 24), pole: new THREE.CylinderGeometry(.05, .05, 3.9, 5)
+    };
+    G.ghostGeo = new THREE.EdgesGeometry(B(4.2, 3, 3.6));
+    G.ready = true;
+  }
+
+  // بيت ثلاثي الأبعاد؛ كل جزء مجموعة مستقلة (لتحريك بنائها)
+  function buildHouse(parts) {
+    const THREE = T(), m = G.m, g = G.g, h = new THREE.Group(), P = [];
+    const add = (grp, geo, mat, x, y, z, ry) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); if (ry) o.rotation.y = ry; grp.add(o); return o; };
+    const part = () => { const p = new THREE.Group(); h.add(p); P.push(p); return p; };
+    const Y = .34, H = 3, top = Y + H, fz = 1.8;
+    let p;
+    p = part(); add(p, g.found, m.stone, 0, Y / 2, 0);                                                    // ١ الأساس
+    p = part(); add(p, g.floor, m.floor, 0, Y + .025, 0);                                                  // ٢ البلاط
+    p = part(); add(p, g.back, m.wallF, 0, Y + H / 2, -fz + .12);                                         // ٣ الجدار الأول
+    p = part(); add(p, g.side, m.wallS, -2.1 + .12, Y + H / 2, 0); add(p, g.side, m.wallS, 2.1 - .12, Y + H / 2, 0);   // ٤ الجدران
+    add(p, g.fpanel, m.wallP, -1.32, Y + H / 2, fz - .12); add(p, g.fpanel, m.wallP, 1.32, Y + H / 2, fz - .12); add(p, g.lintel, m.lintel, 0, top - .5, fz - .12);
+    p = part();                                                                                            // ٥ الشبابيك
+    [[-1.32, fz], [1.32, fz]].forEach(([x, z]) => { add(p, g.winF, m.gold, x, Y + 1.7, z + .01); add(p, g.win, m.glass, x, Y + 1.66, z + .03); add(p, g.winArch, m.glass, x, Y + 2.07, z + .03); });
+    [-1, 1].forEach(s => { const o = add(p, g.winF, m.gold, s * 2.1, Y + 1.7, 0, Math.PI / 2); o.position.x += s * .01; const w = add(p, g.win, m.glass, s * (2.1 + .03), Y + 1.66, 0, Math.PI / 2); });
+    p = part(); add(p, g.door, m.wood, 0, Y + .98, fz - .08); add(p, g.knob, m.gold, -.18, Y + 1, fz - .02); add(p, g.knob, m.gold, .18, Y + 1, fz - .02);   // ٦ الباب
+    p = part(); add(p, g.roof, m.roof, 0, top + .11, 0);                                                   // ٧ السقف
+    for (let i = -3; i <= 3; i++) { add(p, g.crenel, m.crenel, i * .64, top + .33, 1.88); add(p, g.crenel, m.crenel, i * .64, top + .33, -1.88); }
+    for (let i = -2; i <= 2; i++) { add(p, g.crenel, m.crenel, 2.18, top + .33, i * .7); add(p, g.crenel, m.crenel, -2.18, top + .33, i * .7); }
+    p = part(); add(p, g.drum, m.crenel, 0, top + .4, -.2); add(p, g.dome, m.dome, 0, top + .57, -.2); add(p, g.fin, m.gold, 0, top + 1.85, -.2);   // ٨ القبّة
+    p = part(); p.position.set(3.1, 0, 2.6); add(p, g.basin, m.crenel, 0, .2, 0); add(p, g.water, m.water, 0, .4, 0); add(p, g.spout, m.stone, 0, .7, 0); add(p, g.bowl, m.water, 0, 1.08, 0);   // ٩ النافورة
+    p = part(); p.position.set(-3.1, 0, 2.4); add(p, g.trunk, m.trunk, 0, .7, 0); add(p, g.crown, m.leaf, 0, 1.75, 0); add(p, g.crown, m.leaf, -.45, 1.45, .2).scale.setScalar(.7); add(p, g.crown, m.leaf, .45, 1.5, -.1).scale.setScalar(.72);   // ١٠ الياسمين
+    p = part(); add(p, g.lamp, m.lamp, .85, Y + 2.35, fz + .05); add(p, g.lampTop, m.roof, .85, Y + 2.6, fz + .05).rotation.y = Math.PI / 4;   // ١١ الفانوس
+    const glow = new THREE.Sprite(G.glow); glow.position.set(.85, Y + 2.35, fz + .2); glow.scale.set(1.3, 1.3, 1); p.add(glow);
+    p = part(); add(p, g.signP, G.sign, 0, top - .45, fz + .01); const cr = add(p, g.crescent, m.gold, 0, top + 2.22, -.2); cr.rotation.z = -.9;   // ١٢ اللوحة والهلال
+    P.forEach((q, i) => q.visible = parts > i);
+    // المخطّط والسقالة حتى يكتمل
+    if (parts < N) {
+      const gh = new THREE.LineSegments(G.ghostGeo, m.ghost); gh.position.set(0, Y + H / 2, 0); h.add(gh); h.userData.ghost = gh;
+      if (parts < 7) [[-2.3, -2], [2.3, -2], [-2.3, 2], [2.3, 2]].forEach(([x, z]) => add(h, g.pole, m.pole, x, 1.95, z));
+    }
+    h.userData.parts = P;
+    return h;
+  }
+
+  function label(name, parts, mine) {
+    const THREE = T();
+    const tex = canvasTex(512, 128, (g, w, h) => {
+      g.fillStyle = mine ? "rgba(120,72,10,.88)" : "rgba(28,20,30,.82)"; const r = 30;
+      g.beginPath(); g.moveTo(r, 8); g.arcTo(w - 8, 8, w - 8, h - 8, r); g.arcTo(w - 8, h - 8, 8, h - 8, r); g.arcTo(8, h - 8, 8, 8, r); g.arcTo(8, 8, w - 8, 8, r); g.fill();
+      g.strokeStyle = parts >= N ? "#3fbf86" : "#f0b44c"; g.lineWidth = 5; g.stroke();
+      g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = "rtl";
+      let n = String(name || "لاعب"); g.font = "700 46px 'IBM Plex Sans Arabic',Tahoma,sans-serif";
+      while (g.measureText(n).width > w - 60 && n.length > 3) n = n.slice(0, -2) + "…";
+      g.fillText(n, w / 2, 50);
+      g.font = "600 30px 'IBM Plex Sans Arabic',Tahoma,sans-serif"; g.fillStyle = parts >= N ? "#7fe0b0" : "#f6d38a";
+      g.fillText(parts >= N ? "بيت مكتمل ✓" : AR(parts) + " من " + AR(N), w / 2, 94);
+    });
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, depthTest: false, sizeAttenuation: false }));
+    s.scale.set(.2, .05, 1); s.renderOrder = mine ? 7 : 5; return s;
+  }
+
+  // مواقع القطع: حلقات حول الساحة، الأقرب لأصحاب البيوت الأكمل
+  function plots(n) {
+    const out = [], S = 11, seen = new Set();
+    for (let r = 1; out.length < n; r++) for (let x = -r; x <= r; x++) for (let z = -r; z <= r; z++) {
+      if (Math.max(Math.abs(x), Math.abs(z)) !== r) continue;
+      const k = x + "," + z; if (seen.has(k)) continue; seen.add(k); out.push([x * S, z * S]);
+    }
+    return out.sort((a, b) => Math.hypot(a[0], a[1]) - Math.hypot(b[0], b[1]) || Math.atan2(a[1], a[0]) - Math.atan2(b[1], b[0])).slice(0, n);
+  }
+
+  function setupRenderer(root) {
+    const THREE = T();
+    if (!V.renderer) {
+      V.renderer = new THREE.WebGLRenderer({ antialias: true });
+      V.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      V.renderer.domElement.className = "g3";
+      V.scene = new THREE.Scene();
+      V.scene.background = canvasTex(4, 256, (g, w, h) => { const r = g.createLinearGradient(0, 0, 0, h); r.addColorStop(0, "#5aa7d8"); r.addColorStop(.6, "#bfe3f2"); r.addColorStop(1, "#f6e9cf"); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+      V.scene.fog = new THREE.Fog(0xcfe6ef, 70, 220);
+      V.scene.add(new THREE.HemisphereLight(0xfff4dc, 0x557a44, .95));
+      const sun = new THREE.DirectionalLight(0xffe8c0, .75); sun.position.set(30, 50, 20); V.scene.add(sun);
+      V.cam = new THREE.PerspectiveCamera(45, 1, .5, 600);
+      V.target = new THREE.Vector3();
+      bindControls(V.renderer.domElement);
+      addEventListener("resize", () => { V.dirty = true; });
+    }
+    root.prepend(V.renderer.domElement);
+  }
+
+  function disposeWorld() {
+    if (!V.world) return;
+    V.world.traverse(o => { if (o.isSprite && o.material !== G.glow) { o.material.map && o.material.map.dispose(); o.material.dispose(); } if (o.userData.own) { o.geometry && o.geometry.dispose(); if (o.material) { o.material.map && o.material.map.dispose(); o.material.dispose(); } } });
+    V.scene.remove(V.world); V.world = null; V.lots = [];
+  }
+
+  function buildWorld(houses, country) {
+    const THREE = T(); disposeWorld(); initShared();
+    const w = new THREE.Group(); V.world = w; V.scene.add(w);
+    const list = houses.slice(0, 160), P = plots(list.length), reach = Math.max(22, ...P.map(p => Math.max(Math.abs(p[0]), Math.abs(p[1])))) + 16;
+    V.size = reach;
+    // العشب والممرّات
+    const cells = Math.ceil(reach / 11) * 2 + 1, grassTex = canvasTex(1024, 1024, (g, W, H) => {
+      g.fillStyle = "#6fae4f"; g.fillRect(0, 0, W, H); speckle(g, W, H, 9000, ["#5f9c43", "#7dbd5c", "#68a64a", "#86c463"]);
+      const c = W / cells; g.strokeStyle = "#d9c8a4"; g.lineWidth = c * .16; g.lineCap = "round";
+      for (let i = 0; i <= cells; i++) { g.beginPath(); g.moveTo(i * c, 0); g.lineTo(i * c, H); g.moveTo(0, i * c); g.lineTo(W, i * c); g.stroke(); }
+      g.strokeStyle = "rgba(160,140,100,.5)"; g.lineWidth = 1.5; for (let i = 0; i <= cells; i++) { g.beginPath(); g.moveTo(i * c - c * .08, 0); g.lineTo(i * c - c * .08, H); g.moveTo(i * c + c * .08, 0); g.lineTo(i * c + c * .08, H); g.moveTo(0, i * c - c * .08); g.lineTo(W, i * c - c * .08); g.moveTo(0, i * c + c * .08); g.lineTo(W, i * c + c * .08); g.stroke(); }
+    });
+    const span = cells * 11;
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(span, span).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ map: grassTex }));
+    ground.userData.own = 1; w.add(ground);   // عدد الخلايا فردي: البيوت في مراكزها والممرات على حدودها
+    const outer = new THREE.Mesh(new THREE.PlaneGeometry(900, 900).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x5f9c43 })); outer.position.y = -.05; outer.userData.own = 1; w.add(outer);
+    // الساحة الوسطى ونافورتها الكبيرة
+    const plaza = new THREE.Mesh(new THREE.CylinderGeometry(6.2, 6.4, .12, 40), G.m.plaza); plaza.position.y = .06; plaza.userData.own = 1; w.add(plaza);
+    const fb = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.8, .7, 8), G.m.crenel); fb.position.y = .45; fb.userData.own = 1; w.add(fb);
+    const fw = new THREE.Mesh(new THREE.CylinderGeometry(2.35, 2.35, .06, 8), G.m.water); fw.position.y = .78; fw.userData.own = 1; w.add(fw);
+    const sp = new THREE.Mesh(new THREE.CylinderGeometry(.18, .3, 1.8, 8), G.m.stone); sp.position.y = 1.5; sp.userData.own = 1; w.add(sp);
+    const bw = new THREE.Mesh(new THREE.CylinderGeometry(.9, .3, .3, 8), G.m.water); bw.position.y = 2.45; bw.userData.own = 1; w.add(bw);
+    const qn = label(NAME[country] ? "حيّ " + NAME[country] : "أرض طلبة العلم", N, false); qn.material.map.dispose(); qn.material.map = canvasTex(512, 128, (g, W, H) => { g.fillStyle = "rgba(29,78,138,.92)"; g.fillRect(0, 0, W, H); g.strokeStyle = "#c9a46a"; g.lineWidth = 8; g.strokeRect(4, 4, W - 8, H - 8); g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = "rtl"; g.font = "700 54px 'Reem Kufi','IBM Plex Sans Arabic',sans-serif"; g.fillText((NAME[country] ? "حيّ " + NAME[country] : "أرض طلبة العلم") + " " + flag(country), W / 2, H / 2 + 4); }); qn.material.sizeAttenuation = true; qn.material.depthTest = true; qn.scale.set(6, 1.5, 1); qn.position.set(0, 6.4, 0); w.add(qn); V.sign = qn;
+    // أشجار وسياج وزهور حول الحديقة (Instanced: رخيصة)
+    const trees = [], flowers = [];
+    const rnd = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
+    for (let i = 0; i < 90; i++) { const a = rnd() * Math.PI * 2, r = reach + 3 + rnd() * 26; trees.push([Math.cos(a) * r, Math.sin(a) * r, .8 + rnd() * .9]); }
+    // أشجار على تقاطعات الممرات داخل الحديقة
+    for (let x = -cells; x <= cells; x++) for (let z = -cells; z <= cells; z++) { const X = x * 11 + 5.5, Z = z * 11 + 5.5; if (Math.max(Math.abs(X), Math.abs(Z)) < reach - 4 && Math.hypot(X, Z) > 9 && rnd() < .55) trees.push([X + 2.2, Z + 2.2, .55 + rnd() * .3]); }
+    P.forEach(([x, z]) => { for (let i = 0; i < 6; i++) { const a = rnd() * Math.PI * 2; flowers.push([x + Math.cos(a) * (4.4 + rnd() * .6), z + Math.sin(a) * (4.4 + rnd() * .6)]); } });
+    for (let i = 0; i < 40; i++) { const a = i / 40 * Math.PI * 2; flowers.push([Math.cos(a) * 6.9, Math.sin(a) * 6.9]); }
+    const tr = new THREE.InstancedMesh(new THREE.CylinderGeometry(.18, .26, 2, 6), G.m.trunk, trees.length), cr = new THREE.InstancedMesh(new THREE.ConeGeometry(1.6, 3.6, 8), G.m.tree, trees.length), cr2 = new THREE.InstancedMesh(new THREE.SphereGeometry(1.5, 10, 8), G.m.tree2, trees.length);
+    const o = new THREE.Object3D();
+    trees.forEach(([x, z, s], i) => { o.rotation.set(0, 0, 0); o.scale.setScalar(s); o.position.set(x, s, z); o.updateMatrix(); tr.setMatrixAt(i, o.matrix); o.position.set(x, s * 3.4, z); o.updateMatrix(); cr.setMatrixAt(i, o.matrix); o.position.set(x, s * 2.3, z); o.scale.setScalar(s * (i % 3 ? .001 : 1)); o.updateMatrix(); cr2.setMatrixAt(i, o.matrix); });
+    const fl = new THREE.InstancedMesh(new THREE.SphereGeometry(.22, 6, 4), G.m.flower, flowers.length), cols = [0xff6b8a, 0xffd23f, 0xffffff, 0xc77dff, 0xff8c42];
+    flowers.forEach(([x, z], i) => { o.scale.setScalar(1); o.position.set(x, .2, z); o.updateMatrix(); fl.setMatrixAt(i, o.matrix); fl.setColorAt(i, new THREE.Color(cols[i % cols.length])); });
+    [tr, cr, cr2, fl].forEach(m => { m.userData.own = 1; w.add(m); });
+    // البيوت
+    list.forEach((x, i) => {
+      const [px, pz] = P[i], grp = new THREE.Group(); grp.position.set(px, 0, pz);
+      const plot = new THREE.Mesh(G.g.plot, G.m.plot); plot.position.y = .04; grp.add(plot);
+      const sh = new THREE.Mesh(G.g.shadow, G.m.shadow); sh.position.y = .09; grp.add(sh);
+      const hs = buildHouse(x.parts); hs.rotation.y = Math.atan2(-px, -pz); grp.add(hs);   // الواجهة نحو الساحة
+      const lb = label(x.display_name, x.parts, x.is_me); lb.position.set(0, 6.4, 0); grp.add(lb);
+      const hit = new THREE.Mesh(G.g.hit, G.m.hit); hit.position.y = 3; hit.userData.lot = i; grp.add(hit);
+      w.add(grp); V.lots.push({ data: x, grp, house: hs, hit, label: lb, pos: new THREE.Vector3(px, 0, pz) });
+    });
+    V.dirty = true;
+  }
+
+  // ——— التحكم: سحب للتجوّل، إصبعان للتقريب والتدوير، ضغطة على بيت ———
+  function bindControls(cv) {
+    const pts = new Map(); let last = null, moved = 0, pinch = null;
+    const toWorldDelta = (dx, dy) => { const s = V.dist * .0028 * (900 / Math.max(500, innerHeight)), c = Math.cos(V.yaw), n = Math.sin(V.yaw); return [(-dx * c - dy * n) * s, (dx * n - dy * c) * s]; };
+    cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]); moved = 0; last = [e.clientX, e.clientY]; V.fly = null; if (pts.size === 2) pinch = null; hideHint(); });
+    cv.addEventListener("pointermove", e => {
+      if (!pts.has(e.pointerId)) return; const prev = pts.get(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]);
+      if (pts.size === 1) {
+        const dx = e.clientX - prev[0], dy = e.clientY - prev[1]; moved += Math.abs(dx) + Math.abs(dy);
+        if (e.buttons === 2 || e.shiftKey) { V.yaw -= dx * .006; V.pitch = clamp(V.pitch - dy * .004, .45, 1.35); }
+        else { const [wx, wz] = toWorldDelta(dx, dy); V.target.x += wx; V.target.z += wz; clampTarget(); }
+        V.dirty = true;
+      } else if (pts.size === 2) {
+        const [a, b] = [...pts.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]), ang = Math.atan2(b[1] - a[1], b[0] - a[0]), mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+        if (pinch) { V.dist = clamp(V.dist * pinch.d / d, 9, 120); let da = ang - pinch.a; if (da > Math.PI) da -= 2 * Math.PI; if (da < -Math.PI) da += 2 * Math.PI; V.yaw -= da; const [wx, wz] = toWorldDelta(mid[0] - pinch.m[0], mid[1] - pinch.m[1]); V.target.x += wx; V.target.z += wz; clampTarget(); V.dirty = true; }
+        pinch = { d, a: ang, m: mid }; moved += 99;
+      }
+    });
+    const up = e => { if (!pts.has(e.pointerId)) return; pts.delete(e.pointerId); if (pts.size < 2) pinch = null; if (pts.size === 0 && moved < 8 && e.type === "pointerup") tap(e.clientX, e.clientY); };
+    cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+    cv.addEventListener("wheel", e => { e.preventDefault(); V.dist = clamp(V.dist * Math.exp(e.deltaY * .0012), 9, 120); V.dirty = true; hideHint(); }, { passive: false });
+    cv.addEventListener("contextmenu", e => e.preventDefault());
+  }
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  function clampTarget() { const r = V.size || 30; V.target.x = clamp(V.target.x, -r, r); V.target.z = clamp(V.target.z, -r, r); }
+
+  function tap(cx, cy) {
+    const THREE = T(), r = V.renderer.domElement.getBoundingClientRect(), ray = new THREE.Raycaster();
+    ray.setFromCamera(new THREE.Vector2((cx - r.left) / r.width * 2 - 1, -(cy - r.top) / r.height * 2 + 1), V.cam);
+    const hit = ray.intersectObjects(V.lots.map(l => l.hit))[0];
+    if (hit) selectLot(hit.object.userData.lot); else closeInfo();
+  }
+
+  function flyTo(pos, dist) { V.fly = { from: V.target.clone(), to: pos.clone(), d0: V.dist, d1: dist || 18, y0: V.yaw, y1: pos.lengthSq() ? nearAngle(V.yaw, Math.atan2(-pos.x, -pos.z)) : V.yaw, p0: V.pitch, t: 0 }; V.dirty = true; }
+  const nearAngle = (from, to) => { let d = (to - from) % (2 * Math.PI); if (d > Math.PI) d -= 2 * Math.PI; if (d < -Math.PI) d += 2 * Math.PI; return from + d; };
+
+  function frame(now) {
+    V.raf = requestAnimationFrame(frame);
+    const root = el("ard"); if (!root || root.hidden) return;
+    const cv = V.renderer.domElement, w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== Math.floor(w * V.renderer.getPixelRatio()) || cv.height !== Math.floor(h * V.renderer.getPixelRatio())) { V.renderer.setSize(w, h, false); V.cam.aspect = w / Math.max(1, h); V.cam.updateProjectionMatrix(); V.dirty = true; }
+    if (V.fly) { const f = V.fly; f.t = Math.min(1, f.t + 1 / 50); const e = 1 - Math.pow(1 - f.t, 3); V.target.lerpVectors(f.from, f.to, e); V.dist = f.d0 + (f.d1 - f.d0) * e; V.yaw = f.y0 + (f.y1 - f.y0) * e; V.pitch = f.p0 + (.55 - f.p0) * e; if (f.t >= 1) V.fly = null; V.dirty = true; }
+    for (let i = V.anims.length - 1; i >= 0; i--) { const a = V.anims[i]; if (now < a.start) { V.dirty = true; continue; } const t = Math.min(1, (now - a.start) / 650), s = t < 1 ? 1 + 2.4 * Math.pow(t - 1, 3) + 1.4 * Math.pow(t - 1, 2) : 1; a.g.visible = true; a.g.scale.setScalar(Math.max(.001, s)); a.g.position.y = (1 - t) * 3; if (t >= 1) { V.anims.splice(i, 1); a.done && a.done(); } V.dirty = true; }
+    if (!V.dirty) return; V.dirty = false;
+    const c = Math.cos(V.pitch);
+    V.cam.position.set(V.target.x + Math.sin(V.yaw) * V.dist * c, V.dist * Math.sin(V.pitch), V.target.z + Math.cos(V.yaw) * V.dist * c);
+    V.cam.lookAt(V.target.x, 1.5, V.target.z);
+    for (const l of V.lots) l.label.visible = V.cam.position.distanceTo(l.pos) < 70;
+    if (V.sign) V.sign.visible = V.dist > 34 || Math.hypot(V.target.x, V.target.z) < 4;
+    V.renderer.render(V.scene, V.cam);
+  }
+
+  // بناء الأجزاء الجديدة أمام عين اللاعب
+  function animateNew(lot, from) {
+    const ps = lot.house.userData.parts, now = performance.now() + 900;
+    for (let i = from; i < Math.min(N, lot.data.parts); i++) { ps[i].visible = false; V.anims.push({ g: ps[i], start: now + (i - from) * 520 }); }
+  }
+
+  // ═══════════ الحالة والواجهة ═══════════
+  const S = { my: null, countries: [], sel: null, houses: null, err: "", info: null };
+  let hintT = null;
+  function hideHint() { const h = document.querySelector("#ard .hint"); if (h) h.style.opacity = 0; }
+  const has3D = () => { try { if (!T()) return false; const c = document.createElement("canvas"); return !!(c.getContext("webgl2") || c.getContext("webgl")); } catch (_) { return false; } };
 
   async function open() {
     ensureCss();
     let root = el("ard");
-    if (!root) { root = document.createElement("div"); root.id = "ard"; root.addEventListener("keydown", e => { e.stopPropagation(); if (e.key === "Escape" && !el("ardPick")) close(); }); document.body.appendChild(root); }
-    root.hidden = false;
-    S.err = ""; S.houses = null;
-    render();
-    if (!sb()) { S.err = "offline"; return render(); }
+    if (!root) {
+      root = document.createElement("div"); root.id = "ard";
+      root.addEventListener("keydown", e => { e.stopPropagation(); if (e.key === "Escape") { if (root.querySelector(".sheetA")) closeSheet(); else close(); } });
+      root.innerHTML = `<div class="ui tp" id="ardTop"></div><div class="ui bt" id="ardBot"></div><div class="hint" id="ardHint">اسحب للتجوّل · قرّب وأدِر بإصبعين · اضغط على بيت</div>`;
+      document.body.appendChild(root);
+    }
+    root.hidden = false; S.err = ""; S.info = null;
+    S.three = has3D();
+    if (S.three) { setupRenderer(root); if (!V.raf) V.raf = requestAnimationFrame(frame); }
+    const hint = el("ardHint"); hint.style.opacity = S.three ? 1 : 0; clearTimeout(hintT); hintT = setTimeout(hideHint, 6000);
+    drawUI();
+    if (!sb()) { S.err = "offline"; return drawUI(); }
     try {
       const [mine, cs] = await Promise.all([me() ? rpc("darb_my_house") : Promise.resolve(null), rpc("darb_land_countries")]);
       S.my = mine && mine[0] ? mine[0] : (me() ? { parts: 0, country: null, findable: true } : null);
       S.countries = cs || [];
-      S.sel = S.sel || (S.my && S.my.country) || (S.countries[0] && S.countries[0].country) || null;
-      render();
+      S.sel = (S.my && S.my.country) || S.sel || (S.countries[0] && S.countries[0].country) || null;
+      drawUI();
       if (S.my && !S.my.country) pickCountry(true);
-      if (S.sel) loadQuarter(S.sel);
-    } catch (e) { S.err = "load"; render(); }
+      else if (S.sel) loadQuarter(S.sel, true);
+      else if (S.three) { buildWorld([], null); V.target.set(0, 0, 0); V.dist = 30; }
+    } catch (e) { S.err = "load"; drawUI(); }
   }
-  function close() { const r = el("ard"); if (r) r.hidden = true; const p = el("ardPick"); if (p) p.remove(); }
+  function close() { const r = el("ard"); if (r) r.hidden = true; if (V.raf) { cancelAnimationFrame(V.raf); V.raf = 0; } }
 
-  async function loadQuarter(c) {
-    S.sel = c; S.houses = null; render();
-    try { S.houses = await rpc("darb_land", { p_country: c }) || []; } catch (e) { S.houses = "err"; }
-    if (S.sel === c) render();
-  }
-
-  function next(p) { return p >= N ? "اكتمل البيت، ما شاء الله!" : "الجزء التالي: <b>" + PARTS[p] + "</b>"; }
-
-  function render() {
-    const root = el("ard"); if (!root) return;
-    const signed = !!me(), m = S.my;
-    let h = `<div class="wrap"><div class="top"><h1>أرض طلبة العلم</h1><button class="x" id="ardX">رجوع</button></div>`;
-    if (S.err === "offline") h += `<div class="card empty">الساحة تحتاج اتصالًا بخادم اللعبة. تأكد من الإنترنت ثم حاول مرة أخرى.</div>`;
-    else if (S.err === "load") h += `<div class="card empty">تعذّر تحميل الساحة الآن. حاول بعد قليل.<br><button class="chip" id="ardRe" style="margin-top:10px">أعد المحاولة</button></div>`;
-    // بيتي
-    if (!S.err) {
-      if (!signed) h += `<div class="card mine"><div>${house(0)}</div><div><p class="big2">ابنِ بيتك هنا</p><p class="k">كل حارة تُنهيها بنجاح تبني جزءًا من بيتك، حتى يكتمل بـ${AR(N)} أجزاء. سجّل الدخول من القائمة الرئيسية ليُبنى بيتك ويظهر لأصحابك.</p></div></div>`;
-      else if (m) h += `<div class="card mine"><div>${house(m.parts)}</div><div>
-        <p class="big2">بيتك</p>
-        <div class="bar"><i style="width:${(m.parts / N) * 100}%"></i></div>
-        <p class="k"><b>${AR(m.parts)}</b> من ${AR(N)} أجزاء · ${next(m.parts)}</p>
-        <p class="k">الحيّ: <button class="chip" id="ardCountry">${m.country ? flag(m.country) + " " + esc(NAME[m.country] || m.country) : "اختر بلدك"}</button></p>
-        <label class="sw"><input type="checkbox" id="ardFind" ${m.findable !== false ? "checked" : ""}> يمكن لمن يعرف بريدي أن يجد بيتي</label>
-      </div></div>`;
-      else h += `<div class="card empty">جارٍ التحميل…</div>`;
-      // البحث بالبريد
-      h += `<div class="card"><p class="sec" style="margin:0 0 8px">ابحث عن بيت شخص تعرفه</p>
-        ${signed ? `<form id="ardSearch"><input type="email" id="ardEmail" required placeholder="name@example.com" autocomplete="off" inputmode="email"><button class="go">ابحث</button></form>
-        <div class="msg" id="ardMsg">اكتب بريده كاملًا. لا يظهر البريد لأحد، يظهر الاسم والبيت فقط.</div><div id="ardFound"></div>` : `<p class="k">سجّل الدخول لتبحث عن أصحابك ببريدهم.</p>`}</div>`;
-      // الأحياء
-      h += `<p class="sec">الأحياء</p>`;
-      if (!S.countries.length) h += `<div class="card empty">لم يسكن أحد الأرض بعد. ${signed ? "اختر بلدك وكن أول الساكنين!" : ""}</div>`;
-      else {
-        h += `<div class="tabs" role="tablist">${S.countries.map(c => `<button class="chip ${c.country === S.sel ? "on" : ""}" data-c="${esc(c.country)}" role="tab" aria-selected="${c.country === S.sel}">${flag(c.country)} ${esc(NAME[c.country] || c.country)}<small>${AR(c.houses)}</small></button>`).join("")}</div>`;
-        const info = S.countries.find(c => c.country === S.sel);
-        if (info) h += `<p class="k" style="margin:0">حيّ ${esc(NAME[S.sel] || S.sel)}: ${AR(info.houses)} ${info.houses === 1 ? "بيت" : "بيوت"}، منها ${AR(info.built)} مكتملة.</p>`;
-        if (S.houses === null) h += `<div class="card empty">جارٍ تحميل البيوت…</div>`;
-        else if (S.houses === "err") h += `<div class="card empty">تعذّر تحميل بيوت هذا الحيّ.</div>`;
-        else h += `<div class="street">${S.houses.map(x => `<div class="lot ${x.is_me ? "me" : ""} ${x.parts >= N ? "done" : ""}">${house(x.parts)}<b>${esc(x.display_name)}${x.is_me ? " (أنت)" : ""}</b><span>${x.parts >= N ? "بيت مكتمل" : AR(x.parts) + "/" + AR(N)}</span></div>`).join("")}</div>`;
-      }
+  async function loadQuarter(c, first) {
+    S.sel = c; S.houses = null; S.info = null; drawUI();
+    let hs;
+    try { hs = await rpc("darb_land", { p_country: c }) || []; } catch (e) { S.houses = "err"; return drawUI(); }
+    if (S.sel !== c) return;
+    S.houses = hs; drawUI();
+    if (S.three) {
+      buildWorld(hs, c);
+      const mine = V.lots.find(l => l.data.is_me);
+      if (mine) {
+        let seen = 0; try { seen = +localStorage.getItem("ard-seen") || 0; } catch (_) {}
+        V.target.copy(mine.pos); V.dist = 19; V.yaw = Math.atan2(-mine.pos.x, -mine.pos.z); V.pitch = .5;
+        if (first && seen < mine.data.parts) { animateNew(mine, seen); try { localStorage.setItem("ard-seen", mine.data.parts); } catch (_) {} }
+      } else { V.target.set(0, 0, 0); V.dist = Math.min(80, 30 + V.lots.length * 1.2); V.yaw = .6; V.pitch = .72; }
+      V.dirty = true;
     }
-    root.innerHTML = h + `</div>`;
-    el("ardX").onclick = close;
-    if (el("ardRe")) el("ardRe").onclick = open;
-    if (el("ardCountry")) el("ardCountry").onclick = () => pickCountry(false);
-    if (el("ardFind")) el("ardFind").onchange = async e => { const on = e.target.checked; try { await rpc("darb_set_findable", { p_on: on }); S.my.findable = on; } catch (_) { e.target.checked = !on; } };
-    root.querySelectorAll(".tabs .chip").forEach(b => b.onclick = () => loadQuarter(b.dataset.c));
-    if (el("ardSearch")) el("ardSearch").onsubmit = search;
   }
 
-  async function search(ev) {
-    ev.preventDefault();
-    const q = el("ardEmail").value.trim(), msg = el("ardMsg"), out = el("ardFound");
-    msg.className = "msg"; msg.textContent = "لحظة…"; out.innerHTML = "";
-    try {
-      const r = (await rpc("darb_find_house", { p_email: q }) || [])[0];
-      if (!r) { msg.textContent = "لم نجد بيتًا بهذا البريد. ربما لم يبدأ اللعب بعد، أو أخفى بيته عن البحث."; return; }
-      msg.textContent = "";
-      out.innerHTML = `<div class="found"><div>${house(r.parts)}</div><div><p class="big2">${esc(r.display_name)}</p>
-        <p class="k"><b>${AR(r.parts)}</b> من ${AR(N)} أجزاء · ${r.parts >= N ? "بيت مكتمل" : "يبني الآن: " + PARTS[r.parts]}</p>
-        ${r.country ? `<button class="chip" id="ardGoQ">${flag(r.country)} زر حيّ ${esc(NAME[r.country] || r.country)}</button>` : `<p class="k">لم يختر بلده بعد.</p>`}</div></div>`;
-      if (el("ardGoQ")) el("ardGoQ").onclick = () => { loadQuarter(r.country); setTimeout(() => { const t = document.querySelector("#ard .street"); t && t.scrollIntoView({ behavior: "smooth", block: "start" }); }, 400); };
-    } catch (e) { msg.className = "msg bad"; msg.textContent = "تعذّر البحث الآن. حاول بعد قليل."; }
+  function selectLot(i) {
+    const l = V.lots[i]; if (!l) return; S.info = l.data; flyTo(l.pos, 16); drawUI();
+  }
+  function closeInfo() { if (S.info) { S.info = null; drawUI(); } }
+
+  function drawUI() {
+    const top = el("ardTop"), bot = el("ardBot"); if (!top) return;
+    const signed = !!me(), m = S.my, q = S.sel;
+    top.innerHTML = `<button class="pill icon" id="ardX" aria-label="رجوع">→</button><h1>أرض طلبة العلم</h1>
+      ${S.countries.length || q ? `<button class="pill" id="ardQ">${q ? flag(q) + " " + esc(NAME[q] || q) : "الأحياء"} ▾</button>` : ""}
+      ${signed ? `<button class="pill icon" id="ardS" aria-label="ابحث عن صديق">🔍</button>` : ""}`;
+    let b = "";
+    if (S.err === "offline") b = `<div class="card"><p class="k">الساحة تحتاج اتصالًا بخادم اللعبة. تأكد من الإنترنت ثم حاول مرة أخرى.</p></div>`;
+    else if (S.err === "load") b = `<div class="card"><div class="r"><p class="k" style="flex:1">تعذّر تحميل الساحة الآن.</p><button class="go" id="ardRe">أعد المحاولة</button></div></div>`;
+    else if (S.info) {
+      const x = S.info;
+      b = `<div class="card"><div class="r"><b class="n">${esc(x.display_name)}${x.is_me ? " (أنت)" : ""}</b><button class="lk" id="ardIX">إغلاق</button></div>
+        <div class="bar"><i style="width:${x.parts / N * 100}%"></i></div><p class="k"><b>${AR(x.parts)}</b> من ${AR(N)} أجزاء · ${nextTxt(x.parts)}</p></div>`;
+    } else if (!signed) b = `<div class="card"><p class="k"><b>ابنِ بيتك في هذه الحديقة!</b> كل حارة تُنهيها في اللعبة تبني جزءًا من بيتك حتى يكتمل بـ${AR(N)} أجزاء. سجّل الدخول من القائمة الرئيسية ليُبنى بيتك.</p></div>`;
+    else if (m) b = `<div class="card"><div class="r"><b class="n">بيتك</b>${m.country ? `<button class="go" id="ardMine">🏡 اذهب لبيتي</button>` : ""}</div>
+        <div class="bar"><i style="width:${m.parts / N * 100}%"></i></div>
+        <p class="k"><b>${AR(m.parts)}</b> من ${AR(N)} أجزاء · ${nextTxt(m.parts)}</p>
+        <p class="k">حيّك: ${m.country ? flag(m.country) + " " + esc(NAME[m.country] || m.country) : "لم تختر بعد"} <button class="lk" id="ardC">${m.country ? "غيّر" : "اختر بلدك"}</button></p></div>`;
+    if (S.houses === null && q && !S.err) b = `<div class="card"><p class="k">جارٍ تحميل حيّ ${esc(NAME[q] || q)}…</p></div>`;
+    if (S.houses === "err") b = `<div class="card"><p class="k">تعذّر تحميل بيوت هذا الحيّ.</p></div>`;
+    bot.innerHTML = b;
+    // بدون رسوميات ثلاثية: عرض مسطّح
+    let flat = el("ardFlat");
+    if (!S.three && Array.isArray(S.houses)) {
+      if (!flat) { flat = document.createElement("div"); flat.className = "flat"; flat.id = "ardFlat"; el("ard").prepend(flat); }
+      flat.innerHTML = `<div class="street">${S.houses.map(x => `<div class="lot">${house(x.parts)}<b>${esc(x.display_name)}${x.is_me ? " (أنت)" : ""}</b><span>${x.parts >= N ? "بيت مكتمل" : AR(x.parts) + "/" + AR(N)}</span></div>`).join("")}</div>`;
+    }
+    el("ardX").onclick = close;
+    el("ardQ") && (el("ardQ").onclick = quarterSheet);
+    el("ardS") && (el("ardS").onclick = searchSheet);
+    el("ardRe") && (el("ardRe").onclick = open);
+    el("ardIX") && (el("ardIX").onclick = closeInfo);
+    el("ardC") && (el("ardC").onclick = () => pickCountry(false));
+    el("ardMine") && (el("ardMine").onclick = () => {
+      if (S.sel !== m.country) return loadQuarter(m.country);
+      const l = V.lots.find(x => x.data.is_me); if (l) { flyTo(l.pos, 18); S.info = l.data; drawUI(); }
+    });
+  }
+
+  function sheet(html) {
+    closeSheet();
+    const s = document.createElement("div"); s.className = "sheetA"; s.innerHTML = `<div class="card" role="dialog" aria-modal="true">${html}</div>`;
+    s.addEventListener("pointerdown", e => { if (e.target === s) closeSheet(); });
+    el("ard").appendChild(s); return s;
+  }
+  function closeSheet() { const s = document.querySelector("#ard .sheetA"); if (s) s.remove(); }
+
+  function quarterSheet() {
+    const s = sheet(`<h2>الأحياء</h2><p class="k">كل بلد حيّ في الحديقة. اختر حيًّا لتتجول فيه.</p>
+      <div class="qs">${S.countries.map(c => `<button data-c="${esc(c.country)}" class="${c.country === S.sel ? "on" : ""}">${flag(c.country)} ${esc(NAME[c.country] || c.country)}<br><small>${AR(c.houses)} ${c.houses === 1 ? "بيت" : "بيوت"} · ${AR(c.built)} مكتملة</small></button>`).join("") || `<p class="k">لا أحياء بعد.</p>`}</div>
+      <button class="x" id="ardSX">إغلاق</button>`);
+    s.querySelector(".qs").onclick = e => { const b = e.target.closest("button"); if (b) { closeSheet(); loadQuarter(b.dataset.c); } };
+    el("ardSX").onclick = closeSheet;
+  }
+
+  function searchSheet() {
+    const m = S.my;
+    const s = sheet(`<h2>ابحث عن بيت صديق</h2>
+      <form id="ardSF"><input type="email" id="ardEmail" required placeholder="name@example.com" autocomplete="off" inputmode="email"><button class="go">ابحث</button></form>
+      <p class="msg" id="ardMsg">اكتب بريده كاملًا. لا يظهر البريد لأحد، يظهر الاسم والبيت فقط.</p><div id="ardFound"></div>
+      ${m ? `<label class="sw"><input type="checkbox" id="ardFind" ${m.findable !== false ? "checked" : ""}> يمكن لمن يعرف بريدي أن يجد بيتي</label>` : ""}
+      <button class="x" id="ardSX">إغلاق</button>`);
+    el("ardSX").onclick = closeSheet;
+    if (matchMedia("(hover:hover)").matches) el("ardEmail").focus();
+    el("ardFind") && (el("ardFind").onchange = async e => { const on = e.target.checked; try { await rpc("darb_set_findable", { p_on: on }); S.my.findable = on; } catch (_) { e.target.checked = !on; } });
+    el("ardSF").onsubmit = async ev => {
+      ev.preventDefault();
+      const msg = el("ardMsg"), out = el("ardFound"); msg.className = "msg"; msg.textContent = "لحظة…"; out.innerHTML = "";
+      try {
+        const r = (await rpc("darb_find_house", { p_email: el("ardEmail").value.trim() }) || [])[0];
+        if (!r) { msg.textContent = "لم نجد بيتًا بهذا البريد. ربما لم يبدأ اللعب بعد، أو أخفى بيته عن البحث."; return; }
+        msg.textContent = "";
+        out.innerHTML = `<div class="found"><div>${house(r.parts)}</div><div><b class="n" style="font-family:var(--f-display,serif);font-size:20px">${esc(r.display_name)}</b>
+          <p class="k"><b>${AR(r.parts)}</b> من ${AR(N)} · ${r.parts >= N ? "بيت مكتمل" : "يبني الآن: " + PARTS[r.parts]}</p>
+          ${r.country ? `<button class="go" id="ardVisit">${flag(r.country)} زُر بيته</button>` : `<p class="k">لم يختر بلده بعد.</p>`}</div></div>`;
+        el("ardVisit") && (el("ardVisit").onclick = async () => {
+          closeSheet();
+          if (S.sel !== r.country || !Array.isArray(S.houses)) await loadQuarter(r.country);
+          const i = V.lots.findIndex(l => l.data.display_name === r.display_name && l.data.parts === r.parts);
+          if (i >= 0) selectLot(i);
+        });
+      } catch (e) { msg.className = "msg bad"; msg.textContent = "تعذّر البحث الآن. حاول بعد قليل."; }
+    };
   }
 
   function pickCountry(first) {
-    if (el("ardPick")) return;
     const cur = S.my && S.my.country;
-    const box = document.createElement("div"); box.id = "ardPick"; box.addEventListener("keydown", e => { e.stopPropagation(); if (e.key === "Escape") box.remove(); });
-    box.innerHTML = `<div class="card" role="dialog" aria-modal="true" aria-labelledby="ardPickT"><h2 id="ardPickT">${first ? "من أي بلد أنت؟" : "غيّر حيّك"}</h2>
-      <p>يُبنى بيتك في حيّ بلدك، بجوار طلبة العلم من بلدك.</p>
+    const s = sheet(`<h2>${first ? "من أي بلد أنت؟" : "غيّر حيّك"}</h2>
+      <p class="k">يُبنى بيتك في حيّ بلدك، بجوار طلبة العلم من بلدك.</p>
       <input type="search" id="ardPickQ" placeholder="ابحث عن بلد" autocomplete="off">
-      <div class="list" id="ardPickL"></div><button class="x" id="ardPickX">${first ? "لاحقًا" : "إلغاء"}</button></div>`;
-    document.body.appendChild(box);
+      <div class="qs" id="ardPickL"></div><button class="x" id="ardSX">${first ? "لاحقًا" : "إلغاء"}</button>`);
     const draw = f => { el("ardPickL").innerHTML = COUNTRIES.filter(([c, n]) => !f || n.includes(f) || c.includes(f.toUpperCase())).map(([c, n]) => `<button data-c="${c}" class="${c === cur ? "on" : ""}">${flag(c)} ${n}</button>`).join(""); };
-    draw("");
-    if (matchMedia("(hover:hover)").matches) el("ardPickQ").focus();
+    draw(""); if (matchMedia("(hover:hover)").matches) el("ardPickQ").focus();
     el("ardPickQ").oninput = e => draw(e.target.value.trim());
-    el("ardPickX").onclick = () => box.remove();
+    el("ardSX").onclick = () => { closeSheet(); if (first && S.sel) loadQuarter(S.sel, true); else if (first && S.three) buildWorld([], null); };
     el("ardPickL").onclick = async e => {
-      const b = e.target.closest("button"); if (!b) return;
-      b.textContent = "لحظة…";
+      const b = e.target.closest("button"); if (!b) return; b.textContent = "لحظة…";
       try {
         await rpc("darb_set_country", { p_country: b.dataset.c });
-        box.remove(); S.my.country = b.dataset.c;
+        closeSheet(); S.my.country = b.dataset.c;
         S.countries = await rpc("darb_land_countries") || S.countries;
-        loadQuarter(b.dataset.c);
+        loadQuarter(b.dataset.c, true);
       } catch (_) { b.textContent = "تعذّر الحفظ، حاول مرة أخرى"; }
     };
   }
