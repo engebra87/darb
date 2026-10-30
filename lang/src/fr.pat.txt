@@ -1,0 +1,6 @@
+Niveau {1}
+Étape {1}/{2}
+{t1} · {t2}
+Opération impossible : {1}
+Envoi impossible : {1}
+✓ {t1}

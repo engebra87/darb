@@ -1,0 +1,1088 @@
+0|Path of Islamic Knowledge
+1|in the alleys of Damascus
+2|Alleys of Damascus
+3|General knowledge
+4|Gate of Fiqh
+5|Fiqh
+6|Gate of the Prophet's Life
+7|The Prophet's Life (Seerah)
+8|Gate of Hadith
+9|Noble Hadith
+10|Hadith
+11|Riyad as-Salihin
+12|The graphics engine could not load. Check your internet connection, then reopen the page.
+13|Sweets
+14|Spices
+15|Fruit & Veg
+16|Butcher
+17|Barber
+18|Citadel
+19|Mosque
+20|Player
+21|Citadel Square
+22|Courtyard
+23|Choose a gate
+24|Citadel Walls
+25|Markets of Damascus
+26|Loading questions…
+27|Loading the game…
+28|Could not load the questions
+29|Check your internet connection, then try again.
+30|Try again
+31|Level One
+32|Level Two
+33|Level Three
+34|Level Four
+35|Stage One
+36|Stage Two
+37|Stage Three
+38|Stage Four
+39|Well done
+40|You reached the Citadel
+41|You reached the Mosque
+42|The last wall
+43|Check your connection
+44|Go ahead, may Allah bless you
+45|Restart alley
+46|This is the last wall. Answer to bring it down
+47|Stop! Answer to pass
+48|Excellent!
+49|Three gates in a row
+50|As-salamu alaykum
+51|Wa alaykum as-salam
+52|Drag anywhere
+53|to walk
+54|Remove two answers
+55|Pause
+56|Sound
+57|Jump
+58|Continue
+59|Restart this alley
+60|Sound off
+61|Sound on
+62|Main menu
+63|New account
+64|Sign in
+65|Your name on the leaderboard
+66|Email
+67|Password
+68|Create account
+69|Sign in
+70|I have an account, sign in
+71|I don't have an account, create one
+72|Sign in with an email code (no password)
+73|Forgot password
+74|Back
+75|We sent a password reset link to your email.
+76|Could not send. Check the email and try later.
+77|Type your email first, then tap “Forgot password”.
+78|One moment…
+79|This email is already registered, maybe in another app of ours. Tap “Sign in with an email code” below, or use another email.
+80|You haven't confirmed your email yet.
+81|Wrong email or password.
+82|This email is registered. Sign in instead.
+83|The password is too short. Use at least 6 characters.
+84|Could not complete:
+85|Sign in with a code
+86|We'll email you a number code. Type it here to sign in.
+87|Code
+88|Send code
+89|Type the full code as you received it.
+90|Sending…
+91|We sent the code. Check your inbox and Spam folder.
+92|Wait a minute, then try again.
+93|The code is wrong or has expired.
+94|Could not send:
+95|Confirm your email
+96|We sent a message to
+97|. If it has a number code, type it here. If it has a link, tap it, come back and tap “I've confirmed”.
+98|Confirmation code
+99|Confirm
+100|I've confirmed the link, sign me in
+101|Didn't get it? Send again
+102|Check your Spam folder.
+103|The code is wrong or has expired. Ask for a new one.
+104|The email isn't confirmed yet. Tap the link in the message first.
+105|Could not sign in. Try again.
+106|Sent again. Wait a minute and check your inbox and Spam.
+107|Wait a minute before asking for a new message.
+108|Leaderboard
+109|Loading…
+110|No players yet. Be the first!
+111|Could not load the leaderboard.
+112|Create an account to save your progress on any device and appear on the leaderboard.
+113|Create an account
+114|Sign in with an email code
+115|Play without an account
+116|Connection failed
+117|We couldn't reach the game server. Check your internet, then reopen the page.
+118|Try again
+119|Walk through the old alleys of Damascus, collect gold coins and jump over barrels. Each door opens with a correct answer, and the stone wall at the end of each alley falls with the last answer.
+120|Drag anywhere to walk
+121|Jump button to jump
+122|Signed in as
+123|Sign out
+124|Delete account
+125|Your progress is saved on this device only.
+126|Sign in to save it
+127|Continue Level Two
+128|Continue Level Three
+129|Continue Level Four
+130|Continue the journey
+131|Start
+132|Land of the Seekers of Knowledge
+133|Start over
+134|Privacy
+135|About
+136|Try Level Two
+137|Try Level Three
+138|Try Level Four
+139|Level One complete
+140|Level Two complete
+141|Level Three complete
+142|The gates of Fiqh, Seerah and Hadith are open. Next, Level Two: marble alleys decorated with Arabic inlay, and slightly harder questions.
+143|The gates of Fiqh, Seerah and Hadith are open. Next, Level Three: the Citadel of Damascus. Walk between its high walls until you reach the great citadel.
+144|The gates of Fiqh, Seerah and Hadith are open. Next, Level Four: the wide markets of Damascus, full shops with guards at their doors, and questions from “Riyad as-Salihin”.
+145|Enter Level Two
+146|Enter Level Three
+147|Enter Level Four
+148|You completed the Path of Islamic Knowledge
+149|You crossed the alleys of Damascus, the marble alleys, the Citadel walls and the markets, and opened every gate.
+150|Play again
+151|The house is complete, masha'Allah!
+152|Next part:
+153|{a} of {b} parts
+154|House of Knowledge
+155|Complete house
+156|{a} of {b}
+157|{c} quarter
+158|Quarters
+159|you
+160|Build your house in this garden!
+161|Every alley you finish in the game builds a part of your house, until it is complete with {n} parts. Sign in from the main menu to build your house.
+162|Your quarter:
+163|Not chosen yet
+164|Loading the {c} quarter…
+165|{n} house
+166|{n} houses
+167|{n} complete
+168|Now building:
+169|The workers are preparing the stones…
+170|Building… {n}%
+171|Mabrook!
+172|Stage {n} of your house is built
+173|Part {a} of {b}
+174|Drag to explore · pinch to zoom and turn · tap a house
+175|Find a friend
+176|The garden needs a connection to the game server. Check your internet and try again.
+177|Could not load the garden right now.
+178|Close
+179|Your house
+180|Go to my house
+181|Change
+182|Choose your country
+183|Could not load the houses of this quarter.
+184|Each country is a quarter of the garden. Choose one to explore.
+185|No quarters yet.
+186|Find a friend's house
+187|Search
+188|Type their full email. Emails are never shown to anyone, only the name and the house.
+189|People who know my email can find my house
+190|No house found for this email. Maybe they haven't started playing, or they hid their house from search.
+191|Visit their house
+192|They haven't chosen a country yet.
+193|Search failed. Try again shortly.
+194|Which country are you from?
+195|Change your quarter
+196|Your house is built in your country's quarter, next to seekers of knowledge from your country.
+197|Search for a country
+198|Later
+199|Cancel
+200|Could not save, try again
+201|The workers are building your house
+202|Masha'Allah! Your house in the Land of the Seekers of Knowledge is complete.
+203|Sign in from the main menu to save your house and show it in the garden.
+204|Continue the journey
+205|Visit the garden
+206|Skip
+207|Sign in to save your house
+208|Your account and all its data will be deleted permanently: email, name, points, progress, and your house in the Land of the Seekers of Knowledge. This cannot be undone.
+209|Delete my account permanently
+210|Deleting…
+211|Your account has been deleted
+212|May Allah make what you learned beneficial for you.
+213|Could not delete right now. Check your internet and try again.
+214|Preview version
+215|Garden houses are examples
+216|Foundation
+217|Two-tone tiles
+218|First wall
+219|Walls
+220|Windows
+221|Damascene door
+222|Roof
+223|Dome
+224|Fountain
+225|Jasmine tree
+226|Lantern
+227|“House of Knowledge” sign
+228|Saudi Arabia
+229|UAE
+230|Kuwait
+231|Qatar
+232|Bahrain
+233|Oman
+234|Yemen
+235|Iraq
+236|Syria
+237|Jordan
+238|Lebanon
+239|Palestine
+240|Egypt
+241|Sudan
+242|Libya
+243|Tunisia
+244|Algeria
+245|Morocco
+246|Mauritania
+247|Somalia
+248|Djibouti
+249|Comoros
+250|Turkey
+251|Iran
+252|Pakistan
+253|Afghanistan
+254|India
+255|Bangladesh
+256|Indonesia
+257|Malaysia
+258|Nigeria
+259|Senegal
+260|Mali
+261|Niger
+262|Chad
+263|Azerbaijan
+264|Uzbekistan
+265|Kazakhstan
+266|Bosnia
+267|Albania
+268|United Kingdom
+269|France
+270|Germany
+271|Netherlands
+272|Belgium
+273|Sweden
+274|Norway
+275|Denmark
+276|Italy
+277|Spain
+278|Austria
+279|Switzerland
+280|Russia
+281|United States
+282|Canada
+283|Brazil
+284|Australia
+285|South Africa
+286|Five things Islam is built on, the first being the two testimonies?
+287|Pillars of Islam
+288|Pillars of Faith
+289|Conditions of prayer
+290|Levels of the religion
+291|How many pillars of faith are there?
+292|Six
+293|Five
+294|Seven
+295|Four
+296|Belief in Allah
+297|His angels
+298|His books
+299|His messengers
+300|The Last Day
+301|Divine decree, its good and its bad
+302|How many are they?
+303|Which prophet was swallowed by the whale?
+304|Yunus (Jonah)
+305|Ayyub (Job)
+306|Yusuf (Joseph)
+307|Ilyas (Elijah)
+308|The Friend of the Most Merciful, who raised the foundations of the Kaaba?
+309|Ibrahim (Abraham)
+310|Nuh (Noah)
+311|Ishaq (Isaac)
+312|Adam
+313|The longest surah of the Quran?
+314|Al-Baqarah
+315|Al Imran
+316|An-Nisa
+317|Al-A'raf
+318|Which surah equals a third of the Quran?
+319|Al-Ikhlas
+320|Al-Kawthar
+321|Al-Falaq
+322|Al-Asr
+323|How many surahs are in the Quran?
+324|114
+325|110
+326|120
+327|99
+328|The first qibla of the Muslims?
+329|Al-Aqsa Mosque
+330|The Prophet's Mosque
+331|Quba Mosque
+332|The Sacred Mosque (Makkah)
+333|How many obligatory prayers are there each day?
+334|Five
+335|Three
+336|Four
+337|Six
+338|In which month do Muslims fast?
+339|Ramadan
+340|Sha'ban
+341|Rajab
+342|Shawwal
+343|Which prophet built the ark by Allah's command?
+344|Hud
+345|Salih
+346|Lut (Lot)
+347|The father of mankind and the first of the prophets?
+348|Idris
+349|Which prophet was thrown into a well as a child?
+350|Ya'qub (Jacob)
+351|Isma'il (Ishmael)
+352|The Seal of the Prophets and Messengers?
+353|Muhammad ﷺ
+354|Isa (Jesus)
+355|Musa (Moses)
+356|The qibla of Muslims in prayer today?
+357|The Kaaba
+358|Mount Arafat
+359|The first surah in the Mushaf?
+360|Al-Fatihah
+361|An-Nas
+362|How many verses are in Surah Al-Fatihah?
+363|Seven
+364|Eight
+365|The longest verse in the Quran?
+366|The Verse of Debt
+367|Ayat al-Kursi
+368|The Verse of Light
+369|The Verse of Wudu
+370|Which surah has two prostrations of recitation?
+371|Al-Hajj
+372|Maryam
+373|An-Nahl
+374|Which prophet was sent to the people of 'Ad?
+375|Shu'ayb
+376|Which prophet's miracle was the she-camel, sent to Thamud?
+377|Which prophet was sent to the people of Madyan?
+378|The angel entrusted with revelation?
+379|Jibril (Gabriel)
+380|Mika'il (Michael)
+381|Israfil
+382|Malik
+383|The keeper of Hellfire?
+384|Ridwan
+385|Which surah mentions the Basmala twice?
+386|An-Naml
+387|At-Tawbah
+388|Who first compiled the Quran into one volume after the Battle of Yamama?
+389|Abu Bakr as-Siddiq
+390|Umar ibn al-Khattab
+391|Ali ibn Abi Talib
+392|Mu'awiya ibn Abi Sufyan
+393|Who copied the Mushaf in one reading and sent copies to the regions?
+394|Uthman ibn Affan
+395|How many juz' (parts) are in the Quran?
+396|Thirty
+397|Sixty
+398|Twenty
+399|Forty
+400|Which surah begins “Blessed is He in whose hand is dominion”?
+401|Al-Mulk
+402|Al-Furqan
+403|Al-Waqi'ah
+404|Ya-Sin
+405|The prophet mentioned by name most often in the Quran?
+406|Who built the Umayyad Mosque in Damascus?
+407|Al-Walid ibn Abd al-Malik
+408|Umar ibn Abd al-Aziz
+409|Hisham ibn Abd al-Malik
+410|The first caliph of the Umayyad state?
+411|Yazid ibn Mu'awiya
+412|Marwan ibn al-Hakam
+413|Abd al-Malik ibn Marwan
+414|The capital of the Umayyad state?
+415|Damascus
+416|Baghdad
+417|Cairo
+418|Kufa
+419|The city Abu Ja'far al-Mansur built as the Abbasid capital?
+420|Samarra
+421|Basra
+422|The caliph called the fifth Rightly Guided Caliph?
+423|Harun al-Rashid
+424|Al-Ma'mun
+425|The leader who freed Jerusalem from the Crusaders?
+426|Salah al-Din al-Ayyubi
+427|Nur al-Din Zengi
+428|Al-Zahir Baybars
+429|Sayf al-Din Qutuz
+430|The battle Salah al-Din won before freeing Jerusalem?
+431|Hattin
+432|Ain Jalut
+433|Yarmouk
+434|Qadisiyyah
+435|In which city is Salah al-Din buried?
+436|Jerusalem
+437|Aleppo
+438|The battle in Palestine where the Mongols were defeated?
+439|Manzikert
+440|Zallaqa
+441|The decisive battle in the conquest of the Levant?
+442|Nahavand
+443|Mu'tah
+444|The decisive battle against the Persians in Iraq?
+445|Ajnadayn
+446|Dhat al-Salasil
+447|The commander who conquered Egypt?
+448|Amr ibn al-As
+449|Khalid ibn al-Walid
+450|Sa'd ibn Abi Waqqas
+451|Abu Ubayda ibn al-Jarrah
+452|The commander who crossed the sea and conquered Al-Andalus?
+453|Tariq ibn Ziyad
+454|Musa ibn Nusayr
+455|Uqba ibn Nafi
+456|Abd al-Rahman al-Dakhil
+457|“Riyad as-Salihin” was written by Imam…?
+458|Yahya ibn Sharaf al-Nawawi
+459|Ibn Kathir
+460|Ibn al-Qayyim
+461|Ibn Rajab al-Hanbali
+462|The first chapter of “Riyad as-Salihin”?
+463|Sincerity and intention
+464|Repentance
+465|Patience
+466|Truthfulness
+467|The chapter after Sincerity in “Riyad as-Salihin”?
+468|Mindfulness of Allah
+469|Certainty
+470|The first hadith in “Riyad as-Salihin”?
+471|Actions are only by intentions
+472|The religion is sincere advice
+473|Islam is built on five
+474|Do not get angry
+475|About how many hadiths are in “Riyad as-Salihin”?
+476|About 1,900 hadiths
+477|About 500 hadiths
+478|About 4,000 hadiths
+479|About 7,000 hadiths
+480|Imam al-Nawawi is named after the town of Nawa in…?
+481|Hauran, Syria
+482|The Hijaz
+483|Where is Imam al-Nawawi buried?
+484|Nawa
+485|Makkah
+486|How many will Allah shade on the Day when there is no shade but His?
+487|Three
+488|Ten
+489|The three trapped in the cave by the rock were saved by…?
+490|Calling on Allah by their good deeds
+491|Shouting until people heard them
+492|Digging a path through the mountain
+493|Waiting for rain
+494|The man who repented, in the hadith of “Riyad as-Salihin”, had killed…?
+495|A hundred people
+496|Nine people
+497|Twenty people
+498|A thousand people
+499|“A man was walking on a road and became very thirsty…” Allah forgave him because he gave water to…?
+500|A dog
+501|A cat
+502|A camel
+503|A bird
+504|The story of “the boy, the magician, the monk and the king” is the story of…?
+505|The People of the Ditch
+506|The People of the Cave
+507|The People of the Elephant
+508|The People of the Well (Rass)
+509|“Two words light on the tongue, heavy on the scale…” What are they?
+510|SubhanAllahi wa bihamdihi, SubhanAllahil Azim
+511|Alhamdulillah and Allahu Akbar
+512|La ilaha illallah and Allahu Akbar
+513|Astaghfirullah wa atubu ilayh
+514|“The wise one is he who holds himself to account and works for what comes after …”
+515|death
+516|prayer
+517|provision
+518|tomorrow
+519|“How wonderful is the affair of the believer; all of his affairs are …”
+520|good
+521|patience
+522|gratitude
+523|trial
+524|“Whoever prays the two cool prayers enters Paradise” — the two cool prayers are…?
+525|Fajr and Asr
+526|Dhuhr and Asr
+527|Maghrib and Isha
+528|Fajr and Isha
+529|“Were it not hard on my nation, I would have ordered them to use …” with every prayer?
+530|the siwak
+531|wudu
+532|night prayer
+533|charity
+534|“The siwak purifies the mouth and pleases …”
+535|the Lord
+536|the angels
+537|the self
+538|the people
+539|“Whoever fasts Ramadan then follows it with … of Shawwal, it is like fasting for a lifetime”
+540|six
+541|three
+542|ten
+543|seven
+544|The Prophet ﷺ told us to seek Laylat al-Qadr in…?
+545|The odd nights of the last ten of Ramadan
+546|The first night of Ramadan
+547|The middle night of Ramadan
+548|The even nights of the first ten
+549|“When one of you enters the mosque, let him not sit until he prays …”
+550|two rak'ahs
+551|one rak'ah
+552|four rak'ahs
+553|three rak'ahs
+554|“The five prayers, Friday to Friday and Ramadan to Ramadan expiate what is between them, as long as … are avoided”
+555|major sins
+556|minor sins
+557|open indecencies
+558|all sins
+559|“Whoever prays at night in Ramadan out of faith and seeking reward is forgiven …”
+560|his past sins
+561|a year of sins
+562|his minor sins
+563|the sins of his day
+564|“Charity never decreases …”
+565|wealth
+566|reward
+567|life
+568|provision
+569|Someone ended his prayer by mistake before finishing it, then soon remembered. What does he do?
+570|Completes the prayer and makes the prostration of forgetfulness
+571|Repeats the whole prayer
+572|Nothing is required
+573|Only makes the prostration of forgetfulness
+574|Expiation for an oath: feeding ten poor people, clothing them, or …?
+575|Freeing a slave
+576|Fasting two months
+577|Slaughtering a sheep
+578|Zakat al-Fitr
+579|Someone who cannot afford the oath expiation fasts…?
+580|Three days
+581|Two consecutive months
+582|Ten days
+583|One day
+584|The nisab of zakat on silver in dirhams?
+585|200 dirhams
+586|100 dirhams
+587|20 dirhams
+588|40 dirhams
+589|The days of Tashreeq are…?
+590|11, 12 and 13 Dhul-Hijjah
+591|8, 9 and 10 Dhul-Hijjah
+592|1, 2 and 3 Shawwal
+593|10, 11 and 12 Muharram
+594|The number needed for Jumu'ah according to the Shafi'is and Hanbalis?
+595|Twelve
+596|The ruling on reciting Al-Fatihah in prayer, according to most scholars?
+597|A pillar
+598|Sunnah
+599|Recommended
+600|Disliked
+601|Water that is pure and purifies other things?
+602|Purifying water (tahur)
+603|Pure water
+604|Used water
+605|Impure water
+606|How many rak'ahs does a traveler pray for Dhuhr, shortened?
+607|Two
+608|One
+609|It isn't shortened
+610|Which of these prayers is not shortened when traveling?
+611|Dhuhr
+612|Isha
+613|Missing an obligatory act of Hajj is made up for by…?
+614|Repeating the Hajj
+615|Fasting one day
+616|Giving one dirham
+617|The miqat of the people of the Levant for ihram?
+618|Al-Juhfa
+619|Dhul-Hulayfa
+620|Qarn al-Manazil
+621|Yalamlam
+622|The miqat of the people of Madinah for ihram?
+623|Dhat Irq
+624|The ruling on the eclipse prayer, according to most scholars?
+625|Emphasized Sunnah
+626|Individual obligation
+627|Communal obligation
+628|Fasting the Day of Arafah, for those not on Hajj, expiates…?
+629|Two years
+630|One year
+631|A month
+632|Three years
+633|Fasting the Day of Ashura expiates…?
+634|The past year
+635|What cancels tayammum if one hasn't prayed yet?
+636|Finding water
+637|Sunrise
+638|Walking
+639|Talking
+640|A prayer with no bowing and no prostration?
+641|The funeral prayer
+642|The eclipse prayer
+643|The prayer for rain
+644|The Duha prayer
+645|How many takbirs are in the funeral prayer?
+646|Zakat on crops watered by rain?
+647|One tenth
+648|One twentieth
+649|One fortieth
+650|One fifth
+651|The smallest number for a congregational prayer?
+652|Two
+653|A prostration that makes up for less or more in prayer?
+654|Prostration of forgetfulness
+655|Prostration of recitation
+656|Prostration of thanks
+657|Prostration of supplication
+658|How long may a traveler wipe over leather socks?
+659|Three days and nights
+660|A day and a night
+661|A week
+662|Two days
+663|How many rak'ahs are in the Eid prayer?
+664|The ruling on Jumu'ah prayer for a resident man?
+665|The nisab of zakat on camels?
+666|Ten
+667|The nisab of zakat on sheep?
+668|What is the first tawaf on arriving in Makkah for Hajj called?
+669|Tawaf al-Qudum (arrival)
+670|Tawaf al-Ifadah
+671|Tawaf al-Wada' (farewell)
+672|Tawaf al-Ziyarah
+673|How many rak'ahs are in the Maghrib prayer?
+674|Two
+675|The ruling on the Witr prayer, according to most scholars?
+676|Permissible
+677|The approximate nisab of zakat on gold?
+678|85 grams
+679|20 grams
+680|595 grams
+681|100 grams
+682|The rate of zakat on wealth?
+683|What should someone without water for purification do?
+684|Make tayammum
+685|Wipe over leather socks
+686|Delay the prayer
+687|Leave the prayer
+688|How long may a resident wipe over leather socks?
+689|One prayer
+690|Zakat al-Fitr is given before…?
+691|The Eid prayer
+692|Tarawih prayer
+693|Laylat al-Qadr
+694|The start of Ramadan
+695|How many rak'ahs are in the Fajr prayer?
+696|What is it Sunnah to say before eating?
+697|Bismillah
+698|Alhamdulillah
+699|SubhanAllah
+700|Astaghfirullah
+701|Which zakat is given at the end of Ramadan?
+702|Zakat al-Fitr
+703|Zakat on wealth
+704|Zakat on gold
+705|Zakat on crops
+706|Which of these is a pillar of Hajj?
+707|Standing at Arafah
+708|Staying the night at Mina
+709|Stoning the pillars
+710|How does one begin the prayer?
+711|Allahu Akbar
+712|La ilaha illallah
+713|The companion with the long story of repentance after staying behind from Tabuk?
+714|Ka'b ibn Malik
+715|Hatib ibn Abi Balta'a
+716|Tha'laba ibn Hatib
+717|Malik ibn al-Dukhshum
+718|For how many nights did people avoid the three who stayed behind from Tabuk?
+719|Fifty nights
+720|Ten nights
+721|Thirty nights
+722|A hundred nights
+723|To whom did the Prophet ﷺ say “By Allah, I love you” and teach a supplication after every prayer?
+724|Mu'adh ibn Jabal
+725|Abu Hurayrah
+726|Anas ibn Malik
+727|Bilal ibn Rabah
+728|The companion told by the Prophet ﷺ “Young man, I will teach you some words: guard Allah and He will guard you”?
+729|Abdullah ibn Abbas
+730|Usama ibn Zayd
+731|Abdullah ibn Umar
+732|The worshipper whose mother prayed against him, who was tested and then cleared by a speaking infant?
+733|Jurayj
+734|Barsisa
+735|Bal'am
+736|Yusha' (Joshua)
+737|In the hadith of the people of the cave, how many were they?
+738|In the hadith of the man who killed a hundred, where did the scholar tell him to go to repent?
+739|To a land with righteous people
+740|To Makkah
+741|To a distant mountain
+742|To the sea
+743|The boy in the story of the Ditch was killed when the king said, as he shot…?
+744|In the name of Allah, Lord of the boy
+745|In the name of the king
+746|Which expedition was called the Expedition of Hardship?
+747|Tabuk
+748|The Trench
+749|Hunayn
+750|Ta'if
+751|The companion called the beloved of the Messenger of Allah and son of his beloved?
+752|Zayd ibn Harithah
+753|The first to recite the Quran aloud in Makkah?
+754|Abdullah ibn Mas'ud
+755|Hamza ibn Abd al-Muttalib
+756|In which year of the Hijra did the Prophet ﷺ pass away?
+757|The eleventh
+758|The tenth
+759|The twelfth
+760|The ninth
+761|The pledge made under the tree at Hudaybiyyah?
+762|The Pledge of Ridwan
+763|The First Pledge of Aqabah
+764|The Second Pledge of Aqabah
+765|The Pledge of Saqifah
+766|The companion who saw the adhan in a dream?
+767|Abdullah ibn Zayd
+768|Abu Mahdhurah
+769|The first woman martyr in Islam?
+770|Sumayyah bint Khayyat
+771|Khadijah bint Khuwaylid
+772|Umm Umarah
+773|Asma bint Abi Bakr
+774|The scribe of the Treaty of Hudaybiyyah?
+775|Zayd ibn Thabit
+776|In which year of the Hijra was the Battle of Badr?
+777|The second
+778|The first
+779|The third
+780|The fifth
+781|In which year of the Hijra was the Battle of the Trench?
+782|The fourth
+783|The sixth
+784|The standard-bearer of the Muslims at Uhud who was martyred?
+785|Mus'ab ibn Umayr
+786|Sa'd ibn Mu'adh
+787|Ja'far ibn Abi Talib
+788|The first commander of the Muslims at the Battle of Mu'tah?
+789|Abdullah ibn Rawahah
+790|The companion whose death shook the Throne of the Most Merciful?
+791|The Prophet's ﷺ guide on the road of the Hijra?
+792|Abdullah ibn Urayqit
+793|Amir ibn Fuhayrah
+794|Abdullah ibn Abi Bakr
+795|Suraqa ibn Malik
+796|Who chased the Prophet ﷺ during the Hijra until his horse's legs sank into the ground?
+797|Abu Jahl
+798|Umayyah ibn Khalaf
+799|About how many Muslims were at Badr?
+800|Three hundred and some
+801|A thousand
+802|Seven hundred
+803|A hundred
+804|Who advised the Prophet ﷺ to dig the trench?
+805|Salman al-Farisi
+806|A treaty with Quraysh in the sixth year of the Hijra?
+807|The Treaty of Hudaybiyyah
+808|The Pledge of Aqabah
+809|The Alliance of the Virtuous
+810|The Treaty of Ramla
+811|The first envoy in Islam, sent to Madinah?
+812|The Prophet's ﷺ uncle known as the master of martyrs?
+813|Al-Abbas ibn Abd al-Muttalib
+814|Abu Talib
+815|Al-Zubayr ibn Abd al-Muttalib
+816|In which year of the Hijra was the conquest of Makkah?
+817|The eighth
+818|Where is the Prophet ﷺ buried?
+819|Aisha's room
+820|Al-Baqi'
+821|Mount Uhud
+822|The first child born to the emigrants in Madinah?
+823|Abdullah ibn al-Zubayr
+824|Al-Hasan ibn Ali
+825|Where was the first emigration of the Muslims?
+826|Abyssinia
+827|Madinah
+828|Ta'if
+829|The king of Abyssinia who sheltered the Muslims?
+830|The Najashi (Negus)
+831|Heraclius
+832|Khosrow
+833|Al-Muqawqis
+834|The last expedition the Prophet ﷺ went out on?
+835|The conquest of Makkah
+836|The Battle of Mu'tah
+837|How old was the Prophet ﷺ when he was sent as a prophet?
+838|Forty years
+839|Thirty years
+840|Twenty-five years
+841|Fifty years
+842|The year Abu Talib and Khadijah died?
+843|The Year of Sorrow
+844|The Year of the Elephant
+845|The Year of Delegations
+846|The Year of Ashes
+847|The cave where the first revelation came down?
+848|Cave of Hira
+849|Cave of Thawr
+850|The cave where the Prophet ﷺ hid during the Hijra?
+851|The valley of Abu Talib
+852|The first major battle, in Ramadan?
+853|The Battle of Badr
+854|The Battle of Uhud
+855|The Prophet's ﷺ wet nurse from Banu Sa'd?
+856|Halimah al-Sa'diyyah
+857|Umm Ayman
+858|Aminah bint Wahb
+859|Fatimah bint Asad
+860|In which year was the Prophet ﷺ born?
+861|The first wife of the Prophet ﷺ?
+862|Aisha bint Abi Bakr
+863|Hafsa bint Umar
+864|Sawda bint Zam'a
+865|How many years did the Prophet ﷺ call to Islam in Makkah before the Hijra?
+866|13 years
+867|10 years
+868|23 years
+869|8 years
+870|What was the name of the Prophet's ﷺ mother?
+871|The grandfather who took care of the Prophet ﷺ after his mother?
+872|Abd al-Muttalib
+873|Hashim
+874|Abd Manaf
+875|To which city did the Prophet ﷺ emigrate?
+876|Madinah al-Munawwarah
+877|The battle where the archers disobeyed the Prophet's ﷺ order?
+878|The first boy to accept Islam?
+879|Al-Zubayr ibn al-Awwam
+880|“Truthfulness leads to …”
+881|righteousness
+882|Paradise directly
+883|knowledge
+884|“Leave what makes you doubt for …”
+885|what does not make you doubt
+886|what you love
+887|what benefits you
+888|what people know
+889|“Fear Allah wherever you are, follow a bad deed with a good one to erase it, and treat people with …”
+890|good character
+891|justice
+892|forbearance
+893|honesty
+894|“Allah is gentle and loves …”
+895|gentleness
+896|patience
+897|justice
+898|generosity
+899|“The most beloved deeds to Allah are the most constant, even if …”
+900|small
+901|hard
+902|late
+903|hidden
+904|“Look at those … than you, and do not look at those above you”
+905|lower
+906|poorer
+907|weaker
+908|younger
+909|“Whoever guides to good gets a reward like that of …”
+910|the one who does it
+911|his teacher
+912|his parents
+913|his friend
+914|“The most complete of believers in faith are the best of them in …”
+915|character
+916|prayer
+917|knowledge
+918|charity
+919|“… will not enter Paradise”, meaning one who cuts ties of kinship
+920|One who cuts ties
+921|One who envies
+922|One who spreads gossip
+923|One who is stingy
+924|“This world is the prison of the believer and …”
+925|the paradise of the disbeliever
+926|the place of work
+927|deceptive enjoyment
+928|the passage to the Hereafter
+929|“Allah does not look at your forms or your wealth, but He looks at your …”
+930|hearts and deeds
+931|intentions and words
+932|prayer and fasting
+933|manners and knowledge
+934|The author of “Sunan”, one of the six books, from Sijistan?
+935|Abu Dawud
+936|Al-Tirmidhi
+937|Al-Nasa'i
+938|Ibn Majah
+939|A hadith a Tabi'i attributes to the Prophet ﷺ without naming the companion is called…?
+940|Mursal
+941|Muttasil
+942|Mawquf
+943|Maqtu'
+944|The hadith “Two words light on the tongue…” is the last hadith in…?
+945|Sahih al-Bukhari
+946|Sahih Muslim
+947|Muwatta Malik
+948|“Guard Allah …”
+949|and He will guard you
+950|and He will be pleased with you
+951|and He will provide for you
+952|and He will guide you
+953|The narrator of the hadith “Islam is built on five”?
+954|“Whoever takes a path seeking knowledge, Allah makes easy for him a path to …”
+955|Paradise
+956|goodness
+957|guidance
+958|the truth
+959|“The believer to the believer is like a building, each part …”
+960|supporting the other
+961|his brother
+962|his heart
+963|his hand
+964|“A believer is not stung from the same hole …”
+965|twice
+966|ever
+967|The author of the book “Al-Muwatta”?
+968|Malik ibn Anas
+969|Ahmad ibn Hanbal
+970|Al-Shafi'i
+971|Al-Bukhari
+972|The author of the famous “Musnad”?
+973|Abu Hanifa
+974|What the Prophet ﷺ narrates from his Lord is called…?
+975|Hadith Qudsi
+976|Marfu' hadith
+977|Mawquf hadith
+978|Mursal hadith
+979|A saying attributed to a companion himself is called…?
+980|Marfu'
+981|Qudsi
+982|“Protect yourselves from the Fire, even with half a …”
+983|date
+984|loaf
+985|dirham
+986|word
+987|“Help your brother whether he is an oppressor or …”
+988|oppressed
+989|heedless
+990|absent
+991|ignorant
+992|The narrator of the hadith “Actions are only by intentions”?
+993|Ibn Abbas
+994|The companion who narrated the most hadiths?
+995|Aisha
+996|“Purity is half of …”
+997|faith
+998|religion
+999|worship
+1000|“The strong one is he who controls himself when …”
+1001|angry
+1002|hungry
+1003|afraid
+1004|happy
+1005|“Follow a bad deed with a good deed …”
+1006|and it will erase it
+1007|and it will overcome it
+1008|and it will precede it
+1009|and it will cover it
+1010|The author of “Riyad as-Salihin”?
+1011|Imam al-Nawawi
+1012|Ibn Hajar al-Asqalani
+1013|Ibn Taymiyyah
+1014|Abu Hamid al-Ghazali
+1015|“There should be no harm and no …”
+1016|reciprocating harm
+1017|injustice
+1018|aggression
+1019|damage
+1020|The author of “Sahih Muslim”?
+1021|Muslim ibn al-Hajjaj
+1022|Muslim ibn Aqil
+1023|How many hadiths are in “Al-Nawawi's Forty”?
+1024|Forty-two
+1025|Fifty
+1026|“Part of the excellence of a person's Islam is leaving what does not …”
+1027|concern him
+1028|he loves
+1029|he knows
+1030|he owns
+1031|“Righteousness is good …”
+1032|character
+1033|work
+1034|neighborliness
+1035|The Prophet ﷺ said “Do not get angry” to a man who asked him for …
+1036|advice
+1037|money
+1038|a prayer for him
+1039|leadership
+1040|“Actions are only by …”
+1041|intentions
+1042|deeds
+1043|words
+1044|wealth
+1045|“The religion is …”
+1046|sincere advice
+1047|modesty
+1048|“None of you truly believes until he loves for his brother what he loves for …”
+1049|himself
+1050|his son
+1051|his father
+1052|his neighbor
+1053|“Whoever believes in Allah and the Last Day, let him speak good or …”
+1054|keep silent
+1055|leave
+1056|seek forgiveness
+1057|smile
+1058|“And a good word is …”
+1059|charity
+1060|light
+1061|a cure
+1062|a good deed
+1063|“The Muslim is the one from whose tongue and … the Muslims are safe”
+1064|his wealth
+1065|The most authentic book after the Quran for Ahl al-Sunnah?
+1066|Sunan Abi Dawud
+1067|Musnad Ahmad
+1068|“The best of you are those who learn the Quran and …”
+1069|teach it
+1070|memorize it
+1071|read it
+1072|understand it
+1073|“Allah is beautiful and loves …”
+1074|beauty
+1075|truthfulness
+1076|giving
+1077|“Modesty is part of …”
+1078|good manners
+1079|“Be merciful to those on earth, and the One in … will have mercy on you”
+1080|the heavens
+1081|this world
+1082|the Hereafter
+1083|“Make things easy and do not …”
+1084|make them hard
+1085|be harsh
+1086|get angry
+1087|delay

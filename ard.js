@@ -17,21 +17,27 @@
     ["BR","البرازيل"],["AU","أستراليا"],["ZA","جنوب أفريقيا"]];
   const NAME = Object.fromEntries(COUNTRIES);
   const flag = c => c && /^[A-Z]{2}$/.test(c) ? String.fromCodePoint(...[...c].map(x => 0x1F1A5 + x.charCodeAt(0))) : "🏳️";
-  const AR = n => String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+  const LANG = () => window.__L || "ar";
+  const AR = n => LANG() === "ar" ? String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]) : String(n);
+  // ترجمة: نصّ عربي بمتغيرات {n} ← نصّ اللغة المختارة (i18n.js)
+  const tr = (s, v) => window.__t ? window.__t(s, v) : String(s).replace(/\{(\w+)\}/g, (m, k) => v && k in v ? v[k] : m);
+  const cn = c => tr(NAME[c] || c);
+  const DIR = () => (window.__dir || "rtl");
   const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const core = () => window.darbCore || null;
   const sb = () => (core() && core().sb()) || null;
   const me = () => (core() && core().user()) || null;
   async function rpc(fn, args) { const c = sb(); if (!c) throw new Error("offline"); const { data, error } = await c.rpc(fn, args || {}); if (error) throw error; return data; }
   const el = id => document.getElementById(id);
-  const nextTxt = p => p >= N ? "اكتمل البيت، ما شاء الله!" : "الجزء التالي: <b>" + PARTS[p] + "</b>";
+  const nextTxt = p => p >= N ? tr("اكتمل البيت، ما شاء الله!") : tr("الجزء التالي:") + " <b>" + tr(PARTS[p]) + "</b>";
+  const ofN = p => tr("{a} من {b} أجزاء", { a: "<b>" + AR(p) + "</b>", b: AR(N) });
 
   // ——— رسم البيت الدمشقي، جزءًا جزءًا ———
   function house(parts, opts) {
     const o = opts || {}, p = Math.max(0, Math.min(N, parts | 0)), has = k => p >= k;
     const ghost = 'fill="none" stroke="rgba(240,180,76,.28)" stroke-width="1" stroke-dasharray="3 3"';
     const id = "h" + Math.random().toString(36).slice(2, 8);
-    let s = `<svg viewBox="0 0 140 112" class="hs ${o.cls || ""}" role="img" aria-label="بيت: ${AR(p)} من ${AR(N)} أجزاء">
+    let s = `<svg viewBox="0 0 140 112" class="hs ${o.cls || ""}" role="img" aria-label="${tr("{a} من {b} أجزاء", { a: AR(p), b: AR(N) })}">
       <defs><pattern id="${id}" width="16" height="8" patternUnits="userSpaceOnUse"><rect width="16" height="8" fill="#cfc5b1"/><rect x=".5" y=".5" width="15" height="3.2" fill="#f4efe4"/><rect x="-7.5" y="4.3" width="15" height="3.2" fill="#efe8da"/><rect x="8.5" y="4.3" width="15" height="3.2" fill="#efe8da"/></pattern>
       <radialGradient id="${id}g"><stop offset="0" stop-color="#ffd27a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient></defs>
       <ellipse cx="70" cy="104" rx="66" ry="6" fill="rgba(0,0,0,.25)"/>`;
@@ -151,7 +157,7 @@
       plot: L(0xc8b48a), shadow: new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, map: canvasTex(64, 64, (g) => { const r = g.createRadialGradient(32, 32, 4, 32, 32, 32); r.addColorStop(0, "rgba(0,0,0,.38)"); r.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = r; g.fillRect(0, 0, 64, 64); }) })
     };
     G.glow = new THREE.SpriteMaterial({ map: canvasTex(64, 64, (g) => { const r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, "rgba(255,214,122,.95)"); r.addColorStop(1, "rgba(255,214,122,0)"); g.fillStyle = r; g.fillRect(0, 0, 64, 64); }), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
-    G.sign = new THREE.MeshBasicMaterial({ map: canvasTex(256, 64, (g, w, h) => { g.fillStyle = "#1d4e8a"; g.fillRect(0, 0, w, h); g.strokeStyle = "#c9a46a"; g.lineWidth = 6; g.strokeRect(3, 3, w - 6, h - 6); g.fillStyle = "#f7f0e4"; g.font = "700 38px 'Reem Kufi','IBM Plex Sans Arabic',sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = "rtl"; g.fillText("دار العلم", w / 2, h / 2 + 2); }) });
+    G.sign = new THREE.MeshBasicMaterial({ map: canvasTex(256, 64, (g, w, h) => { g.fillStyle = "#1d4e8a"; g.fillRect(0, 0, w, h); g.strokeStyle = "#c9a46a"; g.lineWidth = 6; g.strokeRect(3, 3, w - 6, h - 6); g.fillStyle = "#f7f0e4"; g.font = "700 38px " + (window.__canvasFont || "'Reem Kufi',sans-serif"); g.textAlign = "center"; g.textBaseline = "middle"; g.direction = DIR(); let fz = 38; const st = tr("دار العلم"); while (g.measureText(st).width > w - 24 && fz > 16) { fz -= 3; g.font = "700 " + fz + "px " + (window.__canvasFont || "'Reem Kufi',sans-serif"); } g.fillText(st, w / 2, h / 2 + 2); }) });
     const B = (x, y, z) => new THREE.BoxGeometry(x, y, z);
     G.g = {
       found: B(5.2, .34, 4.4), floor: B(4.9, .05, 4.1), back: B(4.2, 3, .24), side: B(.24, 3, 3.6), fpanel: B(1.55, 3, .24), lintel: B(1.1, 1, .24),
@@ -206,12 +212,12 @@
       g.fillStyle = mine ? "rgba(120,72,10,.88)" : "rgba(28,20,30,.82)"; const r = 30;
       g.beginPath(); g.moveTo(r, 8); g.arcTo(w - 8, 8, w - 8, h - 8, r); g.arcTo(w - 8, h - 8, 8, h - 8, r); g.arcTo(8, h - 8, 8, 8, r); g.arcTo(8, 8, w - 8, 8, r); g.fill();
       g.strokeStyle = parts >= N ? "#3fbf86" : "#f0b44c"; g.lineWidth = 5; g.stroke();
-      g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = "rtl";
+      g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = DIR();
       let n = String(name || "لاعب"); g.font = "700 46px 'IBM Plex Sans Arabic',Tahoma,sans-serif";
       while (g.measureText(n).width > w - 60 && n.length > 3) n = n.slice(0, -2) + "…";
       g.fillText(n, w / 2, 50);
       g.font = "600 30px 'IBM Plex Sans Arabic',Tahoma,sans-serif"; g.fillStyle = parts >= N ? "#7fe0b0" : "#f6d38a";
-      g.fillText(parts >= N ? "بيت مكتمل ✓" : AR(parts) + " من " + AR(N), w / 2, 94);
+      g.fillText(parts >= N ? tr("بيت مكتمل") + " ✓" : tr("{a} من {b}", { a: AR(parts), b: AR(N) }), w / 2, 94);
     });
     const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, depthTest: false, sizeAttenuation: false }));
     s.scale.set(.2, .05, 1); s.renderOrder = mine ? 7 : 5; return s;
@@ -274,7 +280,7 @@
     const fw = new THREE.Mesh(new THREE.CylinderGeometry(2.35, 2.35, .06, 8), G.m.water); fw.position.y = .78; fw.userData.own = 1; w.add(fw);
     const sp = new THREE.Mesh(new THREE.CylinderGeometry(.18, .3, 1.8, 8), G.m.stone); sp.position.y = 1.5; sp.userData.own = 1; w.add(sp);
     const bw = new THREE.Mesh(new THREE.CylinderGeometry(.9, .3, .3, 8), G.m.water); bw.position.y = 2.45; bw.userData.own = 1; w.add(bw);
-    const qn = label(NAME[country] ? "حيّ " + NAME[country] : "أرض طلبة العلم", N, false); qn.material.map.dispose(); qn.material.map = canvasTex(512, 128, (g, W, H) => { g.fillStyle = "rgba(29,78,138,.92)"; g.fillRect(0, 0, W, H); g.strokeStyle = "#c9a46a"; g.lineWidth = 8; g.strokeRect(4, 4, W - 8, H - 8); g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = "rtl"; g.font = "700 54px 'Reem Kufi','IBM Plex Sans Arabic',sans-serif"; g.fillText((NAME[country] ? "حيّ " + NAME[country] : "أرض طلبة العلم") + " " + flag(country), W / 2, H / 2 + 4); }); qn.material.sizeAttenuation = true; qn.material.depthTest = true; qn.scale.set(6, 1.5, 1); qn.position.set(0, 6.4, 0); w.add(qn); V.sign = qn;
+    const qTitle = NAME[country] ? tr("حيّ {c}", { c: cn(country) }) : tr("أرض طلبة العلم"); const qn = label(qTitle, N, false); qn.material.map.dispose(); qn.material.map = canvasTex(512, 128, (g, W, H) => { g.fillStyle = "rgba(29,78,138,.92)"; g.fillRect(0, 0, W, H); g.strokeStyle = "#c9a46a"; g.lineWidth = 8; g.strokeRect(4, 4, W - 8, H - 8); g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle"; g.direction = DIR(); g.font = "700 54px 'Reem Kufi','IBM Plex Sans Arabic',sans-serif"; let fs = 54; do { g.font = "700 " + fs + "px " + (window.__canvasFont || "'Reem Kufi',sans-serif"); fs -= 4; } while (g.measureText(qTitle + " 00").width > W - 40 && fs > 24); g.fillText(qTitle + " " + flag(country), W / 2, H / 2 + 4); }); qn.material.sizeAttenuation = true; qn.material.depthTest = true; qn.scale.set(6, 1.5, 1); qn.position.set(0, 6.4, 0); w.add(qn); V.sign = qn;
     // أشجار وسياج وزهور حول الحديقة (Instanced: رخيصة)
     const trees = [], flowers = [];
     const rnd = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
@@ -283,12 +289,12 @@
     for (let x = -cells; x <= cells; x++) for (let z = -cells; z <= cells; z++) { const X = x * 11 + 5.5, Z = z * 11 + 5.5; if (Math.max(Math.abs(X), Math.abs(Z)) < reach - 4 && Math.hypot(X, Z) > 9 && rnd() < .55) trees.push([X + 2.2, Z + 2.2, .55 + rnd() * .3]); }
     P.forEach(([x, z]) => { for (let i = 0; i < 6; i++) { const a = rnd() * Math.PI * 2; flowers.push([x + Math.cos(a) * (4.4 + rnd() * .6), z + Math.sin(a) * (4.4 + rnd() * .6)]); } });
     for (let i = 0; i < 40; i++) { const a = i / 40 * Math.PI * 2; flowers.push([Math.cos(a) * 6.9, Math.sin(a) * 6.9]); }
-    const tr = new THREE.InstancedMesh(new THREE.CylinderGeometry(.18, .26, 2, 6), G.m.trunk, trees.length), cr = new THREE.InstancedMesh(new THREE.ConeGeometry(1.6, 3.6, 8), G.m.tree, trees.length), cr2 = new THREE.InstancedMesh(new THREE.SphereGeometry(1.5, 10, 8), G.m.tree2, trees.length);
+    const trk = new THREE.InstancedMesh(new THREE.CylinderGeometry(.18, .26, 2, 6), G.m.trunk, trees.length), cr = new THREE.InstancedMesh(new THREE.ConeGeometry(1.6, 3.6, 8), G.m.tree, trees.length), cr2 = new THREE.InstancedMesh(new THREE.SphereGeometry(1.5, 10, 8), G.m.tree2, trees.length);
     const o = new THREE.Object3D();
-    trees.forEach(([x, z, s], i) => { o.rotation.set(0, 0, 0); o.scale.setScalar(s); o.position.set(x, s, z); o.updateMatrix(); tr.setMatrixAt(i, o.matrix); o.position.set(x, s * 3.4, z); o.updateMatrix(); cr.setMatrixAt(i, o.matrix); o.position.set(x, s * 2.3, z); o.scale.setScalar(s * (i % 3 ? .001 : 1)); o.updateMatrix(); cr2.setMatrixAt(i, o.matrix); });
+    trees.forEach(([x, z, s], i) => { o.rotation.set(0, 0, 0); o.scale.setScalar(s); o.position.set(x, s, z); o.updateMatrix(); trk.setMatrixAt(i, o.matrix); o.position.set(x, s * 3.4, z); o.updateMatrix(); cr.setMatrixAt(i, o.matrix); o.position.set(x, s * 2.3, z); o.scale.setScalar(s * (i % 3 ? .001 : 1)); o.updateMatrix(); cr2.setMatrixAt(i, o.matrix); });
     const fl = new THREE.InstancedMesh(new THREE.SphereGeometry(.22, 6, 4), G.m.flower, flowers.length), cols = [0xff6b8a, 0xffd23f, 0xffffff, 0xc77dff, 0xff8c42];
     flowers.forEach(([x, z], i) => { o.scale.setScalar(1); o.position.set(x, .2, z); o.updateMatrix(); fl.setMatrixAt(i, o.matrix); fl.setColorAt(i, new THREE.Color(cols[i % cols.length])); });
-    [tr, cr, cr2, fl].forEach(m => { m.userData.own = 1; w.add(m); });
+    [trk, cr, cr2, fl].forEach(m => { m.userData.own = 1; w.add(m); });
     // البيوت
     list.forEach((x, i) => {
       const [px, pz] = P[i], grp = new THREE.Group(); grp.position.set(px, 0, pz);
@@ -427,28 +433,28 @@
     if (S.mode === "build") return drawBuildUI(top, bot);
     const signed = !!me(), m = S.my, q = S.sel;
     top.innerHTML = `<button class="pill icon" id="ardX" aria-label="رجوع">→</button><h1>أرض طلبة العلم</h1>
-      ${S.countries.length || q ? `<button class="pill" id="ardQ">${q ? flag(q) + " " + esc(NAME[q] || q) : "الأحياء"} ▾</button>` : ""}
+      ${S.countries.length || q ? `<button class="pill" id="ardQ">${q ? flag(q) + " " + esc(cn(q)) : tr("الأحياء")} ▾</button>` : ""}
       ${signed ? `<button class="pill icon" id="ardS" aria-label="ابحث عن صديق">🔍</button>` : ""}`;
     let b = "";
     if (S.err === "offline") b = `<div class="card"><p class="k">الساحة تحتاج اتصالًا بخادم اللعبة. تأكد من الإنترنت ثم حاول مرة أخرى.</p></div>`;
     else if (S.err === "load") b = `<div class="card"><div class="r"><p class="k" style="flex:1">تعذّر تحميل الساحة الآن.</p><button class="go" id="ardRe">أعد المحاولة</button></div></div>`;
     else if (S.info) {
       const x = S.info;
-      b = `<div class="card"><div class="r"><b class="n">${esc(x.display_name)}${x.is_me ? " (أنت)" : ""}</b><button class="lk" id="ardIX">إغلاق</button></div>
-        <div class="bar"><i style="width:${x.parts / N * 100}%"></i></div><p class="k"><b>${AR(x.parts)}</b> من ${AR(N)} أجزاء · ${nextTxt(x.parts)}</p></div>`;
-    } else if (!signed) b = `<div class="card"><p class="k"><b>ابنِ بيتك في هذه الحديقة!</b> كل حارة تُنهيها في اللعبة تبني جزءًا من بيتك حتى يكتمل بـ${AR(N)} أجزاء. سجّل الدخول من القائمة الرئيسية ليُبنى بيتك.</p></div>`;
+      b = `<div class="card"><div class="r"><b class="n"><span data-noi18n>${esc(x.display_name)}</span>${x.is_me ? " (" + tr("أنت") + ")" : ""}</b><button class="lk" id="ardIX">إغلاق</button></div>
+        <div class="bar"><i style="width:${x.parts / N * 100}%"></i></div><p class="k">${ofN(x.parts)} · ${nextTxt(x.parts)}</p></div>`;
+    } else if (!signed) b = `<div class="card"><p class="k"><b>${tr("ابنِ بيتك في هذه الحديقة!")}</b> ${tr("كل حارة تُنهيها في اللعبة تبني جزءًا من بيتك حتى يكتمل بـ{n} أجزاء. سجّل الدخول من القائمة الرئيسية ليُبنى بيتك.", { n: AR(N) })}</p></div>`;
     else if (m) b = `<div class="card"><div class="r"><b class="n">بيتك</b>${m.country ? `<button class="go" id="ardMine">🏡 اذهب لبيتي</button>` : ""}</div>
         <div class="bar"><i style="width:${m.parts / N * 100}%"></i></div>
-        <p class="k"><b>${AR(m.parts)}</b> من ${AR(N)} أجزاء · ${nextTxt(m.parts)}</p>
-        <p class="k">حيّك: ${m.country ? flag(m.country) + " " + esc(NAME[m.country] || m.country) : "لم تختر بعد"} <button class="lk" id="ardC">${m.country ? "غيّر" : "اختر بلدك"}</button></p></div>`;
-    if (S.houses === null && q && !S.err) b = `<div class="card"><p class="k">جارٍ تحميل حيّ ${esc(NAME[q] || q)}…</p></div>`;
+        <p class="k">${ofN(m.parts)} · ${nextTxt(m.parts)}</p>
+        <p class="k"><span>${tr("حيّك:")}</span> ${m.country ? flag(m.country) + " " + esc(cn(m.country)) : tr("لم تختر بعد")} <button class="lk" id="ardC">${m.country ? "غيّر" : "اختر بلدك"}</button></p></div>`;
+    if (S.houses === null && q && !S.err) b = `<div class="card"><p class="k">${tr("جارٍ تحميل حيّ {c}…", { c: esc(cn(q)) })}</p></div>`;
     if (S.houses === "err") b = `<div class="card"><p class="k">تعذّر تحميل بيوت هذا الحيّ.</p></div>`;
     bot.innerHTML = b;
     // بدون رسوميات ثلاثية: عرض مسطّح
     let flat = el("ardFlat");
     if (!S.three && Array.isArray(S.houses)) {
       if (!flat) { flat = document.createElement("div"); flat.className = "flat"; flat.id = "ardFlat"; el("ard").prepend(flat); }
-      flat.innerHTML = `<div class="street">${S.houses.map(x => `<div class="lot">${house(x.parts)}<b>${esc(x.display_name)}${x.is_me ? " (أنت)" : ""}</b><span>${x.parts >= N ? "بيت مكتمل" : AR(x.parts) + "/" + AR(N)}</span></div>`).join("")}</div>`;
+      flat.innerHTML = `<div class="street">${S.houses.map(x => `<div class="lot">${house(x.parts)}<b><span data-noi18n>${esc(x.display_name)}</span>${x.is_me ? " (" + tr("أنت") + ")" : ""}</b><span>${x.parts >= N ? "بيت مكتمل" : AR(x.parts) + "/" + AR(N)}</span></div>`).join("")}</div>`;
     }
     el("ardX").onclick = close;
     el("ardQ") && (el("ardQ").onclick = quarterSheet);
@@ -472,7 +478,7 @@
 
   function quarterSheet() {
     const s = sheet(`<h2>الأحياء</h2><p class="k">كل بلد حيّ في الحديقة. اختر حيًّا لتتجول فيه.</p>
-      <div class="qs">${S.countries.map(c => `<button data-c="${esc(c.country)}" class="${c.country === S.sel ? "on" : ""}">${flag(c.country)} ${esc(NAME[c.country] || c.country)}<br><small>${AR(c.houses)} ${c.houses === 1 ? "بيت" : "بيوت"} · ${AR(c.built)} مكتملة</small></button>`).join("") || `<p class="k">لا أحياء بعد.</p>`}</div>
+      <div class="qs">${S.countries.map(c => `<button data-c="${esc(c.country)}" class="${c.country === S.sel ? "on" : ""}">${flag(c.country)} ${esc(cn(c.country))}<br><small>${tr(c.houses === 1 ? "{n} بيت" : "{n} بيوت", { n: AR(c.houses) })} · ${tr("{n} مكتملة", { n: AR(c.built) })}</small></button>`).join("") || `<p class="k">لا أحياء بعد.</p>`}</div>
       <button class="x" id="ardSX">إغلاق</button>`);
     s.querySelector(".qs").onclick = e => { const b = e.target.closest("button"); if (b) { closeSheet(); loadQuarter(b.dataset.c); } };
     el("ardSX").onclick = closeSheet;
@@ -495,8 +501,8 @@
         const r = (await rpc("darb_find_house", { p_email: el("ardEmail").value.trim() }) || [])[0];
         if (!r) { msg.textContent = "لم نجد بيتًا بهذا البريد. ربما لم يبدأ اللعب بعد، أو أخفى بيته عن البحث."; return; }
         msg.textContent = "";
-        out.innerHTML = `<div class="found"><div>${house(r.parts)}</div><div><b class="n" style="font-family:var(--f-display,serif);font-size:20px">${esc(r.display_name)}</b>
-          <p class="k"><b>${AR(r.parts)}</b> من ${AR(N)} · ${r.parts >= N ? "بيت مكتمل" : "يبني الآن: " + PARTS[r.parts]}</p>
+        out.innerHTML = `<div class="found"><div>${house(r.parts)}</div><div><b class="n" style="font-family:var(--f-display,serif);font-size:20px"><span data-noi18n>${esc(r.display_name)}</span></b>
+          <p class="k">${ofN(r.parts)} · ${r.parts >= N ? tr("بيت مكتمل") : tr("يبني الآن:") + " " + tr(PARTS[r.parts])}</p>
           ${r.country ? `<button class="go" id="ardVisit">${flag(r.country)} زُر بيته</button>` : `<p class="k">لم يختر بلده بعد.</p>`}</div></div>`;
         el("ardVisit") && (el("ardVisit").onclick = async () => {
           closeSheet();
@@ -604,7 +610,7 @@
       if (!B.done && buildT > 0 && buildT < 1 && now - lastKnock > 260) { lastKnock = now; knock(170 + Math.random() * 60, .18); puff(); }
       B.puffs.forEach(p => { p.userData.life -= dt; p.material.opacity = Math.min(1, Math.max(0, p.userData.life)) * .8; p.scale.multiplyScalar(1 + dt * 1.2); p.position.y += dt * .6; p.visible = p.userData.life > 0; });
       const pct = Math.round(buildT * 100);
-      if (pct !== B.pct) { B.pct = pct; const bar = el("ardBP"); if (bar) bar.style.width = pct + "%"; const st = el("ardBS"); if (st && !B.done) st.textContent = buildT <= 0 ? "العمّال يجهّزون الحجارة…" : "جارٍ البناء… " + AR(pct) + "٪"; }
+      if (pct !== B.pct) { B.pct = pct; const bar = el("ardBP"); if (bar) bar.style.width = pct + "%"; const st = el("ardBS"); if (st && !B.done) st.textContent = buildT <= 0 ? tr("العمّال يجهّزون الحجارة…") : tr("جارٍ البناء… {n}٪", { n: AR(pct) }); }
       if (!B.done && buildT >= 1) { B.done = true; chime(); sparkle(); drawUI(); congrats(B.parts); }
     };
     drawUI();
@@ -622,7 +628,7 @@
   function congrats(p) {
     const root = el("ard"); if (!root) return;
     const c = document.createElement("div"); c.className = "ardCg"; c.setAttribute("role", "status");
-    c.innerHTML = `<b>مبارك!</b><span>تمّ بناء المرحلة ${AR(p)} من بيتك</span>`;
+    c.innerHTML = `<b>${tr("مبارك!")}</b><span>${tr("تمّ بناء المرحلة {n} من بيتك", { n: AR(p) })}</span>`;
     root.appendChild(c);
     requestAnimationFrame(() => c.classList.add("show"));
     setTimeout(() => c.classList.remove("show"), 2800); setTimeout(() => c.remove(), 3500);
@@ -632,11 +638,11 @@
   function drawBuildUI(top, bot) {
     const p = B.parts, signed = !!me();
     top.innerHTML = B.done ? "" : `<h1 style="text-align:center">العمّال يبنون بيتك 🔨</h1>`;
-    bot.innerHTML = `<div class="card"><div class="r"><b class="n">${PARTS[p - 1]}</b><span class="k">الجزء ${AR(p)} من ${AR(N)}</span></div>
+    bot.innerHTML = `<div class="card"><div class="r"><b class="n">${tr(PARTS[p - 1])}</b><span class="k">${tr("الجزء {a} من {b}", { a: AR(p), b: AR(N) })}</span></div>
       <div class="bar"><i id="ardBP" style="width:${B.done ? 100 : Math.max(0, B.pct)}%;transition:none"></i></div>
       <p class="k" id="ardBS">${B.done ? (p >= N ? "ما شاء الله! بيتك في أرض طلبة العلم مكتمل." : nextTxt(p)) : "العمّال يجهّزون الحجارة…"}</p>
       ${!signed ? `<p class="k">سجّل الدخول من القائمة الرئيسية ليُحفظ بيتك ويظهر في الحديقة.</p>` : ""}
-      ${B.done ? `<div class="r" style="margin-top:8px"><button class="go" id="ardCont" style="flex:1">تابع الرحلة ←</button>${signed ? `<button class="lk" id="ardSeeG">زُر الحديقة</button>` : ""}</div>`
+      ${B.done ? `<div class="r" style="margin-top:8px"><button class="go" id="ardCont" style="flex:1">تابع الرحلة</button>${signed ? `<button class="lk" id="ardSeeG">زُر الحديقة</button>` : ""}</div>`
                : `<div class="r" style="margin-top:6px;justify-content:flex-end"><button class="lk" id="ardSkip">تخطَّ</button></div>`}</div>`;
     el("ardCont") && (el("ardCont").onclick = close);
     el("ardSeeG") && (el("ardSeeG").onclick = open);
@@ -660,7 +666,7 @@
     if (!me()) { if (has3D()) return buildScene(parts); if (!warned) { warned = true; toast(parts, "سجّل الدخول ليُحفظ بيتك", "أرض طلبة العلم"); } return; }
     if (S.my) S.my.parts = Math.max(S.my.parts, parts);
     if (has3D()) return buildScene(parts);
-    toast(parts, "مبارك! تمّ بناء المرحلة " + AR(parts) + " من بيتك", PARTS[parts - 1] + " · " + AR(parts) + " من " + AR(N));
+    toast(parts, tr("مبارك!") + " " + tr("تمّ بناء المرحلة {n} من بيتك", { n: AR(parts) }), tr(PARTS[parts - 1]) + " · " + tr("الجزء {a} من {b}", { a: AR(parts), b: AR(N) }));
   }
   function finish() { if (me() && sb()) rpc("darb_house_finish").then(n => { if (S.my) S.my.parts = n; }).catch(() => {}); }
 

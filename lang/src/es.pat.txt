@@ -1,0 +1,6 @@
+Nivel {1}
+Etapa {1}/{2}
+{t1} · {t2}
+No se pudo completar: {1}
+No se pudo enviar: {1}
+✓ {t1}

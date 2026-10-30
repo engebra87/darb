@@ -1,0 +1,1088 @@
+0|El camino del saber islámico
+1|en los callejones de Damasco
+2|Callejones de Damasco
+3|Cultura general
+4|Puerta del Fiqh
+5|Fiqh
+6|Puerta de la Sira
+7|La vida del Profeta (Sira)
+8|Puerta del Hadiz
+9|El noble Hadiz
+10|Hadiz
+11|Riyad as-Salihin
+12|No se pudo cargar el motor gráfico. Revisa tu conexión a Internet y vuelve a abrir la página.
+13|Dulces
+14|Especias
+15|Frutas y verduras
+16|Carnicero
+17|Barbero
+18|Ciudadela
+19|Mezquita
+20|Jugador
+21|Plaza de la Ciudadela
+22|Patio de la casa
+23|Elige una puerta
+24|Murallas de la Ciudadela
+25|Zocos de Damasco
+26|Cargando preguntas…
+27|Cargando el juego…
+28|No se pudieron cargar las preguntas
+29|Revisa tu conexión a Internet y vuelve a intentarlo.
+30|Intentar de nuevo
+31|Nivel uno
+32|Nivel dos
+33|Nivel tres
+34|Nivel cuatro
+35|Etapa uno
+36|Etapa dos
+37|Etapa tres
+38|Etapa cuatro
+39|¡Bien hecho!
+40|Llegaste a la Ciudadela
+41|Llegaste a la Mezquita
+42|El último muro
+43|Revisa tu conexión
+44|Adelante, que Allah te bendiga
+45|Reiniciar callejón
+46|Este es el último muro. Responde para derribarlo
+47|¡Alto! Responde para pasar
+48|¡Excelente!
+49|Tres puertas seguidas
+50|As-salamu alaikum
+51|Wa alaikum as-salam
+52|Desliza en cualquier lugar
+53|para caminar
+54|Quitar dos respuestas
+55|Pausa
+56|Sonido
+57|Saltar
+58|Continuar
+59|Reiniciar este callejón
+60|Quitar sonido
+61|Activar sonido
+62|Menú principal
+63|Cuenta nueva
+64|Iniciar sesión
+65|Tu nombre en la clasificación
+66|Correo electrónico
+67|Contraseña
+68|Crear cuenta
+69|Entrar
+70|Tengo una cuenta, iniciar sesión
+71|No tengo cuenta, crear una
+72|Entrar con un código por correo (sin contraseña)
+73|Olvidé mi contraseña
+74|Volver
+75|Te enviamos un enlace para cambiar la contraseña.
+76|No se pudo enviar. Revisa el correo e inténtalo más tarde.
+77|Escribe primero tu correo y luego pulsa «Olvidé mi contraseña».
+78|Un momento…
+79|Este correo ya está registrado, quizá en otra de nuestras apps. Pulsa «Entrar con un código por correo» abajo, o usa otro correo.
+80|Aún no has confirmado tu correo.
+81|Correo o contraseña incorrectos.
+82|Este correo está registrado. Inicia sesión en su lugar.
+83|La contraseña es demasiado corta. Usa al menos 6 caracteres.
+84|No se pudo completar:
+85|Entrar con código
+86|Te enviamos un código numérico al correo. Escríbelo aquí para entrar.
+87|Código
+88|Enviar código
+89|Escribe el código completo tal como lo recibiste.
+90|Enviando…
+91|Código enviado. Revisa tu bandeja de entrada y la carpeta de spam.
+92|Espera un minuto y vuelve a intentarlo.
+93|El código es incorrecto o ha caducado.
+94|No se pudo enviar:
+95|Confirma tu correo
+96|Enviamos un mensaje a
+97|. Si tiene un código numérico, escríbelo aquí. Si tiene un enlace, púlsalo, vuelve y pulsa «Ya confirmé».
+98|Código de confirmación
+99|Confirmar
+100|Ya confirmé el enlace, iniciar sesión
+101|¿No te llegó? Reenviar
+102|Revisa tu carpeta de spam.
+103|El código es incorrecto o ha caducado. Pide uno nuevo.
+104|El correo aún no está confirmado. Pulsa primero el enlace del mensaje.
+105|No se pudo iniciar sesión. Inténtalo de nuevo.
+106|Reenviado. Espera un minuto y revisa tu bandeja y el spam.
+107|Espera un minuto antes de pedir un mensaje nuevo.
+108|Clasificación
+109|Cargando…
+110|Aún no hay jugadores. ¡Sé el primero!
+111|No se pudo cargar la clasificación.
+112|Crea una cuenta para guardar tu progreso en cualquier dispositivo y aparecer en la clasificación.
+113|Crear una cuenta
+114|Entrar con un código por correo
+115|Jugar sin cuenta
+116|Sin conexión
+117|No pudimos conectar con el servidor del juego. Revisa Internet y vuelve a abrir la página.
+118|Reintentar
+119|Camina por los viejos callejones de Damasco, recoge monedas de oro y salta los barriles. Cada puerta se abre con una respuesta correcta, y el muro de piedra al final de cada callejón cae con la última respuesta.
+120|Desliza en cualquier lugar para caminar
+121|Botón de salto para saltar
+122|Sesión iniciada como
+123|Cerrar sesión
+124|Eliminar cuenta
+125|Tu progreso se guarda solo en este dispositivo.
+126|Inicia sesión para guardarlo
+127|Continuar el nivel dos
+128|Continuar el nivel tres
+129|Continuar el nivel cuatro
+130|Continuar el viaje
+131|Empezar
+132|La tierra de los buscadores del saber
+133|Empezar de nuevo
+134|Privacidad
+135|Acerca del juego
+136|Probar el nivel dos
+137|Probar el nivel tres
+138|Probar el nivel cuatro
+139|Nivel uno completado
+140|Nivel dos completado
+141|Nivel tres completado
+142|Las puertas del Fiqh, la Sira y el Hadiz están abiertas. Ahora, el nivel dos: callejones de mármol decorados con incrustaciones árabes y preguntas un poco más difíciles.
+143|Las puertas del Fiqh, la Sira y el Hadiz están abiertas. Ahora, el nivel tres: la Ciudadela de Damasco. Camina entre sus altas murallas hasta llegar a la gran ciudadela.
+144|Las puertas del Fiqh, la Sira y el Hadiz están abiertas. Ahora, el nivel cuatro: los amplios zocos de Damasco, con tiendas llenas y guardias en sus puertas, y preguntas del libro «Riyad as-Salihin».
+145|Entrar al nivel dos
+146|Entrar al nivel tres
+147|Entrar al nivel cuatro
+148|Completaste el Camino del saber islámico
+149|Recorriste los callejones de Damasco, los callejones de mármol, las murallas de la Ciudadela y los zocos, y abriste todas las puertas.
+150|Jugar otra vez
+151|La casa está terminada, ¡masha'Allah!
+152|Siguiente parte:
+153|{a} de {b} partes
+154|Casa del Saber
+155|Casa terminada
+156|{a} de {b}
+157|Barrio de {c}
+158|Barrios
+159|tú
+160|¡Construye tu casa en este jardín!
+161|Cada callejón que terminas en el juego construye una parte de tu casa, hasta completarla con {n} partes. Inicia sesión desde el menú principal para construir tu casa.
+162|Tu barrio:
+163|Aún sin elegir
+164|Cargando el barrio de {c}…
+165|{n} casa
+166|{n} casas
+167|{n} terminadas
+168|Construyendo ahora:
+169|Los obreros están preparando las piedras…
+170|Construyendo… {n} %
+171|¡Mabruk!
+172|Se construyó la etapa {n} de tu casa
+173|Parte {a} de {b}
+174|Desliza para recorrer · pellizca para acercar y girar · toca una casa
+175|Buscar a un amigo
+176|El jardín necesita conexión con el servidor del juego. Revisa Internet e inténtalo de nuevo.
+177|No se pudo cargar el jardín ahora.
+178|Cerrar
+179|Tu casa
+180|Ir a mi casa
+181|Cambiar
+182|Elige tu país
+183|No se pudieron cargar las casas de este barrio.
+184|Cada país es un barrio del jardín. Elige uno para recorrerlo.
+185|Aún no hay barrios.
+186|Buscar la casa de un amigo
+187|Buscar
+188|Escribe su correo completo. Los correos nunca se muestran, solo el nombre y la casa.
+189|Quien conozca mi correo puede encontrar mi casa
+190|No hay ninguna casa con este correo. Quizá aún no empezó a jugar, o la ocultó de la búsqueda.
+191|Visitar su casa
+192|Aún no ha elegido país.
+193|No se pudo buscar. Inténtalo en un momento.
+194|¿De qué país eres?
+195|Cambiar de barrio
+196|Tu casa se construye en el barrio de tu país, junto a los buscadores del saber de tu país.
+197|Buscar un país
+198|Más tarde
+199|Cancelar
+200|No se pudo guardar, inténtalo de nuevo
+201|Los obreros están construyendo tu casa
+202|¡Masha'Allah! Tu casa en la tierra de los buscadores del saber está terminada.
+203|Inicia sesión desde el menú principal para guardar tu casa y mostrarla en el jardín.
+204|Continuar el viaje
+205|Visitar el jardín
+206|Saltar
+207|Inicia sesión para guardar tu casa
+208|Tu cuenta y todos sus datos se eliminarán para siempre: correo, nombre, puntos, progreso y tu casa en la tierra de los buscadores del saber. No se puede deshacer.
+209|Eliminar mi cuenta para siempre
+210|Eliminando…
+211|Tu cuenta ha sido eliminada
+212|Que Allah haga provechoso lo que aprendiste.
+213|No se pudo eliminar ahora. Revisa Internet e inténtalo de nuevo.
+214|Versión de prueba
+215|Las casas del jardín son ejemplos
+216|Cimientos
+217|Baldosas bicolores
+218|Primer muro
+219|Muros
+220|Ventanas
+221|Puerta damascena
+222|Tejado
+223|Cúpula
+224|Fuente
+225|Jazmín
+226|Farol
+227|Letrero «Casa del Saber»
+228|Arabia Saudita
+229|Emiratos Árabes Unidos
+230|Kuwait
+231|Catar
+232|Baréin
+233|Omán
+234|Yemen
+235|Irak
+236|Siria
+237|Jordania
+238|Líbano
+239|Palestina
+240|Egipto
+241|Sudán
+242|Libia
+243|Túnez
+244|Argelia
+245|Marruecos
+246|Mauritania
+247|Somalia
+248|Yibuti
+249|Comoras
+250|Turquía
+251|Irán
+252|Pakistán
+253|Afganistán
+254|India
+255|Bangladés
+256|Indonesia
+257|Malasia
+258|Nigeria
+259|Senegal
+260|Malí
+261|Níger
+262|Chad
+263|Azerbaiyán
+264|Uzbekistán
+265|Kazajistán
+266|Bosnia
+267|Albania
+268|Reino Unido
+269|Francia
+270|Alemania
+271|Países Bajos
+272|Bélgica
+273|Suecia
+274|Noruega
+275|Dinamarca
+276|Italia
+277|España
+278|Austria
+279|Suiza
+280|Rusia
+281|Estados Unidos
+282|Canadá
+283|Brasil
+284|Australia
+285|Sudáfrica
+286|¿Cinco cosas sobre las que se construye el islam, la primera las dos declaraciones de fe?
+287|Los pilares del islam
+288|Los pilares de la fe
+289|Las condiciones de la oración
+290|Los grados de la religión
+291|¿Cuántos pilares de la fe hay?
+292|Seis
+293|Cinco
+294|Siete
+295|Cuatro
+296|La fe en Allah
+297|en Sus ángeles
+298|en Sus libros
+299|en Sus mensajeros
+300|en el Último Día
+301|en el decreto, su bien y su mal
+302|¿Cuántos son?
+303|¿Qué profeta fue tragado por la ballena?
+304|Yunus (Jonás)
+305|Ayub (Job)
+306|Yusuf (José)
+307|Ilyas (Elías)
+308|¿El amigo íntimo del Misericordioso, que levantó los cimientos de la Kaaba?
+309|Ibrahim (Abraham)
+310|Nuh (Noé)
+311|Ishaq (Isaac)
+312|Adán
+313|¿La sura más larga del Corán?
+314|Al-Baqara
+315|Al Imran
+316|An-Nisa
+317|Al-A'raf
+318|¿Qué sura equivale a un tercio del Corán?
+319|Al-Ijlas
+320|Al-Kawzar
+321|Al-Falaq
+322|Al-Asr
+323|¿Cuántas suras tiene el Corán?
+324|114
+325|110
+326|120
+327|99
+328|¿La primera alquibla de los musulmanes?
+329|La mezquita de Al-Aqsa
+330|La mezquita del Profeta
+331|La mezquita de Quba
+332|La Mezquita Sagrada (La Meca)
+333|¿Cuántas oraciones obligatorias hay al día?
+334|Cinco
+335|Tres
+336|Cuatro
+337|Seis
+338|¿En qué mes ayunan los musulmanes?
+339|Ramadán
+340|Shaabán
+341|Rayab
+342|Shawwal
+343|¿Qué profeta construyó el arca por orden de Allah?
+344|Hud
+345|Salih
+346|Lut (Lot)
+347|¿El padre de la humanidad y el primero de los profetas?
+348|Idris
+349|¿Qué profeta fue arrojado a un pozo de niño?
+350|Yaqub (Jacob)
+351|Ismail (Ismael)
+352|¿El sello de los profetas y mensajeros?
+353|Muhammad ﷺ
+354|Isa (Jesús)
+355|Musa (Moisés)
+356|¿La alquibla de los musulmanes en la oración hoy?
+357|La Kaaba
+358|El monte Arafat
+359|¿La primera sura del Mus'haf?
+360|Al-Fatiha
+361|An-Nas
+362|¿Cuántas aleyas tiene la sura Al-Fatiha?
+363|Siete
+364|Ocho
+365|¿La aleya más larga del Corán?
+366|La aleya de la deuda
+367|Ayat al-Kursi
+368|La aleya de la luz
+369|La aleya de la ablución
+370|¿Qué sura tiene dos postraciones de recitación?
+371|Al-Hayy
+372|Maryam
+373|An-Nahl
+374|¿Qué profeta fue enviado al pueblo de Ad?
+375|Shuaib
+376|¿Qué profeta tuvo como milagro la camella y fue enviado a Zamud?
+377|¿Qué profeta fue enviado al pueblo de Madián?
+378|¿El ángel encargado de la revelación?
+379|Yibril (Gabriel)
+380|Mikail (Miguel)
+381|Israfil
+382|Malik
+383|¿El guardián del Fuego?
+384|Ridwan
+385|¿Qué sura menciona dos veces la Basmala?
+386|An-Naml
+387|At-Tawba
+388|¿Quién reunió por primera vez el Corán en un volumen tras la batalla de Yamama?
+389|Abu Bakr as-Siddiq
+390|Umar ibn al-Jattab
+391|Ali ibn Abi Talib
+392|Muawiya ibn Abi Sufián
+393|¿Quién copió el Mus'haf en una sola lectura y lo envió a las provincias?
+394|Uzmán ibn Affán
+395|¿Cuántos yuz (partes) tiene el Corán?
+396|Treinta
+397|Sesenta
+398|Veinte
+399|Cuarenta
+400|¿Qué sura empieza «Bendito sea Aquel en cuya mano está el dominio»?
+401|Al-Mulk
+402|Al-Furqán
+403|Al-Waqia
+404|Ya-Sin
+405|¿El profeta más mencionado por su nombre en el Corán?
+406|¿Quién construyó la mezquita de los Omeyas en Damasco?
+407|Al-Walid ibn Abd al-Malik
+408|Umar ibn Abd al-Aziz
+409|Hisham ibn Abd al-Malik
+410|¿El primer califa del Estado omeya?
+411|Yazid ibn Muawiya
+412|Marwán ibn al-Hakam
+413|Abd al-Malik ibn Marwán
+414|¿La capital del Estado omeya?
+415|Damasco
+416|Bagdad
+417|El Cairo
+418|Kufa
+419|¿La ciudad que Abu Yafar al-Mansur construyó como capital abasí?
+420|Samarra
+421|Basora
+422|¿El califa llamado el quinto califa bien guiado?
+423|Harún al-Rashid
+424|Al-Mamún
+425|¿El líder que liberó Jerusalén de los cruzados?
+426|Saladino (Salah ad-Din al-Ayyubi)
+427|Nur ad-Din Zengi
+428|Az-Zahir Baibars
+429|Saif ad-Din Qutuz
+430|¿La batalla que ganó Saladino antes de liberar Jerusalén?
+431|Hattin
+432|Ain Yalut
+433|Yarmuk
+434|Qadisiya
+435|¿En qué ciudad está enterrado Saladino?
+436|Jerusalén
+437|Alepo
+438|¿La batalla en Palestina donde fueron derrotados los mongoles?
+439|Manzikert
+440|Zalaca (Sagrajas)
+441|¿La batalla decisiva de la conquista del Levante?
+442|Nahavand
+443|Muta
+444|¿La batalla decisiva contra los persas en Irak?
+445|Aynadayn
+446|Dhat as-Salasil
+447|¿El comandante que conquistó Egipto?
+448|Amr ibn al-As
+449|Jalid ibn al-Walid
+450|Saad ibn Abi Waqqas
+451|Abu Ubaida ibn al-Yarrah
+452|¿El comandante que cruzó el mar y conquistó Al-Ándalus?
+453|Tariq ibn Ziyad
+454|Musa ibn Nusair
+455|Uqba ibn Nafi
+456|Abderramán al-Dajil
+457|¿«Riyad as-Salihin» fue escrito por el imam…?
+458|Yahya ibn Sharaf an-Nawawi
+459|Ibn Kazir
+460|Ibn al-Qayyim
+461|Ibn Rayab al-Hanbali
+462|¿El primer capítulo de «Riyad as-Salihin»?
+463|La sinceridad y la intención
+464|El arrepentimiento
+465|La paciencia
+466|La veracidad
+467|¿El capítulo que sigue al de la sinceridad en «Riyad as-Salihin»?
+468|La vigilancia de Allah
+469|La certeza
+470|¿El primer hadiz de «Riyad as-Salihin»?
+471|Las obras son según las intenciones
+472|La religión es el buen consejo
+473|El islam se construye sobre cinco
+474|No te enfades
+475|¿Cuántos hadices tiene aproximadamente «Riyad as-Salihin»?
+476|Unos 1.900 hadices
+477|Unos 500 hadices
+478|Unos 4.000 hadices
+479|Unos 7.000 hadices
+480|¿El imam an-Nawawi debe su nombre a la ciudad de Nawa, en…?
+481|Hauran, Siria
+482|El Hiyaz
+483|¿Dónde está enterrado el imam an-Nawawi?
+484|Nawa
+485|La Meca
+486|¿A cuántos cobijará Allah bajo Su sombra el Día en que no habrá otra sombra que la Suya?
+487|Tres
+488|Diez
+489|¿Los tres atrapados en la cueva por la roca se salvaron con…?
+490|Invocar a Allah por sus buenas obras
+491|Gritar hasta que la gente los oyó
+492|Cavar un camino en la montaña
+493|Esperar la lluvia
+494|¿El hombre que se arrepintió, en el hadiz de «Riyad as-Salihin», había matado a…?
+495|Cien personas
+496|Nueve personas
+497|Veinte personas
+498|Mil personas
+499|«Un hombre caminaba por un camino y le entró mucha sed…» ¿Allah lo perdonó porque dio de beber a…?
+500|un perro
+501|un gato
+502|una camella
+503|un pájaro
+504|¿La historia «del muchacho, el mago, el monje y el rey» es la historia de…?
+505|la gente del foso
+506|la gente de la cueva
+507|la gente del elefante
+508|la gente de Ar-Rass
+509|«Dos palabras ligeras en la lengua, pesadas en la balanza…» ¿Cuáles son?
+510|Subhana Allahi wa bihamdihi, Subhana Allahi l-Azim
+511|Al-hamdu lillah y Allahu akbar
+512|La ilaha illa Allah y Allahu akbar
+513|Astaghfirullah wa atubu ilaih
+514|«El sensato es quien se pide cuentas a sí mismo y obra para lo que viene después de …»
+515|la muerte
+516|la oración
+517|el sustento
+518|mañana
+519|«¡Qué admirable es el asunto del creyente! Todo su asunto es …»
+520|un bien
+521|paciencia
+522|gratitud
+523|prueba
+524|«Quien reza las dos oraciones frescas entra en el Paraíso»: ¿cuáles son?
+525|Fayr y Asr
+526|Duhr y Asr
+527|Magrib e Isha
+528|Fayr e Isha
+529|«Si no fuera difícil para mi comunidad, les habría ordenado usar …» en cada oración
+530|el siwak
+531|la ablución
+532|la oración nocturna
+533|la caridad
+534|«El siwak purifica la boca y complace a …»
+535|el Señor
+536|los ángeles
+537|el alma
+538|la gente
+539|«Quien ayuna Ramadán y luego le sigue … días de Shawwal, es como si ayunara toda la vida»
+540|seis
+541|tres
+542|diez
+543|siete
+544|¿El Profeta ﷺ nos mandó buscar la Noche del Decreto…?
+545|En las noches impares de los últimos diez días de Ramadán
+546|La primera noche de Ramadán
+547|La noche de mitad de Ramadán
+548|Las noches pares de los diez primeros días
+549|«Cuando uno de vosotros entre en la mezquita, que no se siente hasta rezar …»
+550|dos rakas
+551|una raka
+552|cuatro rakas
+553|tres rakas
+554|«Las cinco oraciones, de viernes a viernes y de Ramadán a Ramadán, borran lo que hay entre ellos mientras se eviten …»
+555|los pecados mayores
+556|los pecados menores
+557|las indecencias manifiestas
+558|todos los pecados
+559|«Quien reza de noche en Ramadán con fe y esperando la recompensa, se le perdona …»
+560|sus pecados pasados
+561|los pecados de un año
+562|sus pecados menores
+563|los pecados de su día
+564|«La caridad nunca disminuye …»
+565|la riqueza
+566|la recompensa
+567|la vida
+568|el sustento
+569|Alguien terminó su oración por error antes de completarla y se acordó poco después. ¿Qué hace?
+570|Completa la oración y hace la postración del olvido
+571|Repite toda la oración
+572|No tiene que hacer nada
+573|Solo hace la postración del olvido
+574|Expiación del juramento: alimentar a diez pobres, vestirlos o …
+575|liberar a un esclavo
+576|ayunar dos meses
+577|sacrificar una oveja
+578|el zakat al-fitr
+579|¿Quien no puede pagar la expiación del juramento ayuna…?
+580|Tres días
+581|Dos meses seguidos
+582|Diez días
+583|Un día
+584|¿El nisab del zakat de la plata en dírhams?
+585|200 dírhams
+586|100 dírhams
+587|20 dírhams
+588|40 dírhams
+589|¿Los días de Tashriq son…?
+590|11, 12 y 13 de Dhul-Hiyya
+591|8, 9 y 10 de Dhul-Hiyya
+592|1, 2 y 3 de Shawwal
+593|10, 11 y 12 de Muharram
+594|¿El número necesario para el viernes según los shafiíes y hanbalíes?
+595|Doce
+596|¿El estatus de recitar Al-Fatiha en la oración según la mayoría?
+597|Un pilar
+598|Sunna
+599|Recomendable
+600|Desaconsejable
+601|¿El agua pura en sí misma y que purifica otras cosas?
+602|El agua purificadora (tahur)
+603|El agua pura
+604|El agua usada
+605|El agua impura
+606|¿Cuántas rakas reza el viajero en el Duhr acortado?
+607|Dos
+608|Una
+609|No se acorta
+610|¿Cuál de estas oraciones no se acorta en el viaje?
+611|El Duhr
+612|El Isha
+613|¿Omitir un acto obligatorio del Hayy se compensa con…?
+614|Repetir el Hayy
+615|Ayunar un día
+616|Dar un dírham
+617|¿El miqat de la gente del Levante para el ihram?
+618|Al-Yuhfa
+619|Dhul-Hulaifa
+620|Qarn al-Manazil
+621|Yalamlam
+622|¿El miqat de la gente de Medina para el ihram?
+623|Dhat Irq
+624|¿El estatus de la oración del eclipse según la mayoría?
+625|Sunna recalcada
+626|Obligación individual
+627|Obligación colectiva
+628|¿El ayuno del día de Arafa, para quien no está en el Hayy, borra…?
+629|Dos años
+630|Un año
+631|Un mes
+632|Tres años
+633|¿El ayuno del día de Ashura borra…?
+634|El año pasado
+635|¿Qué anula el tayammum si aún no se ha rezado?
+636|Encontrar agua
+637|La salida del sol
+638|Caminar
+639|Hablar
+640|¿Una oración sin inclinación ni postración?
+641|La oración fúnebre
+642|La oración del eclipse
+643|La oración por la lluvia
+644|La oración del Duha
+645|¿Cuántos takbir tiene la oración fúnebre?
+646|¿El zakat de los cultivos regados por la lluvia?
+647|Un décimo
+648|Un vigésimo
+649|Un cuarentavo
+650|Un quinto
+651|¿El número mínimo para la oración en congregación?
+652|Dos
+653|¿Una postración que repara una falta o un exceso en la oración?
+654|La postración del olvido
+655|La postración de la recitación
+656|La postración de agradecimiento
+657|La postración de súplica
+658|¿Cuánto tiempo puede el viajero pasar la mano sobre los botines?
+659|Tres días con sus noches
+660|Un día y una noche
+661|Una semana
+662|Dos días
+663|¿Cuántas rakas tiene la oración del Eid?
+664|¿El estatus de la oración del viernes para el hombre residente?
+665|¿El nisab del zakat de los camellos?
+666|Diez
+667|¿El nisab del zakat de las ovejas?
+668|¿Cómo se llama el primer tawaf al llegar a La Meca para el Hayy?
+669|Tawaf al-Qudum (llegada)
+670|Tawaf al-Ifada
+671|Tawaf al-Wada (despedida)
+672|Tawaf az-Ziyara
+673|¿Cuántas rakas tiene la oración del Magrib?
+674|Dos
+675|¿El estatus de la oración del Witr según la mayoría de los sabios?
+676|Permitida
+677|¿El nisab aproximado del zakat del oro?
+678|85 gramos
+679|20 gramos
+680|595 gramos
+681|100 gramos
+682|¿La tasa del zakat sobre los bienes?
+683|¿Qué hace quien no tiene agua para purificarse?
+684|Hace el tayammum
+685|Pasa la mano sobre los botines
+686|Retrasa la oración
+687|Deja la oración
+688|¿Cuánto tiempo puede el residente pasar la mano sobre los botines?
+689|Una oración
+690|¿El zakat al-fitr se da antes de…?
+691|La oración del Eid
+692|La oración del Tarawih
+693|La Noche del Decreto
+694|El comienzo de Ramadán
+695|¿Cuántas rakas tiene la oración del Fayr?
+696|¿Qué es sunna decir antes de comer?
+697|Bismillah
+698|Al-hamdu lillah
+699|Subhana Allah
+700|Astaghfirullah
+701|¿Qué zakat se da al final de Ramadán?
+702|El zakat al-fitr
+703|El zakat de los bienes
+704|El zakat del oro
+705|El zakat de las cosechas
+706|¿Cuál de estos es un pilar del Hayy?
+707|La permanencia en Arafa
+708|Pernoctar en Mina
+709|Apedrear los pilares
+710|¿Con qué se entra en la oración?
+711|Allahu akbar
+712|La ilaha illa Allah
+713|¿El compañero con la larga historia de arrepentimiento tras quedarse atrás en Tabuk?
+714|Kaab ibn Malik
+715|Hatib ibn Abi Baltaa
+716|Zaalaba ibn Hatib
+717|Malik ibn ad-Dujshum
+718|¿Cuántas noches evitó la gente a los tres que se quedaron atrás en Tabuk?
+719|Cincuenta noches
+720|Diez noches
+721|Treinta noches
+722|Cien noches
+723|¿A quién dijo el Profeta ﷺ «Por Allah, te quiero» y le enseñó una súplica tras cada oración?
+724|Muadh ibn Yabal
+725|Abu Huraira
+726|Anas ibn Malik
+727|Bilal ibn Rabah
+728|¿El compañero al que el Profeta ﷺ dijo «Muchacho, te enseñaré unas palabras: guarda a Allah y Él te guardará»?
+729|Abdallah ibn Abbas
+730|Usama ibn Zaid
+731|Abdallah ibn Umar
+732|¿El devoto contra quien rogó su madre, que fue probado y luego absuelto por las palabras de un bebé?
+733|Yurayy
+734|Barsisa
+735|Balam
+736|Yusha (Josué)
+737|En el hadiz de la gente de la cueva, ¿cuántos eran?
+738|En el hadiz del que mató a cien, ¿a dónde le dijo el sabio que fuera para arrepentirse?
+739|A una tierra con gente piadosa
+740|A La Meca
+741|A una montaña lejana
+742|Al mar
+743|¿El muchacho de la historia del foso murió cuando el rey dijo, al dispararle…?
+744|En el nombre de Allah, Señor del muchacho
+745|En el nombre del rey
+746|¿Qué expedición fue llamada la expedición de la dificultad?
+747|Tabuk
+748|La Trinchera
+749|Hunain
+750|Taif
+751|¿El compañero llamado el amado del Mensajero de Allah e hijo de su amado?
+752|Zaid ibn Hariza
+753|¿El primero en recitar el Corán en voz alta en La Meca?
+754|Abdallah ibn Masud
+755|Hamza ibn Abd al-Muttalib
+756|¿En qué año de la Hégira falleció el Profeta ﷺ?
+757|El undécimo
+758|El décimo
+759|El duodécimo
+760|El noveno
+761|¿El juramento hecho bajo el árbol en Hudaibiya?
+762|El juramento de Ridwan
+763|El primer juramento de Aqaba
+764|El segundo juramento de Aqaba
+765|El juramento de la Saqifa
+766|¿El compañero que vio el adhan en un sueño?
+767|Abdallah ibn Zaid
+768|Abu Mahdhura
+769|¿La primera mártir del islam?
+770|Sumayya bint Jayyat
+771|Jadiya bint Juwailid
+772|Umm Umara
+773|Asma bint Abi Bakr
+774|¿El escriba del tratado de Hudaibiya?
+775|Zaid ibn Zabit
+776|¿En qué año de la Hégira fue la batalla de Badr?
+777|El segundo
+778|El primero
+779|El tercero
+780|El quinto
+781|¿En qué año de la Hégira fue la batalla de la Trinchera?
+782|El cuarto
+783|El sexto
+784|¿El abanderado de los musulmanes en Uhud que murió mártir?
+785|Musab ibn Umair
+786|Saad ibn Muadh
+787|Yafar ibn Abi Talib
+788|¿El primer comandante de los musulmanes en la batalla de Muta?
+789|Abdallah ibn Rawaha
+790|¿El compañero cuya muerte estremeció el Trono del Misericordioso?
+791|¿El guía del Profeta ﷺ en el camino de la Hégira?
+792|Abdallah ibn Uraiqit
+793|Amir ibn Fuhaira
+794|Abdallah ibn Abi Bakr
+795|Suraqa ibn Malik
+796|¿Quién persiguió al Profeta ﷺ en la Hégira hasta que las patas de su caballo se hundieron?
+797|Abu Yahl
+798|Umayya ibn Jalaf
+799|¿Cuántos musulmanes había aproximadamente en Badr?
+800|Trescientos y pico
+801|Mil
+802|Setecientos
+803|Cien
+804|¿Quién aconsejó al Profeta ﷺ cavar la trinchera?
+805|Salmán al-Farsi
+806|¿Un tratado con Quraish en el sexto año de la Hégira?
+807|El tratado de Hudaibiya
+808|El juramento de Aqaba
+809|La alianza de los virtuosos
+810|El tratado de Ramla
+811|¿El primer embajador del islam, enviado a Medina?
+812|¿El tío del Profeta ﷺ llamado el señor de los mártires?
+813|Al-Abbas ibn Abd al-Muttalib
+814|Abu Talib
+815|Az-Zubair ibn Abd al-Muttalib
+816|¿En qué año de la Hégira fue la conquista de La Meca?
+817|El octavo
+818|¿Dónde está enterrado el Profeta ﷺ?
+819|La habitación de Aisha
+820|Al-Baqi
+821|El monte Uhud
+822|¿El primer niño nacido entre los emigrantes en Medina?
+823|Abdallah ibn az-Zubair
+824|Al-Hasan ibn Ali
+825|¿A dónde fue la primera emigración de los musulmanes?
+826|Abisinia
+827|Medina
+828|Taif
+829|¿El rey de Abisinia que acogió a los musulmanes?
+830|El Negus (an-Nayashi)
+831|Heraclio
+832|Cosroes
+833|Al-Muqauqis
+834|¿La última expedición en la que salió el Profeta ﷺ?
+835|La conquista de La Meca
+836|La batalla de Muta
+837|¿Qué edad tenía el Profeta ﷺ cuando recibió la misión profética?
+838|Cuarenta años
+839|Treinta años
+840|Veinticinco años
+841|Cincuenta años
+842|¿El año en que murieron Abu Talib y Jadiya?
+843|El año de la tristeza
+844|El año del elefante
+845|El año de las delegaciones
+846|El año de la ceniza
+847|¿La cueva donde descendió la primera revelación?
+848|La cueva de Hira
+849|La cueva de Zawr
+850|¿La cueva donde se escondió el Profeta ﷺ en la Hégira?
+851|El valle de Abu Talib
+852|¿La primera gran batalla, en Ramadán?
+853|La batalla de Badr
+854|La batalla de Uhud
+855|¿La nodriza del Profeta ﷺ de los Banu Saad?
+856|Halima as-Sadiyya
+857|Umm Aiman
+858|Amina bint Wahb
+859|Fátima bint Asad
+860|¿En qué año nació el Profeta ﷺ?
+861|¿La primera esposa del Profeta ﷺ?
+862|Aisha bint Abi Bakr
+863|Hafsa bint Umar
+864|Sauda bint Zama
+865|¿Cuántos años llamó el Profeta ﷺ al islam en La Meca antes de la Hégira?
+866|13 años
+867|10 años
+868|23 años
+869|8 años
+870|¿Cómo se llamaba la madre del Profeta ﷺ?
+871|¿El abuelo que cuidó al Profeta ﷺ tras su madre?
+872|Abd al-Muttalib
+873|Hashim
+874|Abd Manaf
+875|¿A qué ciudad emigró el Profeta ﷺ?
+876|Medina la Iluminada
+877|¿La batalla en que los arqueros desobedecieron la orden del Profeta ﷺ?
+878|¿El primer niño en abrazar el islam?
+879|Az-Zubair ibn al-Awwam
+880|«La veracidad conduce a …»
+881|la bondad
+882|el Paraíso directamente
+883|el conocimiento
+884|«Deja lo que te hace dudar por …»
+885|lo que no te hace dudar
+886|lo que te gusta
+887|lo que te beneficia
+888|lo que la gente conoce
+889|«Teme a Allah dondequiera que estés, haz que a la mala acción le siga una buena que la borre, y trata a la gente con …»
+890|buen carácter
+891|justicia
+892|indulgencia
+893|sinceridad
+894|«Allah es amable y ama …»
+895|la amabilidad
+896|la paciencia
+897|la justicia
+898|la generosidad
+899|«Las obras más amadas por Allah son las más constantes, aunque sean …»
+900|pocas
+901|difíciles
+902|tardías
+903|ocultas
+904|«Mirad a quien está … que vosotros, y no miréis a quien está por encima»
+905|por debajo
+906|más pobre
+907|más débil
+908|más joven
+909|«Quien guía hacia un bien tiene una recompensa como la de …»
+910|quien lo hace
+911|su maestro
+912|sus padres
+913|su amigo
+914|«Los creyentes de fe más completa son los de mejor …»
+915|carácter
+916|oración
+917|conocimiento
+918|caridad
+919|«No entrará en el Paraíso …», es decir, quien rompe los lazos familiares
+920|quien rompe los lazos
+921|el envidioso
+922|el chismoso
+923|el avaro
+924|«Este mundo es la prisión del creyente y …»
+925|el paraíso del incrédulo
+926|el lugar de la obra
+927|un disfrute engañoso
+928|el paso hacia la otra vida
+929|«Allah no mira vuestra apariencia ni vuestros bienes, sino que mira vuestros …»
+930|corazones y obras
+931|intenciones y palabras
+932|oraciones y ayunos
+933|modales y conocimientos
+934|¿El autor de las «Sunan», uno de los seis libros, de Siyistán?
+935|Abu Dawud
+936|At-Tirmidhi
+937|An-Nasai
+938|Ibn Maya
+939|¿Cómo se llama el hadiz que un tabií atribuye al Profeta ﷺ sin nombrar al compañero?
+940|Mursal
+941|Muttasil
+942|Mawquf
+943|Maqtu
+944|¿El hadiz «Dos palabras ligeras en la lengua…» es el último hadiz de…?
+945|Sahih al-Bujari
+946|Sahih Muslim
+947|Al-Muwatta de Malik
+948|«Guarda a Allah …»
+949|y Él te guardará
+950|y Él estará complacido contigo
+951|y Él te proveerá
+952|y Él te guiará
+953|¿El narrador del hadiz «El islam se construye sobre cinco»?
+954|«Quien emprende un camino buscando conocimiento, Allah le facilita un camino hacia …»
+955|el Paraíso
+956|el bien
+957|la buena guía
+958|la verdad
+959|«El creyente para el creyente es como un edificio, se sostiene …»
+960|unos a otros
+961|a su hermano
+962|su corazón
+963|su mano
+964|«Al creyente no le pica dos veces desde el mismo agujero …»
+965|dos veces
+966|nunca
+967|¿El autor del libro «Al-Muwatta»?
+968|Malik ibn Anas
+969|Ahmad ibn Hanbal
+970|Ash-Shafií
+971|Al-Bujari
+972|¿El autor del famoso «Musnad»?
+973|Abu Hanifa
+974|¿Lo que el Profeta ﷺ narra de su Señor se llama…?
+975|Hadiz qudsi
+976|Hadiz marfu
+977|Hadiz mawquf
+978|Hadiz mursal
+979|¿Un dicho atribuido al propio compañero se llama…?
+980|Marfu
+981|Qudsi
+982|«Protegeos del Fuego aunque sea con media …»
+983|dátil
+984|hogaza
+985|dírham
+986|palabra
+987|«Ayuda a tu hermano, sea opresor u …»
+988|oprimido
+989|despistado
+990|ausente
+991|ignorante
+992|¿El narrador del hadiz «Las obras son según las intenciones»?
+993|Ibn Abbas
+994|¿El compañero que narró más hadices?
+995|Aisha
+996|«La purificación es la mitad de …»
+997|la fe
+998|la religión
+999|la adoración
+1000|«El fuerte es quien se domina en el momento de …»
+1001|la ira
+1002|el hambre
+1003|el miedo
+1004|la alegría
+1005|«Haz que a la mala acción le siga una buena …»
+1006|que la borre
+1007|que la venza
+1008|que la preceda
+1009|que la cubra
+1010|¿El autor de «Riyad as-Salihin»?
+1011|El imam an-Nawawi
+1012|Ibn Hayar al-Asqalani
+1013|Ibn Taimiyya
+1014|Abu Hamid al-Gazali
+1015|«No hay daño ni …»
+1016|daño recíproco
+1017|injusticia
+1018|agresión
+1019|perjuicio
+1020|¿El autor del «Sahih Muslim»?
+1021|Muslim ibn al-Hayyay
+1022|Muslim ibn Aqil
+1023|¿Cuántos hadices tiene «Los cuarenta de an-Nawawi»?
+1024|Cuarenta y dos
+1025|Cincuenta
+1026|«Parte de la excelencia del islam de una persona es dejar lo que no le …»
+1027|concierne
+1028|gusta
+1029|es conocido
+1030|pertenece
+1031|«La bondad es el buen …»
+1032|carácter
+1033|trabajo
+1034|vecindad
+1035|El Profeta ﷺ dijo «No te enfades» a un hombre que le pidió …
+1036|un consejo
+1037|dinero
+1038|una súplica
+1039|un cargo de mando
+1040|«Las obras son según las …»
+1041|intenciones
+1042|acciones
+1043|palabras
+1044|riquezas
+1045|«La religión es …»
+1046|el buen consejo
+1047|el pudor
+1048|«Ninguno de vosotros cree de verdad hasta que ama para su hermano lo que ama para …»
+1049|sí mismo
+1050|su hijo
+1051|su padre
+1052|su vecino
+1053|«Quien cree en Allah y en el Último Día, que diga el bien o …»
+1054|que calle
+1055|que se vaya
+1056|que pida perdón
+1057|que sonría
+1058|«Y la buena palabra es …»
+1059|caridad
+1060|luz
+1061|curación
+1062|una buena obra
+1063|«El musulmán es aquel de cuya lengua y de … están a salvo los musulmanes»
+1064|sus bienes
+1065|¿El libro más auténtico después del Corán para la gente de la Sunna?
+1066|Sunan Abi Dawud
+1067|Musnad Ahmad
+1068|«Los mejores de vosotros son quienes aprenden el Corán y …»
+1069|lo enseñan
+1070|lo memorizan
+1071|lo leen
+1072|lo entienden
+1073|«Allah es bello y ama …»
+1074|la belleza
+1075|la veracidad
+1076|la generosidad al dar
+1077|«El pudor es parte de …»
+1078|los buenos modales
+1079|«Sed misericordiosos con los de la tierra y os tendrá misericordia Quien está en …»
+1080|el cielo
+1081|este mundo
+1082|la otra vida
+1083|«Facilitad y no …»
+1084|dificultéis
+1085|seáis duros
+1086|os enfadéis
+1087|os retraséis

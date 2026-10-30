@@ -1,0 +1,1088 @@
+0|Jalan Ilmu Islam
+1|di lorong-lorong Damaskus
+2|Lorong Damaskus
+3|Pengetahuan umum
+4|Gerbang Fikih
+5|Fikih
+6|Gerbang Sirah Nabawiyah
+7|Sirah Nabawiyah
+8|Gerbang Hadis
+9|Hadis Syarif
+10|Hadis
+11|Riyadhus Shalihin
+12|Mesin grafis gagal dimuat. Periksa koneksi internet, lalu buka ulang halaman.
+13|Manisan
+14|Rempah
+15|Sayur & buah
+16|Tukang daging
+17|Tukang cukur
+18|Benteng
+19|Masjid
+20|Pemain
+21|Alun-alun Benteng
+22|Halaman rumah
+23|Pilih gerbang
+24|Tembok Benteng
+25|Pasar Damaskus
+26|Memuat soal…
+27|Memuat permainan…
+28|Soal gagal dimuat
+29|Periksa koneksi internet, lalu coba lagi.
+30|Coba lagi
+31|Level Satu
+32|Level Dua
+33|Level Tiga
+34|Level Empat
+35|Tahap Satu
+36|Tahap Dua
+37|Tahap Tiga
+38|Tahap Empat
+39|Bagus sekali
+40|Kamu tiba di Benteng
+41|Kamu tiba di Masjid
+42|Tembok terakhir
+43|Periksa koneksi
+44|Silakan, semoga Allah memberkahimu
+45|Ulang lorong
+46|Ini tembok terakhir. Jawab untuk merobohkannya
+47|Berhenti! Jawab untuk lewat
+48|Luar biasa!
+49|Tiga gerbang berturut-turut
+50|Assalamu'alaikum
+51|Wa'alaikumussalam
+52|Geser di mana saja
+53|untuk berjalan
+54|Hapus dua jawaban
+55|Jeda
+56|Suara
+57|Lompat
+58|Lanjutkan
+59|Ulang lorong ini dari awal
+60|Matikan suara
+61|Nyalakan suara
+62|Menu utama
+63|Akun baru
+64|Masuk
+65|Namamu di papan peringkat
+66|Email
+67|Kata sandi
+68|Buat akun
+69|Masuk
+70|Saya punya akun, masuk
+71|Saya belum punya akun, buat akun
+72|Masuk dengan kode email (tanpa kata sandi)
+73|Lupa kata sandi
+74|Kembali
+75|Kami telah mengirim tautan ganti kata sandi ke emailmu.
+76|Gagal mengirim. Periksa email dan coba lagi nanti.
+77|Tulis emailmu dulu, lalu ketuk «Lupa kata sandi».
+78|Sebentar…
+79|Email ini sudah terdaftar, mungkin di aplikasi kami yang lain. Ketuk «Masuk dengan kode email» di bawah, atau gunakan email lain.
+80|Kamu belum mengonfirmasi emailmu.
+81|Email atau kata sandi salah.
+82|Email ini sudah terdaftar. Silakan masuk.
+83|Kata sandi terlalu pendek. Gunakan minimal 6 karakter.
+84|Gagal menyelesaikan:
+85|Masuk dengan kode
+86|Kami mengirim kode angka ke emailmu. Tulis di sini untuk masuk.
+87|Kode
+88|Kirim kode
+89|Tulis kode lengkap seperti yang kamu terima.
+90|Mengirim…
+91|Kode terkirim. Periksa kotak masuk dan folder Spam.
+92|Tunggu satu menit, lalu coba lagi.
+93|Kode salah atau sudah kedaluwarsa.
+94|Gagal mengirim:
+95|Konfirmasi emailmu
+96|Kami mengirim pesan ke
+97|. Jika berisi kode angka, tulis di sini. Jika berisi tautan, ketuk tautannya, kembali, lalu ketuk «Sudah saya konfirmasi».
+98|Kode konfirmasi
+99|Konfirmasi
+100|Sudah saya konfirmasi, masukkan saya
+101|Tidak menerima? Kirim ulang
+102|Periksa folder Spam.
+103|Kode salah atau sudah kedaluwarsa. Minta kode baru.
+104|Email belum dikonfirmasi. Ketuk tautan di pesan terlebih dahulu.
+105|Gagal masuk. Coba lagi.
+106|Sudah dikirim ulang. Tunggu satu menit dan periksa kotak masuk serta Spam.
+107|Tunggu satu menit sebelum meminta pesan baru.
+108|Papan peringkat
+109|Memuat…
+110|Belum ada pemain. Jadilah yang pertama!
+111|Papan peringkat gagal dimuat.
+112|Buat akun agar kemajuanmu tersimpan di perangkat mana pun dan kamu muncul di papan peringkat.
+113|Buat akun
+114|Masuk dengan kode email
+115|Main tanpa akun
+116|Koneksi gagal
+117|Kami tidak dapat menghubungi server permainan. Periksa internet, lalu buka ulang halaman.
+118|Coba lagi
+119|Berjalanlah di lorong-lorong tua Damaskus, kumpulkan koin emas, dan lompati tong-tong. Setiap pintu terbuka dengan jawaban benar, dan tembok batu di ujung setiap lorong runtuh dengan jawaban terakhir.
+120|Geser di mana saja untuk berjalan
+121|Tombol lompat untuk melompat
+122|Masuk sebagai
+123|Keluar
+124|Hapus akun
+125|Kemajuanmu hanya tersimpan di perangkat ini.
+126|Masuk untuk menyimpannya
+127|Lanjutkan Level Dua
+128|Lanjutkan Level Tiga
+129|Lanjutkan Level Empat
+130|Lanjutkan perjalanan
+131|Mulai
+132|Negeri Para Penuntut Ilmu
+133|Mulai dari awal
+134|Privasi
+135|Tentang
+136|Coba Level Dua
+137|Coba Level Tiga
+138|Coba Level Empat
+139|Level Satu selesai
+140|Level Dua selesai
+141|Level Tiga selesai
+142|Gerbang Fikih, Sirah, dan Hadis telah terbuka. Selanjutnya Level Dua: lorong-lorong marmer berhias tatahan Arab, dengan soal yang sedikit lebih sulit.
+143|Gerbang Fikih, Sirah, dan Hadis telah terbuka. Selanjutnya Level Tiga: Benteng Damaskus. Berjalanlah di antara temboknya yang tinggi hingga tiba di benteng besar.
+144|Gerbang Fikih, Sirah, dan Hadis telah terbuka. Selanjutnya Level Empat: pasar-pasar Damaskus yang luas, toko-tokonya ramai dan dijaga di pintunya, dengan soal dari kitab «Riyadhus Shalihin».
+145|Masuk Level Dua
+146|Masuk Level Tiga
+147|Masuk Level Empat
+148|Kamu telah menuntaskan Jalan Ilmu Islam
+149|Kamu telah melewati lorong Damaskus, lorong marmer, tembok Benteng, dan pasar-pasar, serta membuka semua gerbang.
+150|Main lagi
+151|Rumahnya sudah jadi, masya Allah!
+152|Bagian berikutnya:
+153|{a} dari {b} bagian
+154|Rumah Ilmu
+155|Rumah selesai
+156|{a} dari {b}
+157|Kampung {c}
+158|Kampung
+159|kamu
+160|Bangun rumahmu di taman ini!
+161|Setiap lorong yang kamu selesaikan dalam permainan membangun satu bagian rumahmu, hingga lengkap dengan {n} bagian. Masuk dari menu utama untuk membangun rumahmu.
+162|Kampungmu:
+163|Belum dipilih
+164|Memuat kampung {c}…
+165|{n} rumah
+166|{n} rumah
+167|{n} selesai
+168|Sedang membangun:
+169|Para tukang sedang menyiapkan batu…
+170|Membangun… {n}%
+171|Selamat!
+172|Tahap {n} rumahmu telah dibangun
+173|Bagian {a} dari {b}
+174|Geser untuk menjelajah · cubit untuk zoom dan putar · ketuk sebuah rumah
+175|Cari teman
+176|Taman memerlukan koneksi ke server permainan. Periksa internet dan coba lagi.
+177|Taman gagal dimuat saat ini.
+178|Tutup
+179|Rumahmu
+180|Ke rumahku
+181|Ubah
+182|Pilih negaramu
+183|Rumah di kampung ini gagal dimuat.
+184|Setiap negara adalah satu kampung di taman. Pilih satu untuk dijelajahi.
+185|Belum ada kampung.
+186|Cari rumah teman
+187|Cari
+188|Tulis email lengkapnya. Email tidak pernah ditampilkan, hanya nama dan rumah.
+189|Orang yang tahu emailku bisa menemukan rumahku
+190|Tidak ada rumah dengan email ini. Mungkin dia belum mulai bermain, atau menyembunyikan rumahnya dari pencarian.
+191|Kunjungi rumahnya
+192|Dia belum memilih negara.
+193|Pencarian gagal. Coba lagi sebentar lagi.
+194|Kamu dari negara mana?
+195|Ganti kampungmu
+196|Rumahmu dibangun di kampung negaramu, bersebelahan dengan para penuntut ilmu dari negaramu.
+197|Cari negara
+198|Nanti
+199|Batal
+200|Gagal menyimpan, coba lagi
+201|Para tukang sedang membangun rumahmu
+202|Masya Allah! Rumahmu di Negeri Para Penuntut Ilmu sudah lengkap.
+203|Masuk dari menu utama agar rumahmu tersimpan dan tampil di taman.
+204|Lanjutkan perjalanan
+205|Kunjungi taman
+206|Lewati
+207|Masuk agar rumahmu tersimpan
+208|Akunmu dan semua datanya akan dihapus permanen: email, nama, poin, kemajuan, dan rumahmu di Negeri Para Penuntut Ilmu. Tindakan ini tidak bisa dibatalkan.
+209|Hapus akunku permanen
+210|Menghapus…
+211|Akunmu telah dihapus
+212|Semoga Allah menjadikan ilmu yang kamu pelajari bermanfaat.
+213|Gagal menghapus sekarang. Periksa internet dan coba lagi.
+214|Versi pratinjau
+215|Rumah di taman adalah contoh
+216|Fondasi
+217|Ubin dua warna
+218|Dinding pertama
+219|Dinding
+220|Jendela
+221|Pintu Damaskus
+222|Atap
+223|Kubah
+224|Air mancur
+225|Pohon melati
+226|Lentera
+227|Papan «Rumah Ilmu»
+228|Arab Saudi
+229|Uni Emirat Arab
+230|Kuwait
+231|Qatar
+232|Bahrain
+233|Oman
+234|Yaman
+235|Irak
+236|Suriah
+237|Yordania
+238|Lebanon
+239|Palestina
+240|Mesir
+241|Sudan
+242|Libya
+243|Tunisia
+244|Aljazair
+245|Maroko
+246|Mauritania
+247|Somalia
+248|Djibouti
+249|Komoro
+250|Turki
+251|Iran
+252|Pakistan
+253|Afganistan
+254|India
+255|Bangladesh
+256|Indonesia
+257|Malaysia
+258|Nigeria
+259|Senegal
+260|Mali
+261|Niger
+262|Chad
+263|Azerbaijan
+264|Uzbekistan
+265|Kazakhstan
+266|Bosnia
+267|Albania
+268|Inggris
+269|Prancis
+270|Jerman
+271|Belanda
+272|Belgia
+273|Swedia
+274|Norwegia
+275|Denmark
+276|Italia
+277|Spanyol
+278|Austria
+279|Swiss
+280|Rusia
+281|Amerika Serikat
+282|Kanada
+283|Brasil
+284|Australia
+285|Afrika Selatan
+286|Lima hal yang menjadi dasar Islam, yang pertama dua kalimat syahadat?
+287|Rukun Islam
+288|Rukun Iman
+289|Syarat salat
+290|Tingkatan agama
+291|Berapa jumlah rukun iman?
+292|Enam
+293|Lima
+294|Tujuh
+295|Empat
+296|Iman kepada Allah
+297|malaikat-Nya
+298|kitab-kitab-Nya
+299|rasul-rasul-Nya
+300|hari akhir
+301|takdir baik dan buruk
+302|Ada berapa?
+303|Nabi yang ditelan ikan paus?
+304|Yunus
+305|Ayyub
+306|Yusuf
+307|Ilyas
+308|Kekasih Ar-Rahman yang meninggikan fondasi Ka'bah?
+309|Ibrahim
+310|Nuh
+311|Ishaq
+312|Adam
+313|Surah terpanjang dalam Al-Qur'an?
+314|Al-Baqarah
+315|Ali 'Imran
+316|An-Nisa'
+317|Al-A'raf
+318|Surah yang setara sepertiga Al-Qur'an?
+319|Al-Ikhlas
+320|Al-Kautsar
+321|Al-Falaq
+322|Al-'Ashr
+323|Berapa jumlah surah dalam Al-Qur'an?
+324|114
+325|110
+326|120
+327|99
+328|Kiblat pertama umat Islam?
+329|Masjidil Aqsa
+330|Masjid Nabawi
+331|Masjid Quba
+332|Masjidil Haram
+333|Berapa jumlah salat wajib dalam sehari?
+334|Lima
+335|Tiga
+336|Empat
+337|Enam
+338|Pada bulan apa umat Islam berpuasa?
+339|Ramadan
+340|Sya'ban
+341|Rajab
+342|Syawal
+343|Nabi yang membuat bahtera atas perintah Allah?
+344|Hud
+345|Saleh
+346|Luth
+347|Bapak manusia dan nabi pertama?
+348|Idris
+349|Nabi yang dilempar ke sumur saat kecil?
+350|Ya'qub
+351|Ismail
+352|Penutup para nabi dan rasul?
+353|Muhammad ﷺ
+354|Isa
+355|Musa
+356|Kiblat umat Islam dalam salat hari ini?
+357|Ka'bah
+358|Jabal Arafah
+359|Surah pertama dalam mushaf?
+360|Al-Fatihah
+361|An-Nas
+362|Berapa jumlah ayat surah Al-Fatihah?
+363|Tujuh
+364|Delapan
+365|Ayat terpanjang dalam Al-Qur'an?
+366|Ayat utang-piutang
+367|Ayat Kursi
+368|Ayat Nur
+369|Ayat wudu
+370|Surah yang memiliki dua sujud tilawah?
+371|Al-Hajj
+372|Maryam
+373|An-Nahl
+374|Nabi yang diutus kepada kaum 'Ad?
+375|Syu'aib
+376|Nabi yang mukjizatnya unta betina, diutus kepada Tsamud?
+377|Nabi yang diutus kepada penduduk Madyan?
+378|Malaikat yang bertugas menyampaikan wahyu?
+379|Jibril
+380|Mikail
+381|Israfil
+382|Malik
+383|Penjaga neraka?
+384|Ridwan
+385|Surah yang menyebut basmalah dua kali?
+386|An-Naml
+387|At-Taubah
+388|Siapa yang pertama mengumpulkan Al-Qur'an dalam satu mushaf setelah perang Yamamah?
+389|Abu Bakar Ash-Shiddiq
+390|Umar bin Khattab
+391|Ali bin Abi Thalib
+392|Muawiyah bin Abi Sufyan
+393|Siapa yang menyalin mushaf dalam satu bacaan dan mengirimnya ke berbagai wilayah?
+394|Utsman bin Affan
+395|Berapa juz dalam Al-Qur'an?
+396|Tiga puluh
+397|Enam puluh
+398|Dua puluh
+399|Empat puluh
+400|Surah yang diawali «Mahasuci Allah yang menguasai segala kerajaan»?
+401|Al-Mulk
+402|Al-Furqan
+403|Al-Waqi'ah
+404|Yasin
+405|Nabi yang namanya paling sering disebut dalam Al-Qur'an?
+406|Siapa yang membangun Masjid Umayyah di Damaskus?
+407|Al-Walid bin Abdul Malik
+408|Umar bin Abdul Aziz
+409|Hisyam bin Abdul Malik
+410|Khalifah pertama Dinasti Umayyah?
+411|Yazid bin Muawiyah
+412|Marwan bin Al-Hakam
+413|Abdul Malik bin Marwan
+414|Ibu kota Dinasti Umayyah?
+415|Damaskus
+416|Bagdad
+417|Kairo
+418|Kufah
+419|Kota yang dibangun Abu Ja'far Al-Manshur sebagai ibu kota Abbasiyah?
+420|Samarra
+421|Basrah
+422|Khalifah yang dijuluki khalifah rasyidin kelima?
+423|Harun Ar-Rasyid
+424|Al-Ma'mun
+425|Pemimpin yang membebaskan Al-Quds dari tentara Salib?
+426|Shalahuddin Al-Ayyubi
+427|Nuruddin Zanki
+428|Azh-Zhahir Baibars
+429|Saifuddin Qutuz
+430|Pertempuran yang dimenangkan Shalahuddin sebelum membebaskan Al-Quds?
+431|Hittin
+432|Ain Jalut
+433|Yarmuk
+434|Qadisiyah
+435|Di kota mana Shalahuddin Al-Ayyubi dimakamkan?
+436|Al-Quds (Yerusalem)
+437|Aleppo
+438|Pertempuran di Palestina tempat bangsa Mongol dikalahkan?
+439|Manzikert
+440|Zallaqah
+441|Pertempuran penentu dalam pembebasan Syam?
+442|Nahawand
+443|Mu'tah
+444|Pertempuran penentu melawan Persia di Irak?
+445|Ajnadain
+446|Dzatus Salasil
+447|Panglima yang membebaskan Mesir?
+448|Amr bin Ash
+449|Khalid bin Walid
+450|Sa'ad bin Abi Waqqash
+451|Abu Ubaidah bin Al-Jarrah
+452|Panglima yang menyeberangi laut dan membebaskan Andalusia?
+453|Thariq bin Ziyad
+454|Musa bin Nushair
+455|Uqbah bin Nafi'
+456|Abdurrahman Ad-Dakhil
+457|«Riyadhus Shalihin» ditulis oleh Imam…?
+458|Yahya bin Syaraf An-Nawawi
+459|Ibnu Katsir
+460|Ibnul Qayyim
+461|Ibnu Rajab Al-Hanbali
+462|Bab pertama dalam «Riyadhus Shalihin»?
+463|Bab ikhlas dan menghadirkan niat
+464|Bab tobat
+465|Bab sabar
+466|Bab jujur
+467|Bab setelah bab ikhlas dalam «Riyadhus Shalihin»?
+468|Bab muraqabah
+469|Bab yakin
+470|Hadis pertama dalam «Riyadhus Shalihin»?
+471|Amal tergantung niatnya
+472|Agama adalah nasihat
+473|Islam dibangun di atas lima
+474|Jangan marah
+475|Kira-kira berapa jumlah hadis dalam «Riyadhus Shalihin»?
+476|Sekitar 1.900 hadis
+477|Sekitar 500 hadis
+478|Sekitar 4.000 hadis
+479|Sekitar 7.000 hadis
+480|Imam An-Nawawi dinisbatkan ke kota Nawa di…?
+481|Hauran, Suriah
+482|Hijaz
+483|Di mana Imam An-Nawawi dimakamkan?
+484|Nawa
+485|Makkah
+486|Berapa golongan yang dinaungi Allah pada hari tiada naungan selain naungan-Nya?
+487|Tiga
+488|Sepuluh
+489|Tiga orang yang terkurung batu di dalam gua selamat dengan…?
+490|Berdoa kepada Allah dengan amal saleh mereka
+491|Berteriak hingga orang mendengar
+492|Menggali jalan di gunung
+493|Menunggu hujan
+494|Lelaki yang bertobat dalam hadis «Riyadhus Shalihin» telah membunuh…?
+495|Seratus jiwa
+496|Sembilan jiwa
+497|Dua puluh jiwa
+498|Seribu jiwa
+499|«Seorang lelaki berjalan di jalan dan sangat kehausan…» Allah mengampuninya karena ia memberi minum…?
+500|seekor anjing
+501|seekor kucing
+502|seekor unta
+503|seekor burung
+504|Kisah «pemuda, penyihir, rahib, dan raja» adalah kisah…?
+505|Ashabul Ukhdud
+506|Ashabul Kahfi
+507|Ashabul Fil
+508|Ashabur Rass
+509|«Dua kalimat ringan di lisan, berat di timbangan…» Apakah itu?
+510|Subhanallahi wa bihamdihi, subhanallahil 'azhim
+511|Alhamdulillah dan Allahu akbar
+512|La ilaha illallah dan Allahu akbar
+513|Astaghfirullah wa atubu ilaih
+514|«Orang cerdas adalah yang menghisab dirinya dan beramal untuk apa yang setelah …»
+515|kematian
+516|salat
+517|rezeki
+518|esok
+519|«Sungguh menakjubkan urusan orang mukmin, seluruh urusannya adalah …»
+520|kebaikan
+521|sabar
+522|syukur
+523|ujian
+524|«Siapa yang salat dua waktu dingin masuk surga» — dua waktu itu adalah…?
+525|Subuh dan Asar
+526|Zuhur dan Asar
+527|Magrib dan Isya
+528|Subuh dan Isya
+529|«Kalau tidak memberatkan umatku, tentu aku perintahkan mereka …» setiap salat?
+530|bersiwak
+531|berwudu
+532|salat malam
+533|bersedekah
+534|«Siwak membersihkan mulut dan diridai …»
+535|Rabb
+536|malaikat
+537|diri sendiri
+538|manusia
+539|«Siapa berpuasa Ramadan lalu mengiringinya dengan … hari Syawal, seperti puasa setahun penuh»
+540|enam
+541|tiga
+542|sepuluh
+543|tujuh
+544|Nabi ﷺ memerintahkan mencari Lailatul Qadar pada…?
+545|Malam ganjil sepuluh hari terakhir Ramadan
+546|Malam pertama Ramadan
+547|Malam pertengahan Ramadan
+548|Malam genap sepuluh hari pertama
+549|«Jika salah seorang dari kalian masuk masjid, jangan duduk sebelum salat …»
+550|dua rakaat
+551|satu rakaat
+552|empat rakaat
+553|tiga rakaat
+554|«Salat lima waktu, Jumat ke Jumat, dan Ramadan ke Ramadan menghapus dosa di antaranya selama dijauhi …»
+555|dosa besar
+556|dosa kecil
+557|kekejian yang tampak
+558|semua maksiat
+559|«Siapa salat malam Ramadan karena iman dan mengharap pahala, diampuni …»
+560|dosa-dosanya yang lalu
+561|dosa setahun
+562|dosa-dosa kecilnya
+563|dosa harinya
+564|«Sedekah tidak akan mengurangi …»
+565|harta
+566|pahala
+567|umur
+568|rezeki
+569|Seseorang salam karena lupa sebelum salatnya sempurna, lalu segera ingat. Apa yang dilakukan?
+570|Menyempurnakan salat lalu sujud sahwi
+571|Mengulang seluruh salat
+572|Tidak ada kewajiban apa pun
+573|Hanya sujud sahwi
+574|Kafarat sumpah: memberi makan sepuluh orang miskin, memberi pakaian, atau …?
+575|memerdekakan budak
+576|puasa dua bulan
+577|menyembelih kambing
+578|zakat fitrah
+579|Yang tidak mampu membayar kafarat sumpah berpuasa…?
+580|Tiga hari
+581|Dua bulan berturut-turut
+582|Sepuluh hari
+583|Satu hari
+584|Nisab zakat perak dalam dirham?
+585|200 dirham
+586|100 dirham
+587|20 dirham
+588|40 dirham
+589|Hari-hari tasyrik adalah…?
+590|11, 12, dan 13 Zulhijah
+591|8, 9, dan 10 Zulhijah
+592|1, 2, dan 3 Syawal
+593|10, 11, dan 12 Muharram
+594|Jumlah minimal sahnya salat Jumat menurut Syafi'iyah dan Hanabilah?
+595|Dua belas
+596|Hukum membaca Al-Fatihah dalam salat menurut jumhur?
+597|Rukun
+598|Sunah
+599|Dianjurkan
+600|Makruh
+601|Air yang suci dan menyucikan?
+602|Air thahur (mutlak)
+603|Air suci
+604|Air musta'mal
+605|Air najis
+606|Berapa rakaat musafir salat Zuhur dengan qashar?
+607|Dua
+608|Satu
+609|Tidak diqashar
+610|Salat mana yang tidak diqashar dalam perjalanan?
+611|Zuhur
+612|Isya
+613|Meninggalkan salah satu wajib haji diganti dengan…?
+614|Mengulang haji
+615|Puasa sehari
+616|Sedekah satu dirham
+617|Miqat penduduk Syam untuk ihram?
+618|Al-Juhfah
+619|Dzulhulaifah
+620|Qarnul Manazil
+621|Yalamlam
+622|Miqat penduduk Madinah untuk ihram?
+623|Dzatu 'Irq
+624|Hukum salat gerhana menurut jumhur?
+625|Sunah muakkadah
+626|Fardu ain
+627|Fardu kifayah
+628|Puasa Arafah bagi yang tidak berhaji menghapus dosa…?
+629|Dua tahun
+630|Satu tahun
+631|Sebulan
+632|Tiga tahun
+633|Puasa Asyura menghapus dosa…?
+634|Setahun yang lalu
+635|Apa yang membatalkan tayamum jika belum salat?
+636|Adanya air
+637|Terbitnya matahari
+638|Berjalan
+639|Berbicara
+640|Salat tanpa rukuk dan sujud?
+641|Salat jenazah
+642|Salat gerhana
+643|Salat istisqa
+644|Salat Duha
+645|Berapa takbir dalam salat jenazah?
+646|Zakat tanaman yang diairi hujan?
+647|Sepersepuluh
+648|Seperdua puluh
+649|Seperempat puluh
+650|Seperlima
+651|Jumlah minimal sahnya salat berjamaah?
+652|Dua
+653|Sujud untuk menambal kekurangan atau kelebihan dalam salat?
+654|Sujud sahwi
+655|Sujud tilawah
+656|Sujud syukur
+657|Sujud doa
+658|Lama mengusap khuf bagi musafir?
+659|Tiga hari tiga malam
+660|Sehari semalam
+661|Seminggu
+662|Dua hari
+663|Berapa rakaat salat Id?
+664|Hukum salat Jumat bagi laki-laki mukim?
+665|Nisab zakat unta?
+666|Sepuluh
+667|Nisab zakat kambing?
+668|Apa nama tawaf pertama saat tiba di Makkah untuk haji?
+669|Tawaf qudum
+670|Tawaf ifadah
+671|Tawaf wada'
+672|Tawaf ziarah
+673|Berapa rakaat salat Magrib?
+674|Dua
+675|Hukum salat witir menurut jumhur ulama?
+676|Mubah
+677|Nisab zakat emas kira-kira?
+678|85 gram
+679|20 gram
+680|595 gram
+681|100 gram
+682|Kadar zakat harta?
+683|Apa yang dilakukan orang yang tidak mendapat air untuk bersuci?
+684|Bertayamum
+685|Mengusap khuf
+686|Menunda salat
+687|Meninggalkan salat
+688|Lama mengusap khuf bagi orang mukim?
+689|Satu salat
+690|Zakat fitrah dikeluarkan sebelum…?
+691|Salat Id
+692|Salat tarawih
+693|Lailatul Qadar
+694|Awal Ramadan
+695|Berapa rakaat salat Subuh?
+696|Apa yang disunahkan diucapkan sebelum makan?
+697|Bismillah
+698|Alhamdulillah
+699|Subhanallah
+700|Astaghfirullah
+701|Zakat yang dikeluarkan di akhir Ramadan?
+702|Zakat fitrah
+703|Zakat mal
+704|Zakat emas
+705|Zakat pertanian
+706|Manakah yang termasuk rukun haji?
+707|Wukuf di Arafah
+708|Mabit di Mina
+709|Melempar jumrah
+710|Dengan apa seseorang memulai salatnya?
+711|Allahu akbar
+712|La ilaha illallah
+713|Sahabat dengan kisah tobat panjang setelah tertinggal dari perang Tabuk?
+714|Ka'ab bin Malik
+715|Hathib bin Abi Balta'ah
+716|Tsa'labah bin Hathib
+717|Malik bin Ad-Dukhsyum
+718|Berapa malam orang-orang mendiamkan tiga sahabat yang tertinggal dari Tabuk?
+719|Lima puluh malam
+720|Sepuluh malam
+721|Tiga puluh malam
+722|Seratus malam
+723|Kepada siapa Nabi ﷺ berkata «Demi Allah, aku mencintaimu» lalu mengajarkan doa setiap selesai salat?
+724|Mu'adz bin Jabal
+725|Abu Hurairah
+726|Anas bin Malik
+727|Bilal bin Rabah
+728|Sahabat yang diberi pesan Nabi ﷺ «Wahai anak muda, aku ajarkan beberapa kalimat: jagalah Allah, niscaya Dia menjagamu»?
+729|Abdullah bin Abbas
+730|Usamah bin Zaid
+731|Abdullah bin Umar
+732|Ahli ibadah yang didoakan buruk oleh ibunya, diuji, lalu dibebaskan Allah lewat ucapan seorang bayi?
+733|Juraij
+734|Barshisha
+735|Bal'am
+736|Yusya'
+737|Dalam hadis para penghuni gua, berapa jumlah mereka?
+738|Dalam hadis pembunuh seratus jiwa, ke mana orang alim menyuruhnya pergi untuk bertobat?
+739|Ke negeri yang penduduknya saleh
+740|Ke Makkah
+741|Ke gunung yang jauh
+742|Ke laut
+743|Pemuda dalam kisah Ashabul Ukhdud terbunuh ketika raja mengucapkan saat memanahnya…?
+744|Bismillah, Rabb pemuda ini
+745|Atas nama raja
+746|Perang yang dinamai perang 'Usrah (kesulitan)?
+747|Perang Tabuk
+748|Perang Khandaq
+749|Perang Hunain
+750|Perang Thaif
+751|Sahabat yang dijuluki kesayangan Rasulullah dan anak dari kesayangannya?
+752|Zaid bin Haritsah
+753|Orang pertama yang membaca Al-Qur'an dengan keras di Makkah?
+754|Abdullah bin Mas'ud
+755|Hamzah bin Abdul Muthalib
+756|Pada tahun hijriah berapa Nabi ﷺ wafat?
+757|Kesebelas
+758|Kesepuluh
+759|Kedua belas
+760|Kesembilan
+761|Baiat di bawah pohon di Hudaibiyah?
+762|Baiat Ridwan
+763|Baiat Aqabah pertama
+764|Baiat Aqabah kedua
+765|Baiat Saqifah
+766|Sahabat yang melihat azan dalam mimpi?
+767|Abdullah bin Zaid
+768|Abu Mahdzurah
+769|Syahidah pertama dalam Islam?
+770|Sumayyah binti Khayyath
+771|Khadijah binti Khuwailid
+772|Ummu 'Imarah
+773|Asma' binti Abi Bakar
+774|Penulis perjanjian Hudaibiyah?
+775|Zaid bin Tsabit
+776|Pada tahun hijriah berapa perang Badar?
+777|Kedua
+778|Pertama
+779|Ketiga
+780|Kelima
+781|Pada tahun hijriah berapa perang Khandaq?
+782|Keempat
+783|Keenam
+784|Pembawa panji kaum muslimin di Uhud yang gugur syahid?
+785|Mush'ab bin Umair
+786|Sa'ad bin Mu'adz
+787|Ja'far bin Abi Thalib
+788|Panglima pertama kaum muslimin dalam perang Mu'tah?
+789|Abdullah bin Rawahah
+790|Sahabat yang wafatnya membuat Arsy Ar-Rahman berguncang?
+791|Penunjuk jalan Nabi ﷺ dalam perjalanan hijrah?
+792|Abdullah bin Uraiqith
+793|Amir bin Fuhairah
+794|Abdullah bin Abi Bakar
+795|Suraqah bin Malik
+796|Siapa yang mengejar Nabi ﷺ saat hijrah hingga kaki kudanya terbenam ke tanah?
+797|Abu Jahal
+798|Umayyah bin Khalaf
+799|Kira-kira berapa jumlah kaum muslimin di perang Badar?
+800|Tiga ratus belasan
+801|Seribu
+802|Tujuh ratus
+803|Seratus
+804|Siapa yang mengusulkan kepada Nabi ﷺ menggali parit?
+805|Salman Al-Farisi
+806|Perjanjian dengan Quraisy pada tahun keenam hijriah?
+807|Perjanjian Hudaibiyah
+808|Baiat Aqabah
+809|Hilful Fudhul
+810|Perjanjian Ramlah
+811|Duta pertama dalam Islam yang diutus ke Madinah?
+812|Paman Nabi ﷺ yang dijuluki pemimpin para syuhada?
+813|Al-Abbas bin Abdul Muthalib
+814|Abu Thalib
+815|Az-Zubair bin Abdul Muthalib
+816|Pada tahun hijriah berapa Fathu Makkah?
+817|Kedelapan
+818|Di mana Nabi ﷺ dimakamkan?
+819|Kamar Aisyah
+820|Baqi'
+821|Gunung Uhud
+822|Bayi pertama kaum Muhajirin yang lahir di Madinah?
+823|Abdullah bin Az-Zubair
+824|Al-Hasan bin Ali
+825|Ke mana hijrah pertama kaum muslimin?
+826|Habasyah
+827|Madinah
+828|Thaif
+829|Raja Habasyah yang melindungi kaum muslimin?
+830|An-Najasyi
+831|Heraklius
+832|Kisra
+833|Al-Muqauqis
+834|Peperangan terakhir yang diikuti Nabi ﷺ?
+835|Fathu Makkah
+836|Perang Mu'tah
+837|Berapa usia Nabi ﷺ ketika diutus menjadi nabi?
+838|Empat puluh tahun
+839|Tiga puluh tahun
+840|Dua puluh lima tahun
+841|Lima puluh tahun
+842|Tahun wafatnya Abu Thalib dan Khadijah?
+843|Tahun duka cita
+844|Tahun gajah
+845|Tahun delegasi
+846|Tahun abu (Ramadah)
+847|Gua tempat turunnya wahyu pertama?
+848|Gua Hira
+849|Gua Tsur
+850|Gua tempat Nabi ﷺ bersembunyi saat hijrah?
+851|Syi'ib Abi Thalib
+852|Perang besar pertama, di bulan Ramadan?
+853|Perang Badar
+854|Perang Uhud
+855|Ibu susu Nabi ﷺ dari Bani Sa'ad?
+856|Halimah As-Sa'diyah
+857|Ummu Aiman
+858|Aminah binti Wahab
+859|Fathimah binti Asad
+860|Pada tahun apa Nabi ﷺ lahir?
+861|Istri pertama Nabi ﷺ?
+862|Aisyah binti Abi Bakar
+863|Hafshah binti Umar
+864|Saudah binti Zam'ah
+865|Berapa tahun Nabi ﷺ berdakwah di Makkah sebelum hijrah?
+866|13 tahun
+867|10 tahun
+868|23 tahun
+869|8 tahun
+870|Siapa nama ibu Nabi ﷺ?
+871|Kakek yang mengasuh Nabi ﷺ setelah ibunya wafat?
+872|Abdul Muthalib
+873|Hasyim
+874|Abdu Manaf
+875|Ke kota mana Nabi ﷺ berhijrah?
+876|Madinah Al-Munawwarah
+877|Perang ketika pasukan pemanah melanggar perintah Nabi ﷺ?
+878|Anak kecil pertama yang masuk Islam?
+879|Az-Zubair bin Al-Awwam
+880|«Kejujuran menuntun kepada …»
+881|kebaikan
+882|surga secara langsung
+883|ilmu
+884|«Tinggalkan yang meragukanmu menuju …»
+885|yang tidak meragukanmu
+886|yang kamu sukai
+887|yang bermanfaat bagimu
+888|yang dikenal orang
+889|«Bertakwalah kepada Allah di mana pun kamu berada, iringilah keburukan dengan kebaikan niscaya menghapusnya, dan pergauli manusia dengan …»
+890|akhlak yang baik
+891|keadilan
+892|kesabaran
+893|kejujuran
+894|«Sesungguhnya Allah Maha Lembut dan mencintai …»
+895|kelembutan
+896|kesabaran
+897|keadilan
+898|kedermawanan
+899|«Amal yang paling dicintai Allah adalah yang paling rutin meskipun …»
+900|sedikit
+901|sulit
+902|terlambat
+903|tersembunyi
+904|«Lihatlah orang yang lebih … darimu, dan jangan melihat orang yang di atasmu»
+905|di bawah
+906|miskin
+907|lemah
+908|muda
+909|«Siapa menunjukkan kebaikan, ia mendapat pahala seperti pahala …»
+910|pelakunya
+911|gurunya
+912|orang tuanya
+913|sahabatnya
+914|«Mukmin yang paling sempurna imannya adalah yang paling baik …»
+915|akhlaknya
+916|salatnya
+917|ilmunya
+918|sedekahnya
+919|«Tidak masuk surga …» yaitu pemutus silaturahmi
+920|pemutus
+921|pendengki
+922|pengadu domba
+923|orang kikir
+924|«Dunia adalah penjara bagi mukmin dan …»
+925|surga bagi orang kafir
+926|tempat beramal
+927|kesenangan yang menipu
+928|jalan menuju akhirat
+929|«Allah tidak melihat rupa dan harta kalian, tetapi melihat …»
+930|hati dan amal kalian
+931|niat dan ucapan kalian
+932|salat dan puasa kalian
+933|akhlak dan ilmu kalian
+934|Penulis «Sunan», salah satu kitab yang enam, dari Sijistan?
+935|Abu Dawud
+936|At-Tirmidzi
+937|An-Nasa'i
+938|Ibnu Majah
+939|Hadis yang disandarkan tabiin langsung kepada Nabi ﷺ tanpa menyebut sahabat disebut…?
+940|Mursal
+941|Muttashil
+942|Mauquf
+943|Maqthu'
+944|Hadis «Dua kalimat ringan di lisan…» adalah hadis terakhir dalam…?
+945|Shahih Al-Bukhari
+946|Shahih Muslim
+947|Al-Muwaththa' Malik
+948|«Jagalah Allah …»
+949|niscaya Dia menjagamu
+950|niscaya Dia meridaimu
+951|niscaya Dia memberimu rezeki
+952|niscaya Dia memberimu petunjuk
+953|Perawi hadis «Islam dibangun di atas lima»?
+954|«Siapa menempuh jalan untuk mencari ilmu, Allah mudahkan baginya jalan menuju …»
+955|surga
+956|kebaikan
+957|petunjuk
+958|kebenaran
+959|«Mukmin bagi mukmin lainnya seperti bangunan, saling menguatkan …»
+960|satu sama lain
+961|saudaranya
+962|hatinya
+963|tangannya
+964|«Seorang mukmin tidak tersengat dari lubang yang sama …»
+965|dua kali
+966|selamanya
+967|Penulis kitab «Al-Muwaththa'»?
+968|Malik bin Anas
+969|Ahmad bin Hanbal
+970|Asy-Syafi'i
+971|Al-Bukhari
+972|Penulis «Al-Musnad» yang terkenal?
+973|Abu Hanifah
+974|Apa yang diriwayatkan Nabi ﷺ dari Rabbnya disebut…?
+975|Hadis qudsi
+976|Hadis marfu'
+977|Hadis mauquf
+978|Hadis mursal
+979|Ucapan yang disandarkan kepada sahabat sendiri disebut…?
+980|Marfu'
+981|Qudsi
+982|«Lindungilah diri dari neraka meski dengan separuh …»
+983|kurma
+984|roti
+985|dirham
+986|kata
+987|«Tolonglah saudaramu yang zalim maupun yang …»
+988|dizalimi
+989|lalai
+990|tidak hadir
+991|jahil
+992|Perawi hadis «Amal tergantung niatnya»?
+993|Ibnu Abbas
+994|Sahabat yang paling banyak meriwayatkan hadis?
+995|Aisyah
+996|«Bersuci adalah separuh …»
+997|iman
+998|agama
+999|ibadah
+1000|«Orang kuat adalah yang mampu menguasai dirinya ketika …»
+1001|marah
+1002|lapar
+1003|takut
+1004|gembira
+1005|«Iringilah keburukan dengan kebaikan …»
+1006|niscaya menghapusnya
+1007|niscaya mengalahkannya
+1008|niscaya mendahuluinya
+1009|niscaya menutupinya
+1010|Penulis kitab «Riyadhus Shalihin»?
+1011|Imam An-Nawawi
+1012|Ibnu Hajar Al-'Asqalani
+1013|Ibnu Taimiyah
+1014|Abu Hamid Al-Ghazali
+1015|«Tidak boleh membahayakan dan tidak boleh …»
+1016|membalas bahaya
+1017|zalim
+1018|melampaui batas
+1019|merugikan
+1020|Penulis «Shahih Muslim»?
+1021|Muslim bin Al-Hajjaj
+1022|Muslim bin Aqil
+1023|Berapa hadis dalam «Arbain Nawawi»?
+1024|Empat puluh dua
+1025|Lima puluh
+1026|«Di antara baiknya Islam seseorang adalah meninggalkan apa yang tidak …»
+1027|bermanfaat baginya
+1028|disukainya
+1029|diketahuinya
+1030|dimilikinya
+1031|«Kebajikan adalah baiknya …»
+1032|akhlak
+1033|amal
+1034|bertetangga
+1035|Nabi ﷺ bersabda «Jangan marah» kepada lelaki yang meminta …
+1036|wasiat
+1037|harta
+1038|doa
+1039|jabatan
+1040|«Sesungguhnya amal itu tergantung …»
+1041|niatnya
+1042|perbuatannya
+1043|ucapannya
+1044|hartanya
+1045|«Agama adalah …»
+1046|nasihat
+1047|rasa malu
+1048|«Tidak beriman salah seorang dari kalian hingga mencintai untuk saudaranya apa yang ia cintai untuk …»
+1049|dirinya sendiri
+1050|anaknya
+1051|ayahnya
+1052|tetangganya
+1053|«Siapa beriman kepada Allah dan hari akhir, hendaklah berkata baik atau …»
+1054|diam
+1055|pergi
+1056|beristigfar
+1057|tersenyum
+1058|«Kata-kata yang baik adalah …»
+1059|sedekah
+1060|cahaya
+1061|obat
+1062|kebaikan
+1063|«Muslim adalah orang yang kaum muslimin selamat dari lisan dan …»
+1064|hartanya
+1065|Kitab paling sahih setelah Al-Qur'an menurut Ahlus Sunnah?
+1066|Sunan Abi Dawud
+1067|Musnad Ahmad
+1068|«Sebaik-baik kalian adalah yang belajar Al-Qur'an dan …»
+1069|mengajarkannya
+1070|menghafalnya
+1071|membacanya
+1072|memahaminya
+1073|«Sesungguhnya Allah Maha Indah dan mencintai …»
+1074|keindahan
+1075|kejujuran
+1076|memberi
+1077|«Rasa malu adalah bagian dari …»
+1078|adab
+1079|«Sayangilah yang di bumi, niscaya kalian disayangi oleh yang di …»
+1080|langit
+1081|dunia
+1082|akhirat
+1083|«Permudahlah dan jangan …»
+1084|mempersulit
+1085|bersikap keras
+1086|marah
+1087|menunda
