@@ -25,6 +25,7 @@
   // خط اللافتات المرسومة في المشهد ثلاثي الأبعاد
   window.__canvasFont = { hi: "'Noto Sans Devanagari','Reem Kufi',sans-serif", ur: "'Noto Naskh Arabic',Tahoma,sans-serif" }[L] || "'Reem Kufi','IBM Plex Sans Arabic',Tahoma,sans-serif";
   window.__langName = function () { return META[1]; };
+  window.__page = function (name) { return "https://engebra87.github.io/darb/" + name + (L === "ar" ? "" : "." + L) + ".html"; };
   var root = document.documentElement;
   root.lang = L; root.dir = META[2]; root.classList.add("lang-" + L);
 
