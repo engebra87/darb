@@ -1086,3 +1086,6 @@
 1085|soyez pas durs
 1086|vous emportez pas
 1087|tardez pas
+1088|Données du jeu supprimées
+1089|Ton compte lui-même n'a pas été supprimé, car tu l'utilises dans une autre de nos applications.
+1090|Si tu utilises le même compte dans une autre de nos applications, toutes les données du jeu sont supprimées et le compte reste pour cette application.

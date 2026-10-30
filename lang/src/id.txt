@@ -1086,3 +1086,6 @@
 1085|bersikap keras
 1086|marah
 1087|menunda
+1088|Data permainan telah dihapus
+1089|Akunmu sendiri tidak dihapus karena kamu memakainya di aplikasi kami yang lain.
+1090|Jika kamu memakai akun yang sama di aplikasi kami yang lain, semua data permainan dihapus dan akunnya tetap ada untuk aplikasi itu.

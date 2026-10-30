@@ -687,10 +687,10 @@
     el("delYes").onclick = async () => {
       const b = el("delYes"); b.disabled = true; b.textContent = "جارٍ الحذف…";
       try {
-        await rpc("darb_delete_account");
+        const how = await rpc("darb_delete_account");
         try { await sb().auth.signOut(); } catch (_) {}
         try { ["bawwabat-sham", "ard-seen"].forEach(k => localStorage.removeItem(k)); sessionStorage.removeItem("darb-guest"); } catch (_) {}
-        box.firstElementChild.innerHTML = `<h2 style="margin:0;font-family:var(--f-display,serif);color:#3fbf86;font-size:24px">تمّ حذف حسابك</h2><p style="margin:0;color:#c8b8a2">نسأل الله أن ينفعك بما تعلّمت.</p>`;
+        box.firstElementChild.innerHTML = `<h2 style="margin:0;font-family:var(--f-display,serif);color:#3fbf86;font-size:24px">${how === "game_only" ? "تمّ حذف بيانات اللعبة" : "تمّ حذف حسابك"}</h2>${how === "game_only" ? `<p style="margin:0;color:#c8b8a2">حسابك نفسه لم يُحذف لأنك تستخدمه في تطبيق آخر من تطبيقاتنا.</p>` : ""}<p style="margin:0;color:#c8b8a2">نسأل الله أن ينفعك بما تعلّمت.</p>`;
         setTimeout(() => location.reload(), 1800);
       } catch (e) { b.disabled = false; b.textContent = "احذف حسابي نهائيًا"; el("delMsg").textContent = "تعذّر الحذف الآن. تحقق من الإنترنت وحاول مرة أخرى."; }
     };

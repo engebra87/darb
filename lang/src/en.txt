@@ -1086,3 +1086,6 @@
 1085|be harsh
 1086|get angry
 1087|delay
+1088|Game data deleted
+1089|Your account itself was not deleted because you use it in another of our apps.
+1090|If you use the same account in another of our apps, all game data is deleted and the account stays for that app.

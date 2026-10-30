@@ -1,5 +1,5 @@
 // «درب المعلومات الإسلامية» service worker: the game shell works offline; questions and accounts always go to the network.
-const CACHE = "darb-v9";
+const CACHE = "darb-v10";
 const SHELL = ["./", "./index.html", "./i18n.js", "./ard.js", "./manifest.json", "./icons/icon-192.png", "./icons/icon-512.png", "./page.css", "./privacy.html", "./about.html", "./delete-account.html"];
 const LIBS = ["cdnjs.cloudflare.com", "cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });

@@ -1086,3 +1086,6 @@
 1085|seáis duros
 1086|os enfadéis
 1087|os retraséis
+1088|Datos del juego eliminados
+1089|Tu cuenta no se eliminó porque la usas en otra de nuestras apps.
+1090|Si usas la misma cuenta en otra de nuestras apps, se eliminan todos los datos del juego y la cuenta se mantiene para esa app.

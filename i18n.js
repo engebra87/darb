@@ -9,7 +9,7 @@
     ["id", "Bahasa Indonesia", "ltr"], ["hi", "हिन्दी", "ltr"], ["ur", "اردو", "rtl"]
   ];
   var CODES = LANGS.map(function (x) { return x[0]; });
-  var V = "3";
+  var V = "4";
 
   function pick() {
     try { var s = localStorage.getItem("darb-lang"); if (CODES.indexOf(s) >= 0) return s; } catch (e) {}
