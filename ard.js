@@ -32,15 +32,15 @@
     const ghost = 'fill="none" stroke="rgba(240,180,76,.28)" stroke-width="1" stroke-dasharray="3 3"';
     const id = "h" + Math.random().toString(36).slice(2, 8);
     let s = `<svg viewBox="0 0 140 112" class="hs ${o.cls || ""}" role="img" aria-label="بيت: ${AR(p)} من ${AR(N)} أجزاء">
-      <defs><pattern id="${id}" width="140" height="8" patternUnits="userSpaceOnUse"><rect width="140" height="4" fill="#e6d8bc"/><rect y="4" width="140" height="4" fill="#3a3a40"/></pattern>
+      <defs><pattern id="${id}" width="16" height="8" patternUnits="userSpaceOnUse"><rect width="16" height="8" fill="#cfc5b1"/><rect x=".5" y=".5" width="15" height="3.2" fill="#f4efe4"/><rect x="-7.5" y="4.3" width="15" height="3.2" fill="#efe8da"/><rect x="8.5" y="4.3" width="15" height="3.2" fill="#efe8da"/></pattern>
       <radialGradient id="${id}g"><stop offset="0" stop-color="#ffd27a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient></defs>
       <ellipse cx="70" cy="104" rx="66" ry="6" fill="rgba(0,0,0,.25)"/>`;
     // المخطّط الكامل باهتًا: البيت الذي سيُبنى
     s += `<g ${ghost}><rect x="28" y="40" width="84" height="56"/><path d="M58 40 Q70 20 82 40"/><rect x="24" y="96" width="92" height="6"/></g>`;
     if (has(1)) s += `<rect x="22" y="95" width="96" height="8" rx="1.5" fill="#8a7a66"/><path d="M22 99h96" stroke="#6d5f4f" stroke-width=".8"/>`;
     if (has(2)) s += `<g>${[0,1,2,3,4,5,6,7,8,9,10,11].map(i => `<rect x="${22 + i * 8}" y="95" width="8" height="3" fill="${i % 2 ? "#3a3a40" : "#e6d8bc"}"/>`).join("")}</g>`;
-    if (has(3) && !has(4)) s += `<rect x="28" y="56" width="18" height="40" fill="url(#${id})"/><rect x="28" y="56" width="18" height="40" fill="none" stroke="#1d1d22" stroke-width=".6"/>`;
-    if (has(4)) s += `<rect x="28" y="40" width="84" height="56" fill="url(#${id})"/><rect x="28" y="40" width="84" height="56" fill="none" stroke="#1d1d22" stroke-width=".8"/>`;
+    if (has(3) && !has(4)) s += `<rect x="28" y="56" width="18" height="40" fill="url(#${id})"/><rect x="28" y="56" width="18" height="40" fill="none" stroke="#b9ad96" stroke-width=".6"/>`;
+    if (has(4)) s += `<rect x="28" y="40" width="84" height="56" fill="url(#${id})"/><rect x="28" y="40" width="84" height="56" fill="none" stroke="#b9ad96" stroke-width=".8"/>`;
     if (has(5)) s += [38, 92].map(x => `<path d="M${x} 72 v-12 a5 5 0 0 1 10 0 v12z" fill="#1d4e8a" stroke="#c9a46a" stroke-width="1.4"/><path d="M${x + 5} 55v17M${x} 64h10" stroke="#c9a46a" stroke-width=".8"/>`).join("");
     if (has(6)) s += `<path d="M61 96 v-20 a9 9 0 0 1 18 0 v20z" fill="#6b3f22" stroke="#c9a46a" stroke-width="1.6"/><path d="M70 67v29" stroke="#3d2412" stroke-width="1"/><circle cx="66" cy="84" r="1.1" fill="#f0b44c"/><circle cx="74" cy="84" r="1.1" fill="#f0b44c"/>`;
     if (has(7)) s += `<rect x="24" y="36" width="92" height="5" fill="#5a4636"/><g fill="#c9a46a">${Array.from({ length: 12 }, (_, i) => `<rect x="${26 + i * 7.6}" y="33" width="4" height="3"/>`).join("")}</g>`;
@@ -108,7 +108,12 @@
   .ardBuilt small,.ardBuilt b{white-space:nowrap}
   .ardBuilt small{display:block;color:#c8b8a2;font-size:12px}
   .ardBuilt b{display:block;color:#f0b44c;font:700 17px "Reem Kufi","IBM Plex Sans Arabic",sans-serif}
-  @media (prefers-reduced-motion:reduce){.ardBuilt,#ard .sheetA .card{transition:none;animation:none}}`;
+  #ard .ardCg{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%) scale(.9);opacity:0;transition:opacity .5s,transform .5s;pointer-events:none;text-align:center;
+    background:rgba(28,20,30,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1.5px solid rgba(240,180,76,.45);border-radius:22px;padding:16px 26px;max-width:calc(100% - 48px)}
+  #ard .ardCg.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  #ard .ardCg b{display:block;font:700 40px var(--f-display,serif);color:#ffd27a;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  #ard .ardCg span{display:block;font:600 19px var(--f-ui,sans-serif);color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);margin-top:4px;text-wrap:balance}
+  @media (prefers-reduced-motion:reduce){#ard .ardCg,.ardBuilt,#ard .sheetA .card{transition:none;animation:none}}`;
   function ensureCss() { if (!el("ardCss")) { const st = document.createElement("style"); st.id = "ardCss"; st.textContent = css; document.head.appendChild(st); } }
 
   // ═══════════ المشهد ثلاثي الأبعاد ═══════════
@@ -126,10 +131,16 @@
   function initShared() {
     if (G.ready) return; const THREE = T();
     const L = (c, o) => new THREE.MeshLambertMaterial(Object.assign({ color: c }, o || {}));
-    const ablaq = (rx, ry) => canvasTex(64, 64, (g, w, h) => { for (let i = 0; i < 4; i++) { g.fillStyle = i % 2 ? "#3a3a40" : "#e9dcc0"; g.fillRect(0, i * 16, w, 16); } speckle(g, w, h, 120, ["rgba(0,0,0,.1)", "rgba(255,255,255,.12)"]); g.strokeStyle = "rgba(0,0,0,.18)"; for (let i = 0; i < 4; i++) { g.beginPath(); g.moveTo(0, i * 16 + .5); g.lineTo(w, i * 16 + .5); g.stroke(); } }, [rx, ry]);
+    // حجارة بيضاء بصفوف متداخلة وفواصل ملاط خفيفة
+    const ablaq = (rx, ry) => canvasTex(128, 128, (g, w, h) => {
+      g.fillStyle = "#cfc5b1"; g.fillRect(0, 0, w, h);
+      const tones = ["#f4efe4", "#efe8da", "#f7f3ea", "#ebe3d3"];
+      for (let r = 0; r < 4; r++) for (let c = -1; c < 3; c++) { const x = c * 64 + (r % 2 ? 32 : 0); g.fillStyle = tones[(r * 3 + c + 4) % 4]; g.fillRect(x + 2, r * 32 + 2, 60, 28); }
+      speckle(g, w, h, 500, ["rgba(0,0,0,.05)", "rgba(255,255,255,.5)", "rgba(120,100,70,.06)"]);
+    }, [rx, ry]);
     G.m = {
-      stone: L(0x8a7a66), wallF: L(0xffffff, { map: ablaq(2, 3) }), wallS: L(0xffffff, { map: ablaq(1.6, 3) }), wallP: L(0xffffff, { map: ablaq(.55, 3) }),
-      lintel: L(0xffffff, { map: ablaq(.55, .9) }),
+      stone: L(0x8a7a66), wallF: L(0xffffff, { map: ablaq(2.6, 3) }), wallS: L(0xffffff, { map: ablaq(2.2, 3) }), wallP: L(0xffffff, { map: ablaq(1, 3) }),
+      lintel: L(0xffffff, { map: ablaq(.7, 1) }),
       floor: L(0xffffff, { map: canvasTex(64, 64, (g, w) => { for (let y = 0; y < 4; y++) for (let x = 0; x < 4; x++) { g.fillStyle = (x + y) % 2 ? "#3a3a40" : "#e9dcc0"; g.fillRect(x * 16, y * 16, 16, 16); } }, [3, 3]) }),
       glass: L(0x1d4e8a, { emissive: 0x0a1c33 }), gold: L(0xc9a46a, { emissive: 0x2a1a04 }), wood: L(0x6b3f22), roof: L(0x5a4636), crenel: L(0xd9c39a),
       dome: L(0x3fbf86, { emissive: 0x0b2a1c }), water: new THREE.MeshPhongMaterial({ color: 0x5bb6e0, shininess: 90, specular: 0xffffff, emissive: 0x0d3a52 }),
@@ -324,7 +335,7 @@
     if (hit) selectLot(hit.object.userData.lot); else closeInfo();
   }
 
-  function flyTo(pos, dist) { V.fly = { from: V.target.clone(), to: pos.clone(), d0: V.dist, d1: dist || 18, y0: V.yaw, y1: pos.lengthSq() ? nearAngle(V.yaw, Math.atan2(-pos.x, -pos.z)) : V.yaw, p0: V.pitch, t: 0 }; V.dirty = true; }
+  function flyTo(pos, dist) { V.fly = { from: V.target.clone(), to: pos.clone(), d0: V.dist, d1: dist || 26, y0: V.yaw, y1: pos.lengthSq() ? nearAngle(V.yaw, Math.atan2(-pos.x, -pos.z)) : V.yaw, p0: V.pitch, t: 0 }; V.dirty = true; }
   const nearAngle = (from, to) => { let d = (to - from) % (2 * Math.PI); if (d > Math.PI) d -= 2 * Math.PI; if (d < -Math.PI) d += 2 * Math.PI; return from + d; };
 
   function frame(now) {
@@ -332,7 +343,7 @@
     const root = el("ard"); if (!root || root.hidden) return;
     const cv = V.renderer.domElement, w = cv.clientWidth, h = cv.clientHeight;
     if (cv.width !== Math.floor(w * V.renderer.getPixelRatio()) || cv.height !== Math.floor(h * V.renderer.getPixelRatio())) { V.renderer.setSize(w, h, false); V.cam.aspect = w / Math.max(1, h); V.cam.updateProjectionMatrix(); V.dirty = true; }
-    if (V.fly) { const f = V.fly; f.t = Math.min(1, f.t + 1 / 50); const e = 1 - Math.pow(1 - f.t, 3); V.target.lerpVectors(f.from, f.to, e); V.dist = f.d0 + (f.d1 - f.d0) * e; V.yaw = f.y0 + (f.y1 - f.y0) * e; V.pitch = f.p0 + (.55 - f.p0) * e; if (f.t >= 1) V.fly = null; V.dirty = true; }
+    if (V.fly) { const f = V.fly; f.t = Math.min(1, f.t + 1 / 50); const e = 1 - Math.pow(1 - f.t, 3); V.target.lerpVectors(f.from, f.to, e); V.dist = f.d0 + (f.d1 - f.d0) * e; V.yaw = f.y0 + (f.y1 - f.y0) * e; V.pitch = f.p0 + (.68 - f.p0) * e; if (f.t >= 1) V.fly = null; V.dirty = true; }
     for (let i = V.anims.length - 1; i >= 0; i--) { const a = V.anims[i]; if (now < a.start) { V.dirty = true; continue; } const t = Math.min(1, (now - a.start) / 650), s = t < 1 ? 1 + 2.4 * Math.pow(t - 1, 3) + 1.4 * Math.pow(t - 1, 2) : 1; a.g.visible = true; a.g.scale.setScalar(Math.max(.001, s)); a.g.position.y = (1 - t) * 3; if (t >= 1) { V.anims.splice(i, 1); a.done && a.done(); } V.dirty = true; }
     if (V.tick) { V.tick(now); V.dirty = true; }
     if (!V.dirty) return; V.dirty = false;
@@ -399,15 +410,15 @@
       const mine = V.lots.find(l => l.data.is_me);
       if (mine) {
         let seen = 0; try { seen = +localStorage.getItem("ard-seen") || 0; } catch (_) {}
-        V.target.copy(mine.pos); V.dist = 19; V.yaw = Math.atan2(-mine.pos.x, -mine.pos.z); V.pitch = .5;
+        V.target.copy(mine.pos); V.dist = 28; V.yaw = Math.atan2(-mine.pos.x, -mine.pos.z); V.pitch = .68;
         if (first && seen < mine.data.parts) { animateNew(mine, seen); try { localStorage.setItem("ard-seen", mine.data.parts); } catch (_) {} }
-      } else { V.target.set(0, 0, 0); V.dist = Math.min(80, 30 + V.lots.length * 1.2); V.yaw = .6; V.pitch = .72; }
+      } else { V.target.set(0, 0, 0); V.dist = Math.min(95, 40 + V.lots.length * 1.4); V.yaw = .6; V.pitch = .85; }
       V.dirty = true;
     }
   }
 
   function selectLot(i) {
-    const l = V.lots[i]; if (!l) return; S.info = l.data; flyTo(l.pos, 16); drawUI();
+    const l = V.lots[i]; if (!l) return; S.info = l.data; flyTo(l.pos, 24); drawUI();
   }
   function closeInfo() { if (S.info) { S.info = null; drawUI(); } }
 
@@ -447,7 +458,7 @@
     el("ardC") && (el("ardC").onclick = () => pickCountry(false));
     el("ardMine") && (el("ardMine").onclick = () => {
       if (S.sel !== m.country) return loadQuarter(m.country);
-      const l = V.lots.find(x => x.data.is_me); if (l) { flyTo(l.pos, 18); S.info = l.data; drawUI(); }
+      const l = V.lots.find(x => x.data.is_me); if (l) { flyTo(l.pos, 26); S.info = l.data; drawUI(); }
     });
   }
 
@@ -571,7 +582,7 @@
     // الكاميرا أمام الواجهة
     const yaw = lot.house.rotation.y;
     V.target.copy(lot.pos).add(new THREE.Vector3(Math.sin(yaw), 0, Math.cos(yaw)).multiplyScalar(.8));
-    V.yaw = yaw + .5; V.pitch = .42; V.dist = 16; V.fly = null;
+    V.yaw = yaw + .5; V.pitch = .62; V.dist = 25; V.fly = null;
     let lastKnock = 0, prev = performance.now();
     V.tick = now => {
       const dt = Math.min(.1, (now - prev) / 1000); prev = now;
@@ -582,7 +593,7 @@
       B.part.scale.y = Math.max(.001, B.done ? 1 : step);
       B.workers.forEach(w => {
         const u = w.userData, ph = t * 9 + (u.phase || 0);
-        if (B.done) { u.aR.rotation.x = u.aL.rotation.x = Math.PI * .95 + Math.sin(t * 8) * .15; w.position.y = .08 + Math.abs(Math.sin(t * 6 + (u.phase || 0))) * .35; if (u.block) u.block.visible = false; return; }
+        if (B.done) { u.aR.rotation.x = u.aL.rotation.x = 0; u.legL.rotation.x = u.legR.rotation.x = 0; w.position.y = .08; if (u.block) u.block.visible = false; return; }
         if (u.walk) {           // يحمل الحجر بين الكومة والبيت
           const k = (Math.sin(t * 1.4) + 1) / 2; w.position.set(3.5 - k * 1.3, .08, -.6 + k * 2.6); w.rotation.y = Math.cos(t * 1.4) > 0 ? -.4 : Math.PI - .4;
           u.legL.rotation.x = Math.sin(t * 10) * .5; u.legR.rotation.x = -u.legL.rotation.x; w.position.y = .08 + Math.abs(Math.sin(t * 10)) * .05;
@@ -594,7 +605,7 @@
       B.puffs.forEach(p => { p.userData.life -= dt; p.material.opacity = Math.min(1, Math.max(0, p.userData.life)) * .8; p.scale.multiplyScalar(1 + dt * 1.2); p.position.y += dt * .6; p.visible = p.userData.life > 0; });
       const pct = Math.round(buildT * 100);
       if (pct !== B.pct) { B.pct = pct; const bar = el("ardBP"); if (bar) bar.style.width = pct + "%"; const st = el("ardBS"); if (st && !B.done) st.textContent = buildT <= 0 ? "العمّال يجهّزون الحجارة…" : "جارٍ البناء… " + AR(pct) + "٪"; }
-      if (!B.done && buildT >= 1) { B.done = true; chime(); sparkle(); drawUI(); }
+      if (!B.done && buildT >= 1) { B.done = true; chime(); sparkle(); drawUI(); congrats(B.parts); }
     };
     drawUI();
   }
@@ -608,11 +619,19 @@
     const THREE = T(); if (!B.lot) return;
     for (let i = 0; i < 14; i++) { const s = new THREE.Sprite(G.glow.clone()); s.userData.shared = 1; s.position.set((Math.random() - .5) * 6, 1 + Math.random() * 5, (Math.random() - .5) * 5); s.scale.setScalar(.25 + Math.random() * .3); s.userData.life = 1 + Math.random() * .8; B.lot.house.add(s); B.puffs.push(s); }
   }
-  function endBuild() { if (S.mode !== "build") return; S.mode = null; V.tick = null; B.lot = null; }
+  function congrats(p) {
+    const root = el("ard"); if (!root) return;
+    const c = document.createElement("div"); c.className = "ardCg"; c.setAttribute("role", "status");
+    c.innerHTML = `<b>مبارك!</b><span>تمّ بناء المرحلة ${AR(p)} من بيتك</span>`;
+    root.appendChild(c);
+    requestAnimationFrame(() => c.classList.add("show"));
+    setTimeout(() => c.classList.remove("show"), 2800); setTimeout(() => c.remove(), 3500);
+  }
+  function endBuild() { document.querySelectorAll("#ard .ardCg").forEach(x => x.remove()); if (S.mode !== "build") return; S.mode = null; V.tick = null; B.lot = null; }
 
   function drawBuildUI(top, bot) {
     const p = B.parts, signed = !!me();
-    top.innerHTML = `<h1 style="text-align:center;white-space:normal;text-wrap:balance">${B.done ? "مبارك! تمّ بناء المرحلة " + AR(p) + " من بيتك" + (p >= N ? " 🎉" : "") : "العمّال يبنون بيتك 🔨"}</h1>`;
+    top.innerHTML = B.done ? "" : `<h1 style="text-align:center">العمّال يبنون بيتك 🔨</h1>`;
     bot.innerHTML = `<div class="card"><div class="r"><b class="n">${PARTS[p - 1]}</b><span class="k">الجزء ${AR(p)} من ${AR(N)}</span></div>
       <div class="bar"><i id="ardBP" style="width:${B.done ? 100 : Math.max(0, B.pct)}%;transition:none"></i></div>
       <p class="k" id="ardBS">${B.done ? (p >= N ? "ما شاء الله! بيتك في أرض طلبة العلم مكتمل." : nextTxt(p)) : "العمّال يجهّزون الحجارة…"}</p>
@@ -645,5 +664,31 @@
   }
   function finish() { if (me() && sb()) rpc("darb_house_finish").then(n => { if (S.my) S.my.parts = n; }).catch(() => {}); }
 
-  window.darbArd = { open, close, built, finish, house };
+  // ——— حذف الحساب (شرط Google Play) ———
+  function deleteAccount() {
+    ensureCss();
+    const box = document.createElement("div"); box.id = "ardDel";
+    box.style.cssText = "position:fixed;inset:0;z-index:20;background:rgba(8,5,10,.75);display:grid;place-items:center;padding:16px;direction:rtl";
+    box.innerHTML = `<div style="width:min(420px,100%);background:#1f1622;border:2px solid #e8604d;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px;font-family:var(--f-ui,sans-serif);color:#f7f0e4">
+      <h2 style="margin:0;font-family:var(--f-display,serif);color:#e8604d;font-size:24px">حذف الحساب</h2>
+      <p style="margin:0;color:#c8b8a2;line-height:1.8">سيُحذف حسابك نهائيًا مع كل بياناته: البريد، والاسم، والنقاط، والتقدّم، وبيتك في أرض طلبة العلم. لا يمكن التراجع عن ذلك.</p>
+      <p id="delMsg" style="margin:0;min-height:1em;color:#e8604d"></p>
+      <button id="delYes" style="background:#e8604d;color:#fff;border:0;border-radius:14px;padding:14px;font:700 17px var(--f-ui,sans-serif)">احذف حسابي نهائيًا</button>
+      <button id="delNo" style="background:none;border:1px solid #5a4636;color:#c8b8a2;border-radius:14px;padding:12px;font:600 15px var(--f-ui,sans-serif)">إلغاء</button></div>`;
+    document.body.appendChild(box);
+    box.addEventListener("keydown", e => e.stopPropagation());
+    el("delNo").onclick = () => box.remove();
+    el("delYes").onclick = async () => {
+      const b = el("delYes"); b.disabled = true; b.textContent = "جارٍ الحذف…";
+      try {
+        await rpc("darb_delete_account");
+        try { await sb().auth.signOut(); } catch (_) {}
+        try { ["bawwabat-sham", "ard-seen"].forEach(k => localStorage.removeItem(k)); sessionStorage.removeItem("darb-guest"); } catch (_) {}
+        box.firstElementChild.innerHTML = `<h2 style="margin:0;font-family:var(--f-display,serif);color:#3fbf86;font-size:24px">تمّ حذف حسابك</h2><p style="margin:0;color:#c8b8a2">نسأل الله أن ينفعك بما تعلّمت.</p>`;
+        setTimeout(() => location.reload(), 1800);
+      } catch (e) { b.disabled = false; b.textContent = "احذف حسابي نهائيًا"; el("delMsg").textContent = "تعذّر الحذف الآن. تحقق من الإنترنت وحاول مرة أخرى."; }
+    };
+  }
+
+  window.darbArd = { open, close, built, finish, house, deleteAccount };
 })();

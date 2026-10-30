@@ -4,6 +4,7 @@
   "description": "لعبة معلومات إسلامية ثلاثية الأبعاد في حارات دمشق القديمة وقلعتها",
   "lang": "ar",
   "dir": "rtl",
+  "id": "/darb/",
   "start_url": "./",
   "scope": "./",
   "display": "fullscreen",
